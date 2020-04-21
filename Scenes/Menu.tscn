@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Titles/IMG_0008.JPG" type="Texture" id=2]
 [ext_resource path="res://Scenes/Options.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Audio/BGM/014-Theme03.ogg" type="AudioStream" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "bg"
@@ -96,6 +97,11 @@ anims/bg = SubResource( 1 )
 visible = false
 margin_top = 124.0
 margin_right = -216.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+bus = "Music"
 [connection signal="pressed" from="VBoxContainer/HelloWorldButton2" to="." method="_on_HelloWorldButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Las" to="." method="_on_World1_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Options" to="." method="_on_Options_pressed"]
