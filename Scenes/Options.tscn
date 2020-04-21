@@ -1,0 +1,141 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Options.gd" type="Script" id=1]
+
+[node name="Control" type="WindowDialog"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Graphics" type="VBoxContainer" parent="Options"]
+margin_right = 510.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="Options/Graphics"]
+margin_top = 280.0
+margin_right = 510.0
+margin_bottom = 320.0
+text = "Fullscreen"
+
+[node name="Audio" type="VBoxContainer" parent="Options"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Audio" type="Label" parent="Options/Audio"]
+margin_top = 200.0
+margin_right = 510.0
+margin_bottom = 214.0
+text = "Audio Settings"
+align = 1
+valign = 1
+
+[node name="Master_label" type="Label" parent="Options/Audio"]
+margin_top = 218.0
+margin_right = 510.0
+margin_bottom = 232.0
+text = "Master"
+align = 1
+valign = 1
+
+[node name="Master" type="HBoxContainer" parent="Options/Audio"]
+margin_top = 236.0
+margin_right = 510.0
+margin_bottom = 276.0
+
+[node name="Master_slider" type="HSlider" parent="Options/Audio/Master"]
+margin_top = 12.0
+margin_right = 430.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -80.0
+max_value = 20.0
+
+[node name="Master_on" type="CheckButton" parent="Options/Audio/Master"]
+margin_left = 434.0
+margin_right = 510.0
+margin_bottom = 40.0
+pressed = true
+
+[node name="Music_label" type="Label" parent="Options/Audio"]
+margin_top = 280.0
+margin_right = 510.0
+margin_bottom = 294.0
+text = "Music"
+align = 1
+valign = 1
+
+[node name="Music" type="HBoxContainer" parent="Options/Audio"]
+margin_top = 298.0
+margin_right = 510.0
+margin_bottom = 338.0
+
+[node name="Music_slider" type="HSlider" parent="Options/Audio/Music"]
+margin_top = 12.0
+margin_right = 430.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -80.0
+max_value = 20.0
+
+[node name="Music_on" type="CheckButton" parent="Options/Audio/Music"]
+margin_left = 434.0
+margin_right = 510.0
+margin_bottom = 40.0
+pressed = true
+
+[node name="SFX2" type="Label" parent="Options/Audio"]
+margin_top = 342.0
+margin_right = 510.0
+margin_bottom = 356.0
+text = "SFX"
+align = 1
+valign = 1
+
+[node name="SFX" type="HBoxContainer" parent="Options/Audio"]
+margin_top = 360.0
+margin_right = 510.0
+margin_bottom = 400.0
+
+[node name="SFX_slider" type="HSlider" parent="Options/Audio/SFX"]
+margin_top = 12.0
+margin_right = 430.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -80.0
+max_value = 20.0
+
+[node name="SFX_on" type="CheckButton" parent="Options/Audio/SFX"]
+margin_left = 434.0
+margin_right = 510.0
+margin_bottom = 40.0
+pressed = true
+[connection signal="toggled" from="Options/Graphics/CheckButton" to="." method="_on_CheckButton_toggled"]
+[connection signal="value_changed" from="Options/Audio/Master/Master_slider" to="." method="_on_Master_slider_value_changed"]
+[connection signal="toggled" from="Options/Audio/Master/Master_on" to="." method="_on_Master_on_toggled"]
+[connection signal="value_changed" from="Options/Audio/Music/Music_slider" to="." method="_on_Music_slider_value_changed"]
+[connection signal="toggled" from="Options/Audio/Music/Music_on" to="." method="_on_Music_on_toggled"]
+[connection signal="value_changed" from="Options/Audio/SFX/SFX_slider" to="." method="_on_SFX_slider_value_changed"]
+[connection signal="toggled" from="Options/Audio/SFX/SFX_on" to="." method="_on_SFX_on_toggled"]

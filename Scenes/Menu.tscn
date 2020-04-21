@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://Graphics/Titles/IMG_0008.JPG" type="Texture" id=2]
+[ext_resource path="res://Scenes/Options.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "bg"
+length = 100.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("IMG_0008:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 50, 100 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -850 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -3.0
+margin_right = -3.0
+margin_bottom = 8.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IMG_0008" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.205
+margin_bottom = 732.36
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 107.0
+margin_bottom = 44.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HelloWorldButton2" type="Button" parent="VBoxContainer"]
+margin_right = 139.0
+margin_bottom = 20.0
+text = "WITAJ PRZYGODO"
+
+[node name="Las" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 139.0
+margin_bottom = 44.0
+text = "ZACZAROWANY LAS"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -139.0
+margin_top = -44.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="Button" parent="VBoxContainer2"]
+margin_right = 139.0
+margin_bottom = 20.0
+text = "Opcje"
+
+[node name="Quit" type="Button" parent="VBoxContainer2"]
+margin_top = 24.0
+margin_right = 139.0
+margin_bottom = 44.0
+text = "Wyjście"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "bg"
+anims/bg = SubResource( 1 )
+
+[node name="Control" parent="." instance=ExtResource( 3 )]
+visible = false
+margin_top = 124.0
+margin_right = -216.0
+[connection signal="pressed" from="VBoxContainer/HelloWorldButton2" to="." method="_on_HelloWorldButton_pressed"]
+[connection signal="pressed" from="VBoxContainer/Las" to="." method="_on_World1_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_Quit_pressed"]
