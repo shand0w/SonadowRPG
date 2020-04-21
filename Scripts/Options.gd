@@ -26,7 +26,7 @@ func load_settings():
 		$Options/Audio/Music/Music_on.set_pressed(bool(str(save_file.get_value('Audio', 'music_bus_enabled'))))
 		$Options/Audio/SFX/SFX_slider.set_value(float(save_file.get_value('Audio', 'sfx_bus_volume')))
 		$Options/Audio/SFX/SFX_on.set_pressed(bool(str(save_file.get_value('Audio', 'sfx_bus_enabled'))))
-#		OS.window_fullscreen = bool(str(save_file.get_value('Graphics', 'fullscreen')))
+		OS.window_fullscreen = bool(str(save_file.get_value('Graphics', 'fullscreen')))
 		$Options/Graphics/Fullscreen.pressed = bool(str(save_file.get_value('Graphics', 'fullscreen')))
 		$Options/Graphics/VSync.pressed = bool(str(save_file.get_value('Graphics', 'vsync_enabled')))
 	else:
