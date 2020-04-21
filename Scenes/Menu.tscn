@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
-[ext_resource path="res://Graphics/Titles/IMG_0008.JPG" type="Texture" id=2]
+[ext_resource path="res://Graphics/Titles/IMG_0008.jpeg" type="Texture" id=2]
 [ext_resource path="res://Scenes/Options.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Audio/BGM/014-Theme03.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Fonts/Ubuntu-L.tres" type="DynamicFont" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "bg"
@@ -25,9 +26,6 @@ tracks/0/keys = {
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -3.0
-margin_right = -3.0
-margin_bottom = 8.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -36,7 +34,7 @@ __meta__ = {
 [node name="IMG_0008" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.205
-margin_bottom = 732.36
+margin_bottom = 844.36
 texture = ExtResource( 2 )
 expand = true
 __meta__ = {
@@ -51,14 +49,16 @@ __meta__ = {
 }
 
 [node name="HelloWorldButton2" type="Button" parent="VBoxContainer"]
-margin_right = 139.0
-margin_bottom = 20.0
+margin_right = 157.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 5 )
 text = "WITAJ PRZYGODO"
 
 [node name="Las" type="Button" parent="VBoxContainer"]
-margin_top = 24.0
-margin_right = 139.0
-margin_bottom = 44.0
+margin_top = 29.0
+margin_right = 157.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 5 )
 text = "ZACZAROWANY LAS"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -69,21 +69,23 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -139.0
-margin_top = -44.0
+margin_left = -147.0
+margin_top = -54.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Options" type="Button" parent="VBoxContainer2"]
-margin_right = 139.0
-margin_bottom = 20.0
+margin_right = 147.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 5 )
 text = "Opcje"
 
 [node name="Quit" type="Button" parent="VBoxContainer2"]
-margin_top = 24.0
-margin_right = 139.0
-margin_bottom = 44.0
+margin_top = 29.0
+margin_right = 147.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 5 )
 text = "Wyjście"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -94,7 +96,6 @@ autoplay = "bg"
 anims/bg = SubResource( 1 )
 
 [node name="Control" parent="." instance=ExtResource( 3 )]
-visible = false
 margin_top = 124.0
 margin_right = -216.0
 

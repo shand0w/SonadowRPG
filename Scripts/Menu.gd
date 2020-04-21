@@ -21,4 +21,4 @@ func _on_Options_pressed():
 
 
 func _on_Quit_pressed():
-	pass # Replace with function body.
+	get_tree().quit()

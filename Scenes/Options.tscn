@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scripts/Options.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/Ubuntu-L.tres" type="DynamicFont" id=2]
 
 [node name="Control" type="WindowDialog"]
 visible = true
@@ -12,28 +13,51 @@ __meta__ = {
 }
 
 [node name="Options" type="HBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.024
+anchor_top = 0.038
+anchor_right = 0.978
+anchor_bottom = 0.962
+margin_left = 0.424
+margin_top = 0.199999
+margin_right = -0.472046
+margin_bottom = -0.200073
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Graphics" type="VBoxContainer" parent="Options"]
-margin_right = 510.0
-margin_bottom = 600.0
+margin_right = 486.0
+margin_bottom = 554.0
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="CheckButton" type="CheckButton" parent="Options/Graphics"]
-margin_top = 280.0
-margin_right = 510.0
-margin_bottom = 320.0
+[node name="Graphics" type="Label" parent="Options/Graphics"]
+margin_top = 223.0
+margin_right = 486.0
+margin_bottom = 242.0
+custom_fonts/font = ExtResource( 2 )
+text = "Graphics"
+align = 1
+valign = 1
+
+[node name="Fullscreen" type="CheckButton" parent="Options/Graphics"]
+margin_top = 246.0
+margin_right = 486.0
+margin_bottom = 286.0
+custom_fonts/font = ExtResource( 2 )
 text = "Fullscreen"
 
+[node name="VSync" type="CheckButton" parent="Options/Graphics"]
+margin_top = 290.0
+margin_right = 486.0
+margin_bottom = 330.0
+custom_fonts/font = ExtResource( 2 )
+text = "VSync"
+
 [node name="Audio" type="VBoxContainer" parent="Options"]
-margin_left = 514.0
-margin_right = 1024.0
-margin_bottom = 600.0
+margin_left = 490.0
+margin_right = 976.0
+margin_bottom = 554.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
@@ -42,100 +66,120 @@ __meta__ = {
 }
 
 [node name="Audio" type="Label" parent="Options/Audio"]
-margin_top = 200.0
-margin_right = 510.0
-margin_bottom = 214.0
+margin_top = 203.0
+margin_right = 486.0
+margin_bottom = 222.0
+custom_fonts/font = ExtResource( 2 )
 text = "Audio Settings"
 align = 1
 valign = 1
 
 [node name="Master_label" type="Label" parent="Options/Audio"]
-margin_top = 218.0
-margin_right = 510.0
-margin_bottom = 232.0
+margin_top = 226.0
+margin_right = 486.0
+margin_bottom = 245.0
+custom_fonts/font = ExtResource( 2 )
 text = "Master"
 align = 1
 valign = 1
 
 [node name="Master" type="HBoxContainer" parent="Options/Audio"]
-margin_top = 236.0
-margin_right = 510.0
-margin_bottom = 276.0
+margin_top = 249.0
+margin_right = 486.0
+margin_bottom = 265.0
 
 [node name="Master_slider" type="HSlider" parent="Options/Audio/Master"]
-margin_top = 12.0
-margin_right = 430.0
-margin_bottom = 28.0
+margin_right = 486.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 min_value = -80.0
 max_value = 20.0
 
 [node name="Master_on" type="CheckButton" parent="Options/Audio/Master"]
-margin_left = 434.0
-margin_right = 510.0
+visible = false
+margin_left = 410.0
+margin_right = 486.0
 margin_bottom = 40.0
+custom_fonts/font = ExtResource( 2 )
 pressed = true
 
 [node name="Music_label" type="Label" parent="Options/Audio"]
-margin_top = 280.0
-margin_right = 510.0
-margin_bottom = 294.0
+margin_top = 269.0
+margin_right = 486.0
+margin_bottom = 288.0
+custom_fonts/font = ExtResource( 2 )
 text = "Music"
 align = 1
 valign = 1
 
 [node name="Music" type="HBoxContainer" parent="Options/Audio"]
-margin_top = 298.0
-margin_right = 510.0
-margin_bottom = 338.0
+margin_top = 292.0
+margin_right = 486.0
+margin_bottom = 308.0
 
 [node name="Music_slider" type="HSlider" parent="Options/Audio/Music"]
-margin_top = 12.0
-margin_right = 430.0
-margin_bottom = 28.0
+margin_right = 486.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 min_value = -80.0
 max_value = 20.0
 
 [node name="Music_on" type="CheckButton" parent="Options/Audio/Music"]
+visible = false
 margin_left = 434.0
 margin_right = 510.0
 margin_bottom = 40.0
 pressed = true
 
 [node name="SFX2" type="Label" parent="Options/Audio"]
-margin_top = 342.0
-margin_right = 510.0
-margin_bottom = 356.0
+margin_top = 312.0
+margin_right = 486.0
+margin_bottom = 331.0
+custom_fonts/font = ExtResource( 2 )
 text = "SFX"
 align = 1
 valign = 1
 
 [node name="SFX" type="HBoxContainer" parent="Options/Audio"]
-margin_top = 360.0
-margin_right = 510.0
-margin_bottom = 400.0
+margin_top = 335.0
+margin_right = 486.0
+margin_bottom = 351.0
 
 [node name="SFX_slider" type="HSlider" parent="Options/Audio/SFX"]
-margin_top = 12.0
-margin_right = 430.0
-margin_bottom = 28.0
+margin_right = 486.0
+margin_bottom = 16.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 min_value = -80.0
 max_value = 20.0
 
 [node name="SFX_on" type="CheckButton" parent="Options/Audio/SFX"]
+visible = false
 margin_left = 434.0
 margin_right = 510.0
 margin_bottom = 40.0
 pressed = true
-[connection signal="toggled" from="Options/Graphics/CheckButton" to="." method="_on_CheckButton_toggled"]
+
+[node name="SAVE" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -21.5
+margin_top = -20.0
+margin_right = 21.5
+text = "SAVE"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="toggled" from="Options/Graphics/Fullscreen" to="." method="_on_CheckButton_toggled"]
+[connection signal="toggled" from="Options/Graphics/VSync" to="." method="_on_VSync_toggled"]
 [connection signal="value_changed" from="Options/Audio/Master/Master_slider" to="." method="_on_Master_slider_value_changed"]
 [connection signal="toggled" from="Options/Audio/Master/Master_on" to="." method="_on_Master_on_toggled"]
 [connection signal="value_changed" from="Options/Audio/Music/Music_slider" to="." method="_on_Music_slider_value_changed"]
 [connection signal="toggled" from="Options/Audio/Music/Music_on" to="." method="_on_Music_on_toggled"]
 [connection signal="value_changed" from="Options/Audio/SFX/SFX_slider" to="." method="_on_SFX_slider_value_changed"]
 [connection signal="toggled" from="Options/Audio/SFX/SFX_on" to="." method="_on_SFX_on_toggled"]
+[connection signal="pressed" from="SAVE" to="." method="_on_SAVE_pressed"]
