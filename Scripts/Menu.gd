@@ -13,7 +13,7 @@ func _on_HelloWorldButton_pressed():
 
 
 func _on_World1_pressed():
-	world_scene = get_tree().change_scene("res://Scenes/Maps/MainWorld.tscn")
+	BackgroundLoad.load_scene("res://Scenes/Maps/MainWorld.tscn")
 
 
 func _on_Options_pressed():

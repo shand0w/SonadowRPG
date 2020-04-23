@@ -21,8 +21,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Sonadow RPG"
-run/main_scene="res://Scenes/Menu.tscn"
+run/main_scene="res://Scenes/Intro.tscn"
+boot_splash/image="res://Graphics/bootlogo.png"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
+boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://icon.png"
+
+[autoload]
+
+BackgroundLoad="*res://Scenes/background_load.tscn"
 
 [gdnative]
 
@@ -54,6 +62,7 @@ texture={
 [rendering]
 
 quality/driver/driver_name="GLES2"
+quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
 environment/default_environment="res://default_env.tres"
