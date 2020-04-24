@@ -23,7 +23,7 @@ tracks/0/keys = {
 "values": [ 21, 2, 23, 0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "left"
 loop = true
 tracks/0/type = "value"
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "values": [ 8, 9, 10, 11 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "right"
 loop = true
 step = 0.01
@@ -56,8 +56,7 @@ tracks/0/keys = {
 "values": [ 13, 14, 15, 14 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "up"
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -73,6 +72,7 @@ tracks/0/keys = {
 }
 
 [node name="Shadow" type="KinematicBody2D"]
+motion/sync_to_physics = true
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -81,7 +81,6 @@ shape = SubResource( 1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 limit_smoothed = true
-smoothing_enabled = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
 
@@ -110,6 +109,6 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.2
 anims/down = SubResource( 2 )
-anims/left = SubResource( 4 )
-anims/right = SubResource( 5 )
-anims/up = SubResource( 3 )
+anims/left = SubResource( 3 )
+anims/right = SubResource( 4 )
+anims/up = SubResource( 5 )

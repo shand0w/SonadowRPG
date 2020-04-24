@@ -1,24 +1,20 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Tiles/grasses.tres" type="TileSet" id=1]
 [ext_resource path="res://Tiles/roads.tres" type="TileSet" id=2]
-[ext_resource path="res://Tiles/trees.tres" type="TileSet" id=4]
+[ext_resource path="res://Scenes/Objects/Trees/Tree_huge.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Objects/Trees/Tree_normal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Tiles/water.tres" type="TileSet" id=5]
 [ext_resource path="res://Tiles/post_town.tres" type="TileSet" id=6]
-[ext_resource path="res://Graphics/Light/01-LightTextureNormal.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Objects/Lamps/Lamp1.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Characters/Shadow.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Objects/Columns/Column_normal.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Objects/Columns/Column_old.tscn" type="PackedScene" id=10]
 
 [node name="Node2D" type="Node2D"]
 __meta__ = {
 "_edit_vertical_guides_": [ -116.645 ]
 }
-
-[node name="Light2D2" type="Light2D" parent="."]
-position = Vector2( 433.127, 193.679 )
-scale = Vector2( 0.65, 0.822733 )
-texture = ExtResource( 7 )
-energy = 0.6
-shadow_enabled = true
 
 [node name="TileMap - warstwa 1" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -36,21 +32,69 @@ tile_data = PoolIntArray( 262147, 12, 0, 262148, 13, 0, 262149, 13, 0, 262150, 1
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 262168, 0, 0, 262169, 1, 0, 262170, 1, 0, 262171, 1, 0, 262172, 1, 0, 262173, 1, 0, 262174, 1, 0, 262175, 1, 0, 327704, 3, 0, 327705, 4, 0, 327706, 7, 0, 327707, 7, 0, 327708, 7, 0, 327709, 7, 0, 327710, 7, 0, 327711, 7, 0, 393240, 3, 0, 393241, 5, 0, 458776, 3, 0, 458777, 5, 0, 524312, 3, 0, 524313, 5, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 4, 0, 589849, 5, 0, 655360, 7, 0, 655361, 7, 0, 655362, 7, 0, 655363, 7, 0, 655364, 7, 0, 655365, 7, 0, 655366, 7, 0, 655367, 7, 0, 655368, 7, 0, 655369, 7, 0, 655370, 7, 0, 655371, 7, 0, 655372, 6, 0, 655373, 7, 0, 655374, 7, 0, 655375, 7, 0, 655376, 7, 0, 655377, 7, 0, 655378, 7, 0, 655379, 7, 0, 655380, 7, 0, 655381, 7, 0, 655382, 7, 0, 655383, 7, 0, 655384, 1, 0, 655385, 6, 0 )
+tile_data = PoolIntArray( 262168, 0, 0, 262169, 1, 0, 262170, 1, 0, 262171, 1, 0, 262172, 1, 0, 262173, 1, 0, 262174, 1, 0, 262175, 1, 0, 327704, 3, 0, 327705, 4, 0, 327706, 7, 0, 327707, 7, 0, 327708, 7, 0, 327709, 7, 0, 327710, 7, 0, 327711, 7, 0, 393240, 3, 0, 393241, 5, 0, 458776, 3, 0, 458777, 5, 0, 524312, 3, 0, 524313, 5, 0, 589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 589843, 1, 0, 589844, 1, 0, 589845, 1, 0, 589846, 1, 0, 589847, 1, 0, 589848, 4, 0, 589849, 5, 0, 655360, 7, 0, 655361, 7, 0, 655362, 7, 0, 655363, 7, 0, 655364, 7, 0, 655365, 7, 0, 655366, 7, 0, 655367, 7, 0, 655368, 7, 0, 655369, 7, 0, 655370, 7, 0, 655371, 7, 0, 655372, 7, 0, 655373, 7, 0, 655374, 7, 0, 655375, 7, 0, 655376, 7, 0, 655377, 7, 0, 655378, 7, 0, 655379, 7, 0, 655380, 7, 0, 655381, 7, 0, 655382, 7, 0, 655383, 7, 0, 655384, 7, 0, 655385, 6, 0 )
 
 [node name="TileMap3" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 32, 32 )
 format = 1
-tile_data = PoolIntArray( 393229, 0, 0, 524293, 0, 0 )
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="TileMap2" type="TileMap" parent="."]
-tile_set = ExtResource( 4 )
-cell_size = Vector2( 32, 32 )
-format = 1
-tile_data = PoolIntArray( -327669, 0, 0, -196607, 9, 0, -65528, 9, 0, 65561, 7, 0, 65563, 7, 0, 65565, 7, 0, 65567, 7, 0, 131090, 2, 0, 262158, 9, 0, 327699, 2, 0, 327701, 0, 0, 393247, 3, 0, 458753, 9, 0, 458768, 9, 0, 589830, 9, 0, 589835, 9, 0, 720925, 2, 0, 786442, 8, 0, 917523, 2, 0 )
+[node name="Lamp1" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 413.001, 351.001 )
+light_size = 1.0
+light_energy = 0.5
 
-[node name="Shadow" parent="." instance=ExtResource( 8 )]
-position = Vector2( 221.905, 1380.61 )
+[node name="Lamp2" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 25, 377.001 )
+light_size = 1.0
+light_energy = 0.5
+
+[node name="Tree_normal2" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 818.002, 460.001 )
+
+[node name="Tree_normal" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 868.002, 458.001 )
+
+[node name="Tree_normal3" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 926.002, 456.001 )
+
+[node name="Tree_normal4" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 476.001, 216.001 )
+
+[node name="Tree_normal5" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 54.0002, 252.001 )
+
+[node name="Tree_normal6" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( 96.0004, 438.001 )
+
+[node name="Shadow" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 489.905, 528.609 )
+
+[node name="Tree_huge" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 270.484, 486.779 )
+
+[node name="Tree_huge2" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 562.44, 403.122 )
+
+[node name="Tree_huge3" parent="YSort" instance=ExtResource( 3 )]
+position = Vector2( 630.758, 148.362 )
+
+[node name="Column_normal" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 402.001, 446.001 )
+
+[node name="Column_normal2" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 428.001, 446.001 )
+
+[node name="Column_old" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 652.002, 430.001 )
+
+[node name="Column_old2" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 680.002, 430.001 )
+
+[node name="Column_old3" parent="YSort" instance=ExtResource( 10 )]
+position = Vector2( 708.002, 430.001 )
+
+[node name="Column_normal3" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 454.001, 446.001 )

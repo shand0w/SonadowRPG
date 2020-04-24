@@ -34,6 +34,10 @@ config/windows_native_icon="res://Graphics/icon.ico"
 
 BackgroundLoad="*res://Scenes/background_load.tscn"
 
+[display]
+
+window/vsync/vsync_via_compositor=true
+
 [gdnative]
 
 singletons=[ "res://git_api.gdnlib" ]
@@ -67,4 +71,6 @@ quality/driver/driver_name="GLES2"
 quality/2d/use_pixel_snap=true
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+quality/shading/force_vertex_shading=true
+quality/shading/force_lambert_over_burley=true
 environment/default_environment="res://default_env.tres"
