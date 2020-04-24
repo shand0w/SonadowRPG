@@ -9,7 +9,9 @@ var menu
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if str(OS.get_name()) == 'Android':
-		OS.request_permissions()
+		var permissions = OS.request_permissions()
+		if permissions:
+			print("Permissions granted")
 
 
 func _on_Timer_timeout():
