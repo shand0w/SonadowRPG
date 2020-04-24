@@ -33,6 +33,7 @@ config/windows_native_icon="res://Graphics/icon.ico"
 [autoload]
 
 BackgroundLoad="*res://Scenes/background_load.tscn"
+Globals="*res://Scripts/Globals.gd"
 
 [display]
 

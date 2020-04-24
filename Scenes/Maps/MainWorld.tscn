@@ -42,7 +42,7 @@ format = 1
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Lamp1" parent="YSort" instance=ExtResource( 7 )]
-position = Vector2( 413.001, 351.001 )
+position = Vector2( 747.001, 263 )
 light_size = 1.0
 light_energy = 0.5
 

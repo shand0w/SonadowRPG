@@ -18,7 +18,7 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if body.name == 'Shadow' or body.name == 'Sonic':
-		$Column_old.self_modulate = Color(1, 1, 1, 0.5)
+		$Column_old.self_modulate = Color(1, 1, 1, Globals.object_transparency)
 
 
 func _on_Area2D_body_exited(body):
