@@ -23,4 +23,4 @@ func _on_Area2D_body_entered(body):
 
 func _on_Area2D_body_exited(body):
 	if body.name == 'Shadow' or body.name == 'Sonic':
-		$Tree.self_modulate = Color(1, 1, 1, 1)
+		$Tree.self_modulate = Color(1, 1, 1 , 1)
