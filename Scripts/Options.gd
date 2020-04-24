@@ -11,9 +11,9 @@ func _process(_delta):
 	save_file.set_value('Audio', 'music_bus_enabled', str($Options/Audio/Music/Music_on.pressed))
 	save_file.set_value('Audio', 'sfx_bus_volume', str($Options/Audio/SFX/SFX_slider.value))
 	save_file.set_value('Audio', 'sfx_bus_enabled', str($Options/Audio/SFX/SFX_on.pressed))
-	save_file.set_value('Graphics', 'fullscreen', str(OS.window_fullscreen))
-	save_file.set_value('Graphics', 'vsync_enabled', str(OS.vsync_enabled))
-	save_file.set_value('Graphics', 'vsync_via_compositor', str(OS.vsync_via_compositor))
+	save_file.set_value('Graphics', 'fullscreen', str($Options/Graphics/Fullscreen.pressed))
+	save_file.set_value('Graphics', 'vsync_enabled', str($Options/Graphics/VSync.pressed))
+	save_file.set_value('Graphics', 'vsync_via_compositor', str($Options/Graphics/VSync.pressed))
 	save_file.save('user://settings.cfg')
 	hide()
 	set_process(false)
@@ -26,8 +26,8 @@ func load_settings():
 		$Options/Audio/Music/Music_on.set_pressed(bool(str(save_file.get_value('Audio', 'music_bus_enabled'))))
 		$Options/Audio/SFX/SFX_slider.set_value(float(save_file.get_value('Audio', 'sfx_bus_volume')))
 		$Options/Audio/SFX/SFX_on.set_pressed(bool(str(save_file.get_value('Audio', 'sfx_bus_enabled'))))
-		OS.window_fullscreen = bool(str(save_file.get_value('Graphics', 'fullscreen')))
-		$Options/Graphics/Fullscreen.pressed = bool(str(save_file.get_value('Graphics', 'fullscreen')))
+#		OS.window_fullscreen = bool(str(save_file.get_value('Graphics', 'fullscreen')))
+#		$Options/Graphics/Fullscreen.pressed = bool(str(save_file.get_value('Graphics', 'fullscreen', false)))
 		$Options/Graphics/VSync.pressed = bool(str(save_file.get_value('Graphics', 'vsync_enabled')))
 	else:
 		pass
