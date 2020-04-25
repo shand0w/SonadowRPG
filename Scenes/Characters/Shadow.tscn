@@ -99,6 +99,21 @@ texture_scale = 1.62
 energy = 1.1
 mode = 1
 
+[node name="HouseDialog" type="ConfirmationDialog" parent="CanvasLayer"]
+pause_mode = 2
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -63.0
+margin_top = -37.5
+margin_right = 63.0
+margin_bottom = 37.5
+window_title = "Question"
+dialog_text = "Do you want to enter this house"
+dialog_autowrap = true
+
 [node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -112,3 +127,5 @@ anims/down = SubResource( 2 )
 anims/left = SubResource( 3 )
 anims/right = SubResource( 4 )
 anims/up = SubResource( 5 )
+[connection signal="confirmed" from="CanvasLayer/HouseDialog" to="." method="_on_HouseDialog_confirmed"]
+[connection signal="popup_hide" from="CanvasLayer/HouseDialog" to="." method="_on_HouseDialog_popup_hide"]

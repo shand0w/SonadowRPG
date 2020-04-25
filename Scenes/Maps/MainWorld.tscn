@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Tiles/grasses.tres" type="TileSet" id=1]
 [ext_resource path="res://Tiles/roads.tres" type="TileSet" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Scenes/Characters/Shadow.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Objects/Columns/Column_normal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Objects/Columns/Column_old.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Objects/Buildings/Houses/FullHouse.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Intro.tscn" type="PackedScene" id=12]
 
 [node name="Node2D" type="Node2D"]
 __meta__ = {
@@ -37,18 +39,21 @@ tile_data = PoolIntArray( 262168, 0, 0, 262169, 1, 0, 262170, 1, 0, 262171, 1, 0
 [node name="TileMap3" type="TileMap" parent="."]
 tile_set = ExtResource( 6 )
 cell_size = Vector2( 32, 32 )
+cell_y_sort = true
 format = 1
 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Lamp1" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 747.001, 263 )
-light_size = 1.0
 light_energy = 0.5
 
 [node name="Lamp2" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 25, 377.001 )
-light_size = 1.0
+light_energy = 0.5
+
+[node name="Lamp3" parent="YSort" instance=ExtResource( 7 )]
+position = Vector2( 529.001, 561.001 )
 light_energy = 0.5
 
 [node name="Tree_normal2" parent="YSort" instance=ExtResource( 4 )]
@@ -66,11 +71,11 @@ position = Vector2( 476.001, 216.001 )
 [node name="Tree_normal5" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 54.0002, 252.001 )
 
+[node name="Tree_normal7" parent="YSort" instance=ExtResource( 4 )]
+position = Vector2( -86, 364.001 )
+
 [node name="Tree_normal6" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 96.0004, 438.001 )
-
-[node name="Shadow" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 489.905, 528.609 )
 
 [node name="Tree_huge" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 270.484, 486.779 )
@@ -98,3 +103,13 @@ position = Vector2( 708.002, 430.001 )
 
 [node name="Column_normal3" parent="YSort" instance=ExtResource( 9 )]
 position = Vector2( 454.001, 446.001 )
+
+[node name="FullHouse" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 853.018, 105.861 )
+
+[node name="FullHouse2" parent="YSort" instance=ExtResource( 11 )]
+position = Vector2( 1051.01, 105.861 )
+house_interior = ExtResource( 12 )
+
+[node name="Shadow" parent="YSort" instance=ExtResource( 8 )]
+position = Vector2( 489.905, 528.609 )

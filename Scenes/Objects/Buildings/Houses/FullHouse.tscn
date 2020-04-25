@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Graphics/Tilesets/013-PostTown01.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Objects/Buildings/Houses/FullHouse.gd" type="Script" id=2]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -4.49959, -278, -79.4998, -200.5, -79.9998, -92.4995, -79.9998, 22.9735, 80.0006, 22.9735, 79.5006, -201.275, 51.0005, -229.775, 3.50044, -278.275 )
+
+[node name="FullHouse" type="Sprite"]
+script = ExtResource( 2 )
+
+[node name="House" type="Sprite" parent="."]
+position = Vector2( 0, -128.021 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 430, 160, 310 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -3.49959, -277.775, -79.9998, -201.275, -80.9998, -91.7742, -80.4998, 21.9438, 80.5006, 22.4438, 80.0006, -89.4599, 79.5006, -201.46, 3.00044, -278.755 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
