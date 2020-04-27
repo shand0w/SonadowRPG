@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Graphics/Characters/Shadow.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Characters/Shadow.gd" type="Script" id=2]
 [ext_resource path="res://Graphics/blind_effect.png" type="Texture" id=3]
+[ext_resource path="res://Graphics/arrow_button.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -123,15 +124,26 @@ __meta__ = {
 }
 
 [node name="up" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 192, 384 )
+rotation = 1.5708
+normal = ExtResource( 4 )
 action = "ui_up"
 
 [node name="down" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 128, 576 )
+rotation = -1.5708
+normal = ExtResource( 4 )
 action = "ui_down"
 
 [node name="left" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 64, 448 )
+normal = ExtResource( 4 )
 action = "ui_left"
 
 [node name="right" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 256, 512 )
+rotation = 3.14159
+normal = ExtResource( 4 )
 action = "ui_right"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
