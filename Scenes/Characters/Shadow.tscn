@@ -122,6 +122,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="up" type="TouchScreenButton" parent="CanvasLayer"]
+action = "ui_up"
+
+[node name="down" type="TouchScreenButton" parent="CanvasLayer"]
+action = "ui_down"
+
+[node name="left" type="TouchScreenButton" parent="CanvasLayer"]
+action = "ui_left"
+
+[node name="right" type="TouchScreenButton" parent="CanvasLayer"]
+action = "ui_right"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.2
 anims/down = SubResource( 2 )

@@ -48,21 +48,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HelloWorldButton2" type="Button" parent="VBoxContainer"]
+[node name="Las" type="Button" parent="VBoxContainer"]
 margin_right = 157.0
 margin_bottom = 25.0
-custom_fonts/font = ExtResource( 5 )
-text = "WITAJ PRZYGODO"
-
-[node name="Las" type="Button" parent="VBoxContainer"]
-margin_top = 29.0
-margin_right = 157.0
-margin_bottom = 54.0
 custom_fonts/font = ExtResource( 5 )
 text = "ZACZAROWANY LAS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Website" type="Button" parent="VBoxContainer"]
+margin_top = 29.0
+margin_right = 157.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 5 )
+text = "Strona Projektu"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchor_left = 1.0
@@ -103,7 +103,7 @@ margin_right = -216.0
 stream = ExtResource( 4 )
 autoplay = true
 bus = "Music"
-[connection signal="pressed" from="VBoxContainer/HelloWorldButton2" to="." method="_on_HelloWorldButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/Las" to="." method="_on_World1_pressed"]
+[connection signal="pressed" from="VBoxContainer/Website" to="." method="_on_Website_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Options" to="." method="_on_Options_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Quit" to="." method="_on_Quit_pressed"]
