@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+signal house_dialog_accept
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,3 +31,16 @@ func _physics_process(_delta):
 	if Input.is_action_just_released('ui_down'):
 		$AnimationPlayer.stop()
 		$Sprite.frame = 0
+
+func show_enter_house_dialog():
+	$CanvasLayer/HouseDialog.popup_centered()
+
+
+func _on_HouseDialog_confirmed():
+	get_tree().paused = false
+	emit_signal("house_dialog_accept", true)
+
+
+func _on_HouseDialog_popup_hide():
+	get_tree().paused = false
+	emit_signal("house_dialog_accept", false)

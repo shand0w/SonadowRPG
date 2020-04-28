@@ -1,7 +1,7 @@
 extends Control
-
+var pth
 var thread = null
-
+var play_start_transition = true
 onready var progress = $progress
 
 var SIMULATED_DELAY_SEC = 1.0
@@ -55,12 +55,28 @@ func _thread_done(resource):
 	get_tree().current_scene = new_scene
 	
 	progress.visible = false
-
+	
 func load_scene(path):
-	
-	thread = Thread.new()
-	thread.start( self, "_thread_load", path)
-	raise() # show on top
-	progress.visible = true
+	pth = path
+	if play_start_transition:
+		raise()
+		$AnimationPlayer.play("start_transition")
+	else:
+		thread = Thread.new()
+		thread.start( self, "_thread_load", pth)
+		raise() # show on top
+		progress.visible = true
 
 	
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if str(anim_name) == 'start_transition':
+		thread = Thread.new()
+		thread.start( self, "_thread_load", pth)
+		raise() # show on top
+		progress.visible = true
+
+func play_end_transition():
+	raise()
+	$AnimationPlayer.play("end_transition")
