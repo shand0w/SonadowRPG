@@ -62,6 +62,7 @@ func load_scene(path):
 		raise()
 		$AnimationPlayer.play("start_transition")
 	else:
+		$bg.hide()
 		thread = Thread.new()
 		thread.start( self, "_thread_load", pth)
 		raise() # show on top
