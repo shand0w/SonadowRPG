@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Sonadow RPG"
-run/main_scene="res://Scenes/Intro.tscn"
+run/main_scene="res://Scenes/ServerAPI/updater.tscn"
 boot_splash/image="res://Graphics/bootlogo.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
@@ -34,10 +34,16 @@ config/windows_native_icon="res://Graphics/icon.ico"
 
 BackgroundLoad="*res://Scenes/background_load.tscn"
 Globals="*res://Scripts/Globals.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+AdvancedBackgroundLoader="*res://addons/Advanced Background Loader/background_load.gd"
 
 [display]
 
 window/vsync/vsync_via_compositor=true
+
+[editor_plugins]
+
+enabled=PoolStringArray( "Advanced Background Loader", "consolelogger", "silent_wolf" )
 
 [gdnative]
 
@@ -65,6 +71,16 @@ texture={
 "stream": false,
 "svg/scale": 1.0
 }
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[logging]
+
+file_logging/enable_file_logging=true
+file_logging/log_path="user://engine_log.log"
+file_logging/max_log_files=1000
 
 [rendering]
 

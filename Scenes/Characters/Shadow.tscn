@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Graphics/Characters/Shadow.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Characters/Shadow.gd" type="Script" id=2]
 [ext_resource path="res://Graphics/blind_effect.png" type="Texture" id=3]
 [ext_resource path="res://Graphics/arrow_button.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -73,6 +74,7 @@ tracks/0/keys = {
 }
 
 [node name="Shadow" type="KinematicBody2D"]
+position = Vector2( 514.774, 305.47 )
 motion/sync_to_physics = true
 script = ExtResource( 2 )
 
@@ -123,28 +125,44 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="up" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2( 192, 384 )
-rotation = 1.5708
-normal = ExtResource( 4 )
-action = "ui_up"
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
+visible = false
 
-[node name="down" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2( 128, 576 )
-rotation = -1.5708
-normal = ExtResource( 4 )
-action = "ui_down"
+[node name="Control2" type="Control" parent="CanvasLayer"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -40.0
+margin_right = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="left" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2( 64, 448 )
-normal = ExtResource( 4 )
-action = "ui_left"
-
-[node name="right" type="TouchScreenButton" parent="CanvasLayer"]
-position = Vector2( 256, 512 )
+[node name="right" type="TouchScreenButton" parent="CanvasLayer/Control2"]
+position = Vector2( 256, -48 )
 rotation = 3.14159
 normal = ExtResource( 4 )
 action = "ui_right"
+visibility_mode = 1
+
+[node name="left" type="TouchScreenButton" parent="CanvasLayer/Control2"]
+position = Vector2( 64, -112 )
+normal = ExtResource( 4 )
+action = "ui_left"
+visibility_mode = 1
+
+[node name="down" type="TouchScreenButton" parent="CanvasLayer/Control2"]
+position = Vector2( 128, 16 )
+rotation = -1.5708
+normal = ExtResource( 4 )
+action = "ui_down"
+visibility_mode = 1
+
+[node name="up" type="TouchScreenButton" parent="CanvasLayer/Control2"]
+position = Vector2( 192, -176 )
+rotation = 1.5708
+normal = ExtResource( 4 )
+action = "ui_up"
+visibility_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.2

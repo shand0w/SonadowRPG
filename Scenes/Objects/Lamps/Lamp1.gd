@@ -1,3 +1,4 @@
+tool
 extends Sprite
 
 export var lamp_turned_on:bool = true
