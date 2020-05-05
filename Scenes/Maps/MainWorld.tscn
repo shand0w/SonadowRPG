@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Tiles/grasses.tres" type="TileSet" id=1]
 [ext_resource path="res://Tiles/roads.tres" type="TileSet" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Tiles/water.tres" type="TileSet" id=5]
 [ext_resource path="res://Tiles/post_town.tres" type="TileSet" id=6]
 [ext_resource path="res://Scenes/Objects/Lamps/Lamp1.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Characters/Shadow.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Objects/Columns/Column_normal.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Objects/Columns/Column_old.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Objects/Buildings/Houses/FullHouse.tscn" type="PackedScene" id=11]
@@ -37,7 +36,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -49,7 +48,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1.5 ),
+"times": PoolRealArray( 0, 1.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ true, false ]
@@ -122,9 +121,6 @@ position = Vector2( 54.0002, 252.001 )
 
 [node name="Tree_normal6" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 90.0004, 441.001 )
-
-[node name="Shadow" parent="YSort" instance=ExtResource( 8 )]
-position = Vector2( 489.905, 528.609 )
 
 [node name="Tree_huge" parent="YSort" instance=ExtResource( 3 )]
 position = Vector2( 270.484, 486.779 )
@@ -338,7 +334,6 @@ position = Vector2( 2583.41, -693.454 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {

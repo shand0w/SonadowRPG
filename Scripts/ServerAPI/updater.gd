@@ -12,6 +12,7 @@ var new_last_downloading
 var current_request_node
 var current_ver = 1
 var cfile = ConfigFile.new()
+var file = File.new()
 
 var data_files = {
 	'scripts': 'scripts.pck',
@@ -24,6 +25,9 @@ var data_files = {
 	'addons': 'addons.pck',
 }
 func _ready():
+	if not file.file_exists('user://settings.cfg'):
+		cfile.set_value('Game', 'first_install', '')
+		cfile.save('user://settings.cfg')
 	cfile.load('user://settings.cfg')
 	if cfile.has_section_key('Game', 'last_downloading'):
 		new_last_downloading = cfile.get_value('Game', 'last_downloading', data_files.scripts)
@@ -36,8 +40,7 @@ func _ready():
 	$Checker.request('https://www.sonadow-dev.ml/api/index.js', ['GameName: pixelzone'])
 
 func first_install():
-	cfile.load('user://settings.cfg')
-	return cfile.get_value('Game', 'first_install', false)
+	return file.file_exists('user://settings.cfg')
 
 func _process(_delta):
 	if not current_request_node == null:
@@ -199,7 +202,7 @@ func _on_ServerAPI_request_completed(result, _response_code, _headers, _body):
 
 func _on_Addons_request_completed(result, _response_code, _headers, _body):
 	if result == 0:
-		last_downloading == 'AllDownloaded'
+		last_downloading = 'AllDownloaded'
 		$Center/DOWNLOADING.set_text('DOWNLOADING...')
 		cfile.load('user://settings.cfg')
 		cfile.set_value('Game', 'downloaded_addons', true)
@@ -217,14 +220,46 @@ func _on_Addons_request_completed(result, _response_code, _headers, _body):
 
 
 func load_game_data():
-	scripts_load = ProjectSettings.load_resource_pack('user://' + str(data_files.scripts))
-	scenes_load = ProjectSettings.load_resource_pack('user://' + str(data_files.scenes))
-	audio_load = ProjectSettings.load_resource_pack('user://' + str(data_files.audio))
-	graphics_load = ProjectSettings.load_resource_pack('user://' + str(data_files.graphics))
-	serverapi_load = ProjectSettings.load_resource_pack('user://' + str(data_files.serverapi))
-	silentwolfapi_load = ProjectSettings.load_resource_pack('user://' + str(data_files.silentwolfapi))
-	updater_load = ProjectSettings.load_resource_pack('user://' + str(data_files.updater))
-	addons_load = ProjectSettings.load_resource_pack('user://' + str(data_files.addons))
+#	if not file.file_exists('user://scripts.pck'):
+#		last_downloading = data_files.scripts
+#		_on_AskForRedownloading_confirmed()
+#	if not file.file_exists('user://scenes.pck'):
+#		last_downloading = data_files.scenes
+#		_on_AskForRedownloading_confirmed()
+#	if not file.file_exists('user://audio.pck'):
+#		last_downloading = data_files.audio
+#		_on_AskForRedownloading_confirmed()
+#	if not file.file_exists('user://graphics.pck'):
+#		last_downloading = data_files.graphics
+#		_on_AskForRedownloading_confirmed()
+#	if not file.file_exists('user://serverapi.pck'):
+#		last_downloading = data_files.serverapi
+#		_on_AskForRedownloading_confirmed()
+#	if not file.file_exists('user://silentwolfapi.pck'):
+#		last_downloading = data_files.serverapi
+#		_on_AskForRedownloading_confirmed()
+#	if not file.file_exists('user://updater.pck'):
+#		last_downloading = data_files.updater
+#		_on_AskForRedownloading_confirmed()
+#	if not file.file_exists('user://addons.pck'):
+#		last_downloading = data_files.addons
+#		_on_AskForRedownloading_confirmed()
+	if file.file_exists('user://scripts.pck'):
+		scripts_load = ProjectSettings.load_resource_pack('user://' + str(data_files.scripts))
+	if file.file_exists('user://scenes.pck'):
+		scenes_load = ProjectSettings.load_resource_pack('user://' + str(data_files.scenes))
+	if file.file_exists('user://audio.pck'):
+		audio_load = ProjectSettings.load_resource_pack('user://' + str(data_files.audio))
+	if file.file_exists('user://graphics.pck'):
+		graphics_load = ProjectSettings.load_resource_pack('user://' + str(data_files.graphics))
+	if file.file_exists('user://serverapi.pck'):
+		serverapi_load = ProjectSettings.load_resource_pack('user://' + str(data_files.serverapi))
+	if file.file_exists('user://silentwolfapi.pck'):
+		silentwolfapi_load = ProjectSettings.load_resource_pack('user://' + str(data_files.silentwolfapi))
+	if file.file_exists('user://updater.pck'):
+		updater_load = ProjectSettings.load_resource_pack('user://' + str(data_files.updater))
+	if file.file_exists('user://addons.pck'):
+		addons_load = ProjectSettings.load_resource_pack('user://' + str(data_files.addons))
 	if scripts_load == false:
 		print('Error loading scripts!')
 	if audio_load == false:

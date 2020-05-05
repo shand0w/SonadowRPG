@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/Ubuntu-L.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/Options.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/PauseMenu.gd" type="Script" id=3]
 [ext_resource path="res://Audio/BGM/pause_menu.ogg" type="AudioStream" id=4]
+[ext_resource path="res://themes/rpgm_like/rpgm_like.tres" type="Theme" id=5]
 
 [node name="PauseMenu" type="Panel"]
 pause_mode = 2
@@ -15,6 +16,7 @@ margin_left = -138.5
 margin_top = -206.5
 margin_right = 138.5
 margin_bottom = 206.5
+theme = ExtResource( 5 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -30,7 +32,7 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Buttons"]
 margin_right = 277.0
-margin_bottom = 19.0
+margin_bottom = 27.0
 custom_fonts/font = ExtResource( 1 )
 text = "Pause Menu"
 align = 1
@@ -41,33 +43,33 @@ __meta__ = {
 
 [node name="Resume" type="Button" parent="Buttons"]
 pause_mode = 2
-margin_top = 23.0
+margin_top = 31.0
 margin_right = 277.0
-margin_bottom = 150.0
+margin_bottom = 155.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "Resume"
+text = "Wznów"
 
 [node name="Options" type="Button" parent="Buttons"]
 pause_mode = 2
-margin_top = 154.0
+margin_top = 159.0
 margin_right = 277.0
-margin_bottom = 281.0
+margin_bottom = 283.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "Options"
+text = "Opcje"
 
-[node name="Quit To Main Menu" type="Button" parent="Buttons"]
+[node name="QuitGame" type="Button" parent="Buttons"]
 pause_mode = 2
-margin_top = 285.0
+margin_top = 287.0
 margin_right = 277.0
 margin_bottom = 413.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "Quit  To Main Menu"
+text = "Wyjdź z gry"
 
 [node name="Control" parent="." instance=ExtResource( 2 )]
 margin_left = -134.93
@@ -79,8 +81,8 @@ margin_bottom = -47.6371
 visible = true
 margin_right = 200.0
 margin_bottom = 124.0
-window_title = "Proszę potwierdzić..."
-dialog_text = "Do You really want to quit to main menu"
+window_title = ""
+dialog_text = "Czy napewno chcesz wyjść z gry?"
 dialog_autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -94,6 +96,6 @@ bus = "PauseMenu"
 one_shot = true
 [connection signal="pressed" from="Buttons/Resume" to="." method="_on_Resume_pressed"]
 [connection signal="pressed" from="Buttons/Options" to="." method="_on_Options_pressed"]
-[connection signal="pressed" from="Buttons/Quit To Main Menu" to="." method="_on_Quit_To_Main_Menu_pressed"]
+[connection signal="pressed" from="Buttons/QuitGame" to="." method="_on_QuitGame_pressed"]
 [connection signal="confirmed" from="QuitTOMenuDIalog" to="." method="_on_QuitTOMenuDIalog_confirmed"]
 [connection signal="timeout" from="MusicDelay" to="." method="_on_MusicDelay_timeout"]

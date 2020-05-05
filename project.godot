@@ -72,10 +72,6 @@ texture={
 "svg/scale": 1.0
 }
 
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
-
 [logging]
 
 file_logging/enable_file_logging=true

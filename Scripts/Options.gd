@@ -20,15 +20,24 @@ func _process(_delta):
 func load_settings():
 	if file.file_exists('user://settings.cfg'):
 		save_file.load('user://settings.cfg')
-		$Options/Audio/Master/Master_slider.set_value(float(save_file.get_value('Audio', 'master_bus_volume')))
-		$Options/Audio/Master/Master_on.set_pressed(bool(str(save_file.get_value('Audio', 'master_bus_enabled'))))
-		$Options/Audio/Music/Music_slider.set_value(float(save_file.get_value('Audio', 'music_bus_volume')))
-		$Options/Audio/Music/Music_on.set_pressed(bool(str(save_file.get_value('Audio', 'music_bus_enabled'))))
-		$Options/Audio/SFX/SFX_slider.set_value(float(save_file.get_value('Audio', 'sfx_bus_volume')))
-		$Options/Audio/SFX/SFX_on.set_pressed(bool(str(save_file.get_value('Audio', 'sfx_bus_enabled'))))
+		if save_file.has_section_key('Audio', 'master_bus_volume'):
+			$Options/Audio/Master/Master_slider.set_value(float(save_file.get_value('Audio', 'master_bus_volume', 0)))
+		if save_file.has_section_key('Audio', 'master_bus_enabled'):
+			$Options/Audio/Master/Master_on.set_pressed(bool(str(save_file.get_value('Audio', 'master_bus_enabled', false))))
+		if save_file.has_section_key('Audio', 'music_bus_volume'):
+			$Options/Audio/Music/Music_slider.set_value(float(save_file.get_value('Audio', 'music_bus_volume', 0)))
+		if save_file.has_section_key('Audio', 'music_bus_enabled'):
+			$Options/Audio/Music/Music_on.set_pressed(bool(str(save_file.get_value('Audio', 'music_bus_enabled', false))))
+		if save_file.has_section_key('Audio', 'sfx_bus_volume'):
+			$Options/Audio/SFX/SFX_slider.set_value(float(save_file.get_value('Audio', 'sfx_bus_volume', 0)))
+		if save_file.has_section_key('Audio', 'sfx_bus_enabled'):
+			$Options/Audio/SFX/SFX_on.set_pressed(bool(str(save_file.get_value('Audio', 'sfx_bus_enabled', false))))
 #		OS.window_fullscreen = bool(str(save_file.get_value('Graphics', 'fullscreen')))
 #		$Options/Graphics/Fullscreen.pressed = bool(str(save_file.get_value('Graphics', 'fullscreen', false)))
-		$Options/Graphics/VSync.pressed = bool(str(save_file.get_value('Graphics', 'vsync_enabled')))
+		if save_file.has_section_key('Graphics', 'vsync_enabled'):
+			$Options/Graphics/VSync.pressed = bool(str(save_file.get_value('Graphics', 'vsync_enabled', true)))
+		else:
+			pass
 	else:
 		pass
 func _on_Master_slider_value_changed(value):

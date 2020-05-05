@@ -25,24 +25,25 @@ func _on_visibility_changed():
 
 func _on_Resume_pressed():
 	hide()
+	$PauseMenu.stop()
 
 
 func _on_Options_pressed():
 	$Control.popup_centered()
 
 
-func _on_Quit_To_Main_Menu_pressed():
+func _on_QuitGame_pressed():
 	$QuitTOMenuDIalog.popup_centered()
 
-
 func _on_QuitTOMenuDIalog_confirmed():
-	get_tree().paused = false
-#	BackgroundLoad.play_start_transition = false
-	audio.set_bus_mute(music_bus_idx, false)
-#	audio.set_bus_mute(pausemenu_bus_idx, true)
-#	$MusicDelay.stop()
-#	$PauseMenu.stop()
-	get_tree().change_scene('res://Scenes/Menu.tscn')
+	get_tree().quit()
+#	get_tree().paused = false
+##	BackgroundLoad.play_start_transition = false
+#	audio.set_bus_mute(music_bus_idx, false)
+##	audio.set_bus_mute(pausemenu_bus_idx, true)
+##	$MusicDelay.stop()
+##	$PauseMenu.stop()
+#	get_tree().change_scene('res://Scenes/Menu.tscn')
 
 
 func _on_MusicDelay_timeout():

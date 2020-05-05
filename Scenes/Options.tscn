@@ -4,6 +4,7 @@
 [ext_resource path="res://Fonts/Ubuntu-L.tres" type="DynamicFont" id=2]
 
 [node name="Control" type="WindowDialog"]
+visible = true
 anchor_top = 0.263333
 anchor_right = 0.71875
 anchor_bottom = 1.0
@@ -38,7 +39,7 @@ margin_top = 150.0
 margin_right = 348.0
 margin_bottom = 169.0
 custom_fonts/font = ExtResource( 2 )
-text = "Graphics"
+text = "Grafika"
 align = 1
 valign = 1
 
@@ -47,7 +48,7 @@ margin_top = 173.0
 margin_right = 348.0
 margin_bottom = 213.0
 custom_fonts/font = ExtResource( 2 )
-text = "Fullscreen"
+text = "Tryb pełnoekranowy"
 
 [node name="VSync" type="CheckButton" parent="Options/Graphics"]
 margin_top = 217.0
@@ -72,7 +73,7 @@ margin_top = 130.0
 margin_right = 349.0
 margin_bottom = 149.0
 custom_fonts/font = ExtResource( 2 )
-text = "Audio Settings"
+text = "Dźwięk"
 align = 1
 valign = 1
 
