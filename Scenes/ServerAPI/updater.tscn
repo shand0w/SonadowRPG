@@ -28,8 +28,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Checker" type="HTTPRequest" parent="."]
-
 [node name="Scripts" type="HTTPRequest" parent="."]
 use_threads = true
 
@@ -53,16 +51,6 @@ use_threads = true
 
 [node name="Addons" type="HTTPRequest" parent="."]
 use_threads = true
-
-[node name="AskForRedownloading" type="AcceptDialog" parent="."]
-margin_right = 185.0
-margin_bottom = 92.0
-window_title = "Error downloading!"
-dialog_text = "There has been error during downloading game data. Click ok to try again."
-dialog_autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -124,7 +112,6 @@ align = 1
 valign = 1
 autowrap = true
 clip_text = true
-[connection signal="request_completed" from="Checker" to="." method="_on_Checker_request_completed"]
 [connection signal="request_completed" from="Scripts" to="." method="_on_Scripts_request_completed"]
 [connection signal="request_completed" from="Scenes" to="." method="_on_Scenes_request_completed"]
 [connection signal="request_completed" from="Audio" to="." method="_on_Audio_request_completed"]
@@ -133,6 +120,3 @@ clip_text = true
 [connection signal="request_completed" from="Updater" to="." method="_on_Updater_request_completed"]
 [connection signal="request_completed" from="ServerAPI" to="." method="_on_ServerAPI_request_completed"]
 [connection signal="request_completed" from="Addons" to="." method="_on_Addons_request_completed"]
-[connection signal="about_to_show" from="AskForRedownloading" to="." method="_on_AskForRedownloading_about_to_show"]
-[connection signal="confirmed" from="AskForRedownloading" to="." method="_on_AskForRedownloading_confirmed"]
-[connection signal="popup_hide" from="AskForRedownloading" to="." method="_on_AskForRedownloading_popup_hide"]

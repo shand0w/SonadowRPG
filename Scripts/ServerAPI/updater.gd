@@ -1,4 +1,5 @@
 extends Control
+var server_version
 var audio_load
 var graphics_load
 var scripts_load
@@ -25,20 +26,12 @@ var data_files = {
 	'addons': 'addons.pck',
 }
 func _ready():
-	if not file.file_exists('user://settings.cfg'):
-		cfile.set_value('Game', 'first_install', '')
-		cfile.save('user://settings.cfg')
-	cfile.load('user://settings.cfg')
-	if cfile.has_section_key('Game', 'last_downloading'):
-		new_last_downloading = cfile.get_value('Game', 'last_downloading', data_files.scripts)
-		last_downloading = new_last_downloading
-		_on_AskForRedownloading_confirmed()
-	$AnimationPlayer.play("requesting")
-	$Center/Label.hide()
-	current_request_node = $Checker
-	$Checker.set_download_file('user://index.js')
-	$Checker.request('https://www.sonadow-dev.ml/api/index.js', ['GameName: pixelzone'])
-
+#	if file.file_exists('user://updater.pck'):
+	OS.request_permissions()
+	if first_install():
+		load_game_data()
+	else:
+		download_game_data()
 func first_install():
 	return file.file_exists('user://settings.cfg')
 
@@ -47,27 +40,7 @@ func _process(_delta):
 		$Center/Label.text = str(current_request_node.get_downloaded_bytes()) + '/' + str(current_request_node.get_body_size())
 	
 
-func _on_Checker_request_completed(result, _response_code, headers, _body):
-	if result == 0:
-		headers = 1
-		if compare_version(headers, current_ver) == false:
-			print('Game is not up-to-date!')
-			$Center/DOWNLOADING.set_text('DOWNLOADING...')
-			download_data()
-		else:
-			print('Game is up-to-date.')
-			load_game_data()
-	else:
-		OS.alert('There has been error dring checking info about latest avaliable version of Sonadow RPG.\n\nThe game will run on installed version.', 'Error!')
-		load_game_data()
-
-func compare_version(downloaded_ver, installed_ver):
-	if not installed_ver >= downloaded_ver:
-		return false #not up-to-date
-	else:
-		return true #up-to-date
-
-func download_data():
+func download_game_data():
 	cfile.load('user://settings.cfg')
 	cfile.set_value('Game', 'downloaded_scripts', true)
 	cfile.set_value('Game', 'last_downloading', last_downloading)
@@ -75,7 +48,7 @@ func download_data():
 	last_downloading = data_files.scripts
 	print('Downloading Game Data...\n')
 	print('Downloading scripts...\n')
-	$Label.show()
+	$Center/Label.show()
 	current_request_node = $Scripts
 	$Scripts.set_download_file('user://' + str(data_files.scripts))
 	$Scripts.request('https://www.sonadow-dev.ml/game_data/srpg/' + str(data_files.scripts))
@@ -220,92 +193,62 @@ func _on_Addons_request_completed(result, _response_code, _headers, _body):
 
 
 func load_game_data():
-#	if not file.file_exists('user://scripts.pck'):
-#		last_downloading = data_files.scripts
-#		_on_AskForRedownloading_confirmed()
-#	if not file.file_exists('user://scenes.pck'):
-#		last_downloading = data_files.scenes
-#		_on_AskForRedownloading_confirmed()
-#	if not file.file_exists('user://audio.pck'):
-#		last_downloading = data_files.audio
-#		_on_AskForRedownloading_confirmed()
-#	if not file.file_exists('user://graphics.pck'):
-#		last_downloading = data_files.graphics
-#		_on_AskForRedownloading_confirmed()
-#	if not file.file_exists('user://serverapi.pck'):
-#		last_downloading = data_files.serverapi
-#		_on_AskForRedownloading_confirmed()
-#	if not file.file_exists('user://silentwolfapi.pck'):
-#		last_downloading = data_files.serverapi
-#		_on_AskForRedownloading_confirmed()
-#	if not file.file_exists('user://updater.pck'):
-#		last_downloading = data_files.updater
-#		_on_AskForRedownloading_confirmed()
-#	if not file.file_exists('user://addons.pck'):
-#		last_downloading = data_files.addons
-#		_on_AskForRedownloading_confirmed()
 	if file.file_exists('user://scripts.pck'):
 		scripts_load = ProjectSettings.load_resource_pack('user://' + str(data_files.scripts))
+	else:
+		error_loading_game_data()
 	if file.file_exists('user://scenes.pck'):
 		scenes_load = ProjectSettings.load_resource_pack('user://' + str(data_files.scenes))
+	else:
+		error_loading_game_data()
 	if file.file_exists('user://audio.pck'):
 		audio_load = ProjectSettings.load_resource_pack('user://' + str(data_files.audio))
+	else:
+		error_loading_game_data()
 	if file.file_exists('user://graphics.pck'):
 		graphics_load = ProjectSettings.load_resource_pack('user://' + str(data_files.graphics))
+	else:
+		error_loading_game_data()
 	if file.file_exists('user://serverapi.pck'):
 		serverapi_load = ProjectSettings.load_resource_pack('user://' + str(data_files.serverapi))
+	else:
+		error_loading_game_data()
 	if file.file_exists('user://silentwolfapi.pck'):
 		silentwolfapi_load = ProjectSettings.load_resource_pack('user://' + str(data_files.silentwolfapi))
-	if file.file_exists('user://updater.pck'):
-		updater_load = ProjectSettings.load_resource_pack('user://' + str(data_files.updater))
+	else:
+		error_loading_game_data()
 	if file.file_exists('user://addons.pck'):
 		addons_load = ProjectSettings.load_resource_pack('user://' + str(data_files.addons))
+	else:
+		error_loading_game_data()
 	if scripts_load == false:
 		print('Error loading scripts!')
+		error_loading_game_data()
 	if audio_load == false:
 		print('Error loading audio!')
+		error_loading_game_data()
 	if graphics_load == false:
 		print('Error loading graphics!')
+		error_loading_game_data()
 	if scenes_load == false:
 		print('Error loading scenes!')
+		error_loading_game_data()
 	if serverapi_load == false:
 		print('Error loading ServerAPI!')
+		error_loading_game_data()
 	if silentwolfapi_load == false:
 		print('Error loading SilentWolf API!')
+		error_loading_game_data()
 	if updater_load == false:
 		print('Error loading Updater!')
+		error_loading_game_data()
 	if addons_load == false:
 		print('Error loading Addons!')
+		error_loading_game_data()
 	else:
-# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://Scenes/Intro.tscn")
 		print('All resources loaded successfully!')
 
-func _on_AskForRedownloading_confirmed():
-	$AnimationPlayer.play("requesting")
-	$Center/Label.show()
-	if last_downloading == data_files.scripts:
-		$Scripts.request('https://www.sonadow-dev.ml/game_data/srpg/' + str(data_files.scripts))
-	if last_downloading == data_files.scenes:
-		$Scenes.request('https://www.sonadow-dev.ml/game_data/srpg/' + str(data_files.scenes))
-	if last_downloading == data_files.audio:
-		$Audio.request('https://www.sonadow-dev.ml/game_data/srpg/' + str(data_files.audio))
-	if last_downloading == data_files.graphics:
-		$Graphics.request('https://www.sonadow-dev.ml/game_data/srpg/' + str(data_files.graphics))
-	if last_downloading == data_files.serverapi:
-		$ServerAPI.request('https://www.sonadow-dev.ml/game_data/srpg/' + str(data_files.serverapi))
-	if last_downloading == data_files.silentwolfapi:
-		$SilentWolfAPI.request('https://www.sonadow-dev.ml/game_data/srpg/' + str(data_files.silentwolfapi))
-	if last_downloading == data_files.updater:
-		$Updater.request('https://www.sonadow-dev.ml/game_data/srpg/' + str(data_files.updater))
-	if last_downloading == data_files.addons:
-		$Addons.request('https://www.sonadow-dev.ml/game_data/srpg/' + str(data_files.addons))
-	else:
-		print('Everything has been downloaded')
-
-func _on_AskForRedownloading_popup_hide():
-	get_tree().quit()
-
-
-func _on_AskForRedownloading_about_to_show():
-	$AnimationPlayer.stop()
+func error_loading_game_data():
+	OS.alert('There has been error loading resources. Game will re-download them again.', 'Error Loading Resources')
+	download_game_data()

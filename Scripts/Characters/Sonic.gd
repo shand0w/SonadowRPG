@@ -4,8 +4,9 @@ signal house_dialog_accept
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if str(OS.get_name()) == "Android":
-		$Camera2D.zoom = 1.2
-
+		$Camera2D.zoom = Vector2(0.5, 0.5)
+	else:
+		$Camera2D.zoom = Vector2(1, 1)
 
 func _physics_process(_delta):
 	if Input.is_action_pressed("ui_down"):

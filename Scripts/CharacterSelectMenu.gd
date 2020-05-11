@@ -18,9 +18,11 @@ func after_selecting_player():
 	BackgroundLoad.load_scene(str(Globals.next_world))
 
 func _on_Shadow_pressed():
+	Globals.character_path = "res://Scenes/Characters/Shadow.tscn"
 	Globals.selected_character = preload("res://Scenes/Characters/Shadow.tscn").instance()
 	after_selecting_player()
 
 func _on_Sonic_pressed():
+	Globals.character_path = "res://Scenes/Characters/Sonic.tscn"
 	Globals.selected_character = preload("res://Scenes/Characters/Sonic.tscn").instance()
 	after_selecting_player()

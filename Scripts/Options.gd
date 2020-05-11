@@ -1,4 +1,5 @@
 extends WindowDialog
+var dir = Directory.new()
 var save_file = ConfigFile.new()
 var file = File.new()
 func _ready():
@@ -81,3 +82,9 @@ func _on_SAVE_pressed():
 func _on_VSync_toggled(button_pressed):
 	OS.vsync_enabled = button_pressed
 	OS.vsync_via_compositor = button_pressed
+
+
+func _on_ClearDownloadedAssets_pressed():
+#	dir.open('user://')
+	dir.remove('user://graphics.pck')
+	get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
