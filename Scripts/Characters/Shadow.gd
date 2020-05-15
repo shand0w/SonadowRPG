@@ -1,5 +1,6 @@
 extends KinematicBody2D
 signal house_dialog_accept
+signal house_dialog_accept_2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,3 +47,18 @@ func _on_HouseDialog_confirmed():
 func _on_HouseDialog_popup_hide():
 	get_tree().paused = false
 	emit_signal("house_dialog_accept", false)
+
+
+func _on_HouseDialog2_confirmed():
+	get_tree().paused = false
+	emit_signal("house_dialog_accept_2", true)
+
+func _on_HouseDialog2_popup_hide():
+	get_tree().paused = false
+	emit_signal("house_dialog_accept_2", false)
+
+func show_exit_house_dialog():
+	$CanvasLayer/HouseDialog2.popup_centered()
+
+func save_last_world_position():
+	Globals.last_world_position = position

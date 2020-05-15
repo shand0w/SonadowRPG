@@ -109,6 +109,27 @@ margin_bottom = 37.5
 window_title = "Question"
 dialog_text = "Do you want to enter this house"
 dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HouseDialog2" type="ConfirmationDialog" parent="CanvasLayer"]
+pause_mode = 2
+visible = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -63.0
+margin_top = -37.5
+margin_right = 63.0
+margin_bottom = 37.5
+window_title = "Question"
+dialog_text = "Do you want to exit this house"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -204,3 +225,5 @@ anims/right = SubResource( 4 )
 anims/up = SubResource( 5 )
 [connection signal="confirmed" from="CanvasLayer/HouseDialog" to="." method="_on_HouseDialog_confirmed"]
 [connection signal="popup_hide" from="CanvasLayer/HouseDialog" to="." method="_on_HouseDialog_popup_hide"]
+[connection signal="confirmed" from="CanvasLayer/HouseDialog2" to="." method="_on_HouseDialog2_confirmed"]
+[connection signal="popup_hide" from="CanvasLayer/HouseDialog2" to="." method="_on_HouseDialog2_popup_hide"]

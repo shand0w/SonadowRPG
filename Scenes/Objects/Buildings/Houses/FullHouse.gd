@@ -4,6 +4,7 @@ func _on_Area2D_body_entered(body):
 	if body.name == 'Shadow' or body.name == 'Sonic':
 		body.connect('house_dialog_accept', self, 'on_house_dialog_event')
 		body.show_enter_house_dialog()
+		body.save_last_world_position()
 		get_tree().paused = true
 
 func _on_Area2D_body_exited(body):

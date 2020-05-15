@@ -36,6 +36,7 @@ BackgroundLoad="*res://Scenes/background_load.tscn"
 Globals="*res://Scripts/Globals.gd"
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 AdvancedBackgroundLoader="*res://addons/Advanced Background Loader/background_load.gd"
+Modloader="*res://Scenes/modloader.tscn"
 
 [display]
 
