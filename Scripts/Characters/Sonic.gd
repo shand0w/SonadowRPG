@@ -5,9 +5,13 @@ signal house_dialog_accept_2
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if str(OS.get_name()) == "Android":
+		$CanvasLayer/HouseDialog.set_scale(Vector2(1.75, 1.75))
+		$CanvasLayer/HouseDialog2.set_scale(Vector2(1.75, 1.75))
 		$Camera2D.zoom = Vector2(0.5, 0.5)
 	else:
 		$Camera2D.zoom = Vector2(1, 1)
+		$CanvasLayer/HouseDialog.set_scale(Vector2(1, 1))
+		$CanvasLayer/HouseDialog2.set_scale(Vector2(1, 1))
 
 func _physics_process(_delta):
 	if Input.is_action_pressed("ui_down"):

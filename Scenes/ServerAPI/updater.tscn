@@ -28,28 +28,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Scripts" type="HTTPRequest" parent="."]
-use_threads = true
-
-[node name="Scenes" type="HTTPRequest" parent="."]
-use_threads = true
-
-[node name="Audio" type="HTTPRequest" parent="."]
-use_threads = true
-
-[node name="Graphics" type="HTTPRequest" parent="."]
-use_threads = true
-
-[node name="SilentWolfAPI" type="HTTPRequest" parent="."]
-use_threads = true
-
-[node name="Updater" type="HTTPRequest" parent="."]
-use_threads = true
-
-[node name="ServerAPI" type="HTTPRequest" parent="."]
-use_threads = true
-
-[node name="Addons" type="HTTPRequest" parent="."]
+[node name="RequiredAssets" type="HTTPRequest" parent="."]
 use_threads = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -87,14 +66,13 @@ __meta__ = {
 }
 
 [node name="DOWNLOADING" type="Label" parent="Center"]
-self_modulate = Color( 1, 1, 1, 0 )
 margin_right = 1024.0
 margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 3 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "CHECKING FOR  UPDATES..."
+text = "DOWNLOADING REQUIRED ASSETS..."
 align = 1
 valign = 1
 autowrap = true
@@ -112,11 +90,4 @@ align = 1
 valign = 1
 autowrap = true
 clip_text = true
-[connection signal="request_completed" from="Scripts" to="." method="_on_Scripts_request_completed"]
-[connection signal="request_completed" from="Scenes" to="." method="_on_Scenes_request_completed"]
-[connection signal="request_completed" from="Audio" to="." method="_on_Audio_request_completed"]
-[connection signal="request_completed" from="Graphics" to="." method="_on_Graphics_request_completed"]
-[connection signal="request_completed" from="SilentWolfAPI" to="." method="_on_SilentWolf_request_completed"]
-[connection signal="request_completed" from="Updater" to="." method="_on_Updater_request_completed"]
-[connection signal="request_completed" from="ServerAPI" to="." method="_on_ServerAPI_request_completed"]
-[connection signal="request_completed" from="Addons" to="." method="_on_Addons_request_completed"]
+[connection signal="request_completed" from="RequiredAssets" to="." method="_on_RequiredAssets_request_completed"]
