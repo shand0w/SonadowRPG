@@ -1,12 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Graphics/Characters/Shadow.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Characters/Shadow.gd" type="Script" id=2]
 [ext_resource path="res://Graphics/blind_effect.png" type="Texture" id=3]
 [ext_resource path="res://Graphics/arrow_button.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Graphics/pause_button.png" type="Texture" id=6]
+[ext_resource path="res://themes/rpgm_like/rpgm_like.tres" type="Theme" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
+height = 5.71344
 
 [sub_resource type="Animation" id=2]
 resource_name = "down"
@@ -74,11 +77,11 @@ tracks/0/keys = {
 }
 
 [node name="Shadow" type="KinematicBody2D"]
-position = Vector2( 514.774, 305.47 )
-motion/sync_to_physics = true
+position = Vector2( 512, 304 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.00012207, 11 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -96,7 +99,6 @@ hframes = 8
 
 [node name="HouseDialog" type="ConfirmationDialog" parent="CanvasLayer"]
 pause_mode = 2
-visible = true
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -105,9 +107,31 @@ margin_left = -63.0
 margin_top = -37.5
 margin_right = 63.0
 margin_bottom = 37.5
+theme = ExtResource( 7 )
 window_title = "Question"
 dialog_text = "Do you want to enter this house"
 dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HouseDialog2" type="ConfirmationDialog" parent="CanvasLayer"]
+pause_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -63.0
+margin_top = -37.5
+margin_right = 63.0
+margin_bottom = 37.5
+theme = ExtResource( 7 )
+window_title = "Question"
+dialog_text = "Do you want to exit this house"
+dialog_autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 anchor_right = 1.0
@@ -128,7 +152,7 @@ __meta__ = {
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
 visible = false
 
-[node name="Control2" type="Control" parent="CanvasLayer"]
+[node name="left_down" type="Control" parent="CanvasLayer"]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_top = -40.0
@@ -137,29 +161,60 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="right" type="TouchScreenButton" parent="CanvasLayer/Control2"]
-position = Vector2( 256, -48 )
+[node name="right" type="TouchScreenButton" parent="CanvasLayer/left_down"]
+position = Vector2( 248, -32 )
 rotation = 3.14159
+scale = Vector2( 1.7, 1.7 )
 normal = ExtResource( 4 )
 action = "ui_right"
 visibility_mode = 1
 
-[node name="left" type="TouchScreenButton" parent="CanvasLayer/Control2"]
-position = Vector2( 64, -112 )
+[node name="left" type="TouchScreenButton" parent="CanvasLayer/left_down"]
+position = Vector2( 32, -144 )
+scale = Vector2( 1.7, 1.7 )
 normal = ExtResource( 4 )
 action = "ui_left"
 visibility_mode = 1
 
-[node name="down" type="TouchScreenButton" parent="CanvasLayer/Control2"]
-position = Vector2( 128, 16 )
+[node name="right_up" type="Control" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pause" type="TouchScreenButton" parent="CanvasLayer/right_up"]
+pause_mode = 2
+position = Vector2( -120, 25 )
+normal = ExtResource( 6 )
+action = "ui_cancel"
+visibility_mode = 1
+
+[node name="right_down" type="Control" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -40.0
+margin_top = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="down" type="TouchScreenButton" parent="CanvasLayer/right_down"]
+position = Vector2( -144, 32 )
 rotation = -1.5708
+scale = Vector2( 1.7, 1.7 )
 normal = ExtResource( 4 )
 action = "ui_down"
 visibility_mode = 1
 
-[node name="up" type="TouchScreenButton" parent="CanvasLayer/Control2"]
-position = Vector2( 192, -176 )
+[node name="up" type="TouchScreenButton" parent="CanvasLayer/right_down"]
+position = Vector2( -32, -184 )
 rotation = 1.5708
+scale = Vector2( 1.7, 1.7 )
 normal = ExtResource( 4 )
 action = "ui_up"
 visibility_mode = 1
@@ -172,3 +227,5 @@ anims/right = SubResource( 4 )
 anims/up = SubResource( 5 )
 [connection signal="confirmed" from="CanvasLayer/HouseDialog" to="." method="_on_HouseDialog_confirmed"]
 [connection signal="popup_hide" from="CanvasLayer/HouseDialog" to="." method="_on_HouseDialog_popup_hide"]
+[connection signal="confirmed" from="CanvasLayer/HouseDialog2" to="." method="_on_HouseDialog2_confirmed"]
+[connection signal="popup_hide" from="CanvasLayer/HouseDialog2" to="." method="_on_HouseDialog2_popup_hide"]

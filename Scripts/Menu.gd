@@ -2,11 +2,6 @@ extends Control
 var tekst = "Hello World"
 var world_scene
 var website
-var music_list:Array = [
-	'res://Audio/BGM/014-Theme3.ogg',
-#	'res://Audio/BGM/015-Theme4.ogg',
-]
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	BackgroundLoad.play_start_transition = true
@@ -15,7 +10,11 @@ func _ready():
 	print('Game launched successfully!\n')
 
 func _on_World1_pressed():
-	BackgroundLoad.load_scene("res://Scenes/Maps/MainWorld.tscn")
+	Globals.next_world = "res://Scenes/Maps/MainWorld.tscn"
+	if Globals.selected_character == null:
+		$CharacterSelect.popup_centered()
+	else:
+		BackgroundLoad.load_scene(str(Globals.next_world))
 
 
 func _on_Options_pressed():
