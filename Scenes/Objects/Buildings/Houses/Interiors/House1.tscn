@@ -31,7 +31,7 @@ position = Vector2( 240, 176 )
 [node name="StaticBody2D" type="StaticBody2D" parent="YSort"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="YSort/StaticBody2D"]
-polygon = PoolVector2Array( 0, 64, 448, 64, 448, 0, 0, 0 )
+polygon = PoolVector2Array( -64, 64, -64, 352.753, -64, 408, 0, 408, 448, 408, 448, 352, 0, 352, 0, 64, 448, 64, 448, 352, 448, 408, 512, 408, 512, 352, 512, 64, 512, 0, 448, 0, 0, 0, -64, 0 )
 [connection signal="tree_exiting" from="." to="." method="_on_Home1_tree_exiting"]
 [connection signal="body_entered" from="exithouse" to="." method="_on_exithouse_body_entered"]
 [connection signal="body_exited" from="exithouse" to="." method="_on_exithouse_body_exited"]

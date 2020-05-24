@@ -2,7 +2,7 @@
 
 [ext_resource path="res://addons/srpgmodcreator/srpgmodplugin.gd" type="Script" id=1]
 
-[node name="Control" type="Control"]
+[node name="SonadowRPG MOd Creation Tool" type="Control"]
 margin_right = 144.0
 margin_bottom = 336.0
 script = ExtResource( 1 )
@@ -45,4 +45,14 @@ text = "Create Modification"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PackModification" type="Button" parent="SonadowRPG Mod Creator"]
+margin_top = 136.0
+margin_right = 136.0
+margin_bottom = 156.0
+text = "Pack Modification"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="SonadowRPG Mod Creator/CreateMod" to="." method="_on_CreateMod_pressed"]
+[connection signal="pressed" from="SonadowRPG Mod Creator/PackModification" to="." method="_on_PackModification_pressed"]

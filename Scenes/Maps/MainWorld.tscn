@@ -352,33 +352,61 @@ position = Vector2( 2820.99, -693.454 )
 [node name="Tree_normal2_12" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 2583.41, -693.454 )
 
-[node name="FullHouse" parent="." instance=ExtResource( 11 )]
+[node name="house1" parent="." instance=ExtResource( 11 )]
 position = Vector2( -785.718, 528.318 )
+house_name = "house1"
 house_interior = ExtResource( 8 )
 
-[node name="FullHouse2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1477.02, 474.578 )
+[node name="house1_start_position" type="Position2D" parent="."]
+position = Vector2( -785.718, 629.808 )
+
+[node name="house2" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1478.43, 474.578 )
+house_name = "house2"
 house_interior = ExtResource( 8 )
 
-[node name="FullHouse3" parent="." instance=ExtResource( 11 )]
+[node name="house2_start_position" type="Position2D" parent="."]
+position = Vector2( 1477.02, 578.897 )
+
+[node name="house3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1645.32, 473.164 )
+house_name = "house3"
 house_interior = ExtResource( 8 )
 
-[node name="FullHouse4" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1648.14, 829.545 )
+[node name="house3_start_position" type="Position2D" parent="."]
+position = Vector2( 1652.39, 584.554 )
+
+[node name="house4" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1648.14, 871.971 )
+house_name = "house4"
 house_interior = ExtResource( 8 )
 
-[node name="FullHouse5" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1471.37, 828.131 )
+[node name="house4_start_position" type="Position2D" parent="."]
+position = Vector2( 1658.04, 986.19 )
+
+[node name="house5" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1477.03, 870.557 )
+house_name = "house5"
 house_interior = ExtResource( 8 )
 
-[node name="FullHouse6" parent="." instance=ExtResource( 11 )]
+[node name="house5_start_position" type="Position2D" parent="."]
+position = Vector2( 1482.68, 980.533 )
+
+[node name="house6" parent="." instance=ExtResource( 11 )]
 position = Vector2( 1172.97, 649.94 )
+house_name = "house6"
 house_interior = ExtResource( 8 )
 
-[node name="FullHouse7" parent="." instance=ExtResource( 11 )]
-position = Vector2( 1172.97, 961.067 )
+[node name="house6_start_position" type="Position2D" parent="."]
+position = Vector2( 1177.21, 742.946 )
+
+[node name="house7" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1170.14, 1045.92 )
+house_name = "house7"
 house_interior = ExtResource( 8 )
+
+[node name="house7_start_position" type="Position2D" parent="."]
+position = Vector2( 1182.87, 1138.93 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -393,4 +421,14 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/end_transition = SubResource( 1 )
+
+[node name="start_positon" type="Position2D" parent="."]
+position = Vector2( -783.821, 943.933 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+compatibility_mode = true
+format = 1
+tile_data = PoolIntArray( -1703770, 536870923, 0, -1507195, 1073741835, 0, -524177, 11, 0, -524158, 536870923, 0, -327569, 1073741835, 0, -262079, 536870923, 0, 262198, 536870923, 0, 262255, 11, 0, 458863, 1073741835, 0, 458886, 1610612747, 0, 524396, 536870923, 0 )
 [connection signal="tree_exiting" from="." to="." method="_on_Node2D_tree_exiting"]

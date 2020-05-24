@@ -9,6 +9,7 @@
 [ext_resource path="res://themes/rpgm_like/rpgm_like.tres" type="Theme" id=7]
 
 [sub_resource type="CapsuleShape2D" id=1]
+height = 5.71344
 
 [sub_resource type="Animation" id=2]
 resource_name = "down"
@@ -80,6 +81,7 @@ position = Vector2( 512, 304 )
 script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.00012207, 11 )
 shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]

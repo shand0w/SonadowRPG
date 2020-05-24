@@ -1,9 +1,8 @@
 tool
 extends EditorPlugin
-var dock
+var dock = preload("res://addons/srpgmodcreator/srpgmodplugin.tscn").instance()
 
 func _enter_tree():
-	var dock = preload("res://addons/srpgmodcreator/srpgmodplugin.tscn").instance()
 	add_control_to_dock(EditorPlugin.DOCK_SLOT_LEFT_BL, dock)
 
 

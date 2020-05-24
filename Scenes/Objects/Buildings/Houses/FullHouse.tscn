@@ -30,6 +30,18 @@ position = Vector2( 0, 47 )
 rotation = -3.14159
 polygon = PoolVector2Array( -46.1991, 6.50913, 49.3009, 7.00865, 48.8011, 0.508787, -45.6989, -0.990965 )
 one_way_collision = true
+
+[node name="start_position" type="Position2D" parent="."]
+position = Vector2( 0, 73.5 )
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+margin_left = -80.0
+margin_top = -288.0
+margin_right = 88.0
+margin_bottom = 106.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="." to="." method="_on_FullHouse_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_FullHouse_body_exited"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

@@ -1,44 +1,53 @@
 extends KinematicBody2D
+var speed = 80
 signal house_dialog_accept
 signal house_dialog_accept_2
-
+var move
+var vel = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var vel = Vector2()
 	if str(OS.get_name()) == "Android":
 		$CanvasLayer/HouseDialog.set_scale(Vector2(1.75, 1.75))
 		$CanvasLayer/HouseDialog2.set_scale(Vector2(1.75, 1.75))
-		$Camera2D.zoom = Vector2(0.5, 0.5)
+		$Camera2D.zoom = Vector2(0.7, 0.7)
 	else:
 		$Camera2D.zoom = Vector2(1, 1)
 		$CanvasLayer/HouseDialog.set_scale(Vector2(1, 1))
 		$CanvasLayer/HouseDialog2.set_scale(Vector2(1, 1))
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if Input.is_action_pressed("ui_down"):
-		position.y += 1
+		vel.y += 1
 		$AnimationPlayer.play("down")
-	if Input.is_action_pressed("ui_up"):
-		position.y -= 1
+	elif Input.is_action_pressed("ui_up"):
+		vel.y -= 1
 		$AnimationPlayer.play("up")
-	if Input.is_action_pressed("ui_right"):
-		position.x += 1
+	elif Input.is_action_pressed("ui_right"):
+		vel.x += 1
 		$AnimationPlayer.play("right")
-	if Input.is_action_pressed("ui_left"):
-		position.x -= 1
+	elif Input.is_action_pressed("ui_left"):
+		vel.x -= 1
 		$AnimationPlayer.play("left")
 	if Input.is_action_just_released('ui_left'):
+		vel = Vector2()
 		$AnimationPlayer.stop()
-		$Sprite.frame = 8
-	if Input.is_action_just_released('ui_right'):
+		$Sprite.frame = 11
+	elif Input.is_action_just_released('ui_right'):
+		vel = Vector2()
 		$AnimationPlayer.stop()
-		$Sprite.frame = 1
-	if Input.is_action_just_released('ui_up'):
+		$Sprite.frame = 14
+	elif Input.is_action_just_released('ui_up'):
+		vel = Vector2()
 		$AnimationPlayer.stop()
-		$Sprite.frame = 16
-	if Input.is_action_just_released('ui_down'):
+		$Sprite.frame = 4
+	elif Input.is_action_just_released('ui_down'):
+		vel = Vector2()
 		$AnimationPlayer.stop()
-		$Sprite.frame = 13
-
+		$Sprite.frame = 0
+	vel = vel.normalized() * speed
+	move = move_and_collide(vel * delta)
+	vel = Vector2()
 func show_enter_house_dialog():
 	$CanvasLayer/HouseDialog.popup_centered()
 
@@ -51,7 +60,6 @@ func _on_HouseDialog_confirmed():
 func _on_HouseDialog_popup_hide():
 	get_tree().paused = false
 	emit_signal("house_dialog_accept", false)
-
 
 
 func _on_HouseDialog2_confirmed():

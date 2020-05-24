@@ -1,3 +1,4 @@
+tool
 extends Control
 
 
@@ -26,3 +27,10 @@ func _on_CreateMod_pressed():
 	cfile.set_value('info', 'author', $"SonadowRPG Mod Creator/author".text)
 	cfile.set_value('info', 'main_scene', $"SonadowRPG Mod Creator/main_scene".text)
 	cfile.save('res://' + str($"SonadowRPG Mod Creator/name".text) + '/modinfo.cfg')
+
+
+func _on_PackModification_pressed():
+	var packer = PCKPacker.new()
+	packer.pck_start(str($"SonadowRPG Mod Creator/name".text) + ".pck")
+	packer.add_file("res://" + str($"SonadowRPG Mod Creator/name".text), "res://" + str($"SonadowRPG Mod Creator/name".text))
+	packer.flush()
