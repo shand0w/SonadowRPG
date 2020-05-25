@@ -8,6 +8,7 @@ var menu
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().reload_current_scene()
 	if str(OS.get_name()) == 'Android':
 		var permissions = OS.request_permissions()
 		if permissions:

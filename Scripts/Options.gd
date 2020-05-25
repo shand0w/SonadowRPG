@@ -85,6 +85,6 @@ func _on_VSync_toggled(button_pressed):
 
 
 func _on_ClearDownloadedAssets_pressed():
-#	dir.open('user://')
-	dir.remove('user://graphics.pck')
+	dir.open('user://')
+	dir.remove('user://assets.pck')
 	get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
