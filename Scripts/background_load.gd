@@ -1,7 +1,7 @@
 extends Control
 var pth
 var thread = null
-var play_start_transition = true
+var play_start_transition = false
 onready var progress = $progress
 
 var SIMULATED_DELAY_SEC = 1.0

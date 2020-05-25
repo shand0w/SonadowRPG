@@ -1,4 +1,5 @@
 extends Node
+var debugMode = false
 var coming_from_house:String
 var object_transparency = 0.65
 var selected_character
@@ -8,7 +9,7 @@ var character_position
 var last_world_position = Vector2(0,0)
 var cfile = ConfigFile.new()
 var file =  File.new()
-var mod_path = str(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)) + 'Sonadow RPG/Mods/mod.pck'
+var mod_path = str(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)) + '/Sonadow RPG/Mods/mod.pck'
 func _ready():
 	if file.file_exists(mod_path):
 		Modloader.load_mod(mod_path)
@@ -29,3 +30,6 @@ func return_log_values():
 		'Globals.last_world_position: ': str(last_world_position),
 		}
 	return log_call
+
+func set_variable(variable, value):
+	set(variable, value)

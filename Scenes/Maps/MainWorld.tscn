@@ -91,16 +91,24 @@ tile_data = PoolIntArray( -1179646, 536870934, 0, -1179645, 536870939, 0, -11796
 
 [node name="Lamp3" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2131.71, 434.816 )
+lamp_turned_on = true
 light_size = 0.5
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Lamp1" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 747.001, 263 )
+lamp_turned_on = true
+light_size = 1.0
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Lamp2" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 25, 377.001 )
+lamp_turned_on = true
+light_size = 1.0
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Tree_normal2" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 818.002, 460.001 )
@@ -269,52 +277,73 @@ position = Vector2( 454.001, 446.001 )
 
 [node name="Lamp4" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2222.22, 433.401 )
+lamp_turned_on = true
 light_size = 0.5
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Lamp5" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 1809.27, -44.6027 )
+lamp_turned_on = true
 light_size = 0.5
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Lamp6" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 1809.27, -135.112 )
+lamp_turned_on = true
 light_size = 0.5
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Lamp8" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2196.76, -333.102 )
+lamp_turned_on = true
 light_size = 0.5
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Lamp10" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2193.93, -429.269 )
+lamp_turned_on = true
 light_size = 0.5
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Lamp15" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2643.66, -426.44 )
+lamp_turned_on = true
+light_size = 1.0
 light_energy = 0.75
+shadow_enabled = true
 
 [node name="Lamp20" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2751.14, -618.773 )
+lamp_turned_on = true
 light_size = 0.5
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Lamp17" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2640.83, -621.602 )
+lamp_turned_on = true
 light_size = 0.5
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Lamp18" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2640.83, -743.224 )
+lamp_turned_on = true
 light_size = 0.5
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Lamp19" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 2739.82, -746.053 )
+lamp_turned_on = true
 light_size = 0.5
 light_energy = 0.5
+shadow_enabled = true
 
 [node name="Tree_normal2_1" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 1698.11, -464.352 )

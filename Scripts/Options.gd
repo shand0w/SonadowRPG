@@ -6,6 +6,7 @@ func _ready():
 	load_settings()
 	set_process(false)
 func _process(_delta):
+	save_file.set_value('Game', 'engine_version', str(Engine.get_version_info()))
 	save_file.set_value('Audio', 'master_bus_volume', str($Options/Audio/Master/Master_slider.value))
 	save_file.set_value('Audio', 'master_bus_enabled', str($Options/Audio/Master/Master_on.pressed))
 	save_file.set_value('Audio', 'music_bus_volume', str($Options/Audio/Music/Music_slider.value))
@@ -37,6 +38,8 @@ func load_settings():
 #		$Options/Graphics/Fullscreen.pressed = bool(str(save_file.get_value('Graphics', 'fullscreen', false)))
 		if save_file.has_section_key('Graphics', 'vsync_enabled'):
 			$Options/Graphics/VSync.pressed = bool(str(save_file.get_value('Graphics', 'vsync_enabled', true)))
+		if save_file.has_section_key('Game', 'debug_mode'):
+			Globals.debugMode = bool(str(save_file.get_value('Graphics', 'debug_mode', false)))
 		else:
 			pass
 	else:

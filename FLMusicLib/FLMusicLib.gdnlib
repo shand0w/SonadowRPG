@@ -1,0 +1,18 @@
+[general]
+
+singleton=false
+load_once=true
+symbol_prefix="godot_"
+reloadable=true
+
+[entry]
+
+Windows.64="res://FLMusicLib/Windows/x64/FLMusicLib.dll"
+Windows.32="res://FLMusicLib/Windows/x86/FLMusicLib.dll"
+X11.64="res://FLMusicLib/Linux/x64/libFLMusicLib.so.1.0.0"
+
+[dependencies]
+
+Windows.64=[ "res://FLMusicLib/Windows/x64/libopenmpt.dll" ]
+Windows.32=[ "res://FLMusicLib/Windows/x86/libopenmpt.dll" ]
+X11.64=[  ]
