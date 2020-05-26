@@ -35,38 +35,40 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="Graphics" type="Label" parent="Options/Graphics"]
-margin_top = 135.0
+margin_top = 115.0
 margin_right = 351.0
-margin_bottom = 154.0
+margin_bottom = 134.0
 custom_fonts/font = ExtResource( 2 )
 text = "Grafika"
 align = 1
 valign = 1
 
 [node name="Fullscreen" type="CheckButton" parent="Options/Graphics"]
-margin_top = 158.0
+margin_top = 138.0
 margin_right = 351.0
-margin_bottom = 198.0
+margin_bottom = 178.0
 custom_fonts/font = ExtResource( 2 )
 text = "Tryb pełnoekranowy"
 
 [node name="VSync" type="CheckButton" parent="Options/Graphics"]
-margin_top = 202.0
+margin_top = 182.0
 margin_right = 351.0
-margin_bottom = 242.0
+margin_bottom = 222.0
 custom_fonts/font = ExtResource( 2 )
 text = "VSync"
 
 [node name="Other" type="Label" parent="Options/Graphics"]
-margin_top = 246.0
+margin_top = 226.0
 margin_right = 351.0
-margin_bottom = 260.0
+margin_bottom = 245.0
+custom_fonts/font = ExtResource( 2 )
 text = "Inne"
 
 [node name="ClearDownloadedAssets" type="Button" parent="Options/Graphics"]
-margin_top = 264.0
+margin_top = 249.0
 margin_right = 351.0
-margin_bottom = 284.0
+margin_bottom = 274.0
+custom_fonts/font = ExtResource( 2 )
 text = "Pobierz zasoby gry ponownie"
 
 [node name="Audio" type="VBoxContainer" parent="Options"]

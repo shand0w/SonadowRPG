@@ -386,7 +386,7 @@ position = Vector2( -785.718, 528.318 )
 house_name = "house1"
 house_interior = ExtResource( 8 )
 
-[node name="house1_start_position" type="Position2D" parent="."]
+[node name="house1_position" type="Position2D" parent="."]
 position = Vector2( -785.718, 629.808 )
 
 [node name="house2" parent="." instance=ExtResource( 11 )]
@@ -394,7 +394,7 @@ position = Vector2( 1478.43, 474.578 )
 house_name = "house2"
 house_interior = ExtResource( 8 )
 
-[node name="house2_start_position" type="Position2D" parent="."]
+[node name="house2_position" type="Position2D" parent="."]
 position = Vector2( 1477.02, 578.897 )
 
 [node name="house3" parent="." instance=ExtResource( 11 )]
@@ -402,7 +402,7 @@ position = Vector2( 1645.32, 473.164 )
 house_name = "house3"
 house_interior = ExtResource( 8 )
 
-[node name="house3_start_position" type="Position2D" parent="."]
+[node name="house3_position" type="Position2D" parent="."]
 position = Vector2( 1652.39, 584.554 )
 
 [node name="house4" parent="." instance=ExtResource( 11 )]
@@ -410,7 +410,7 @@ position = Vector2( 1648.14, 871.971 )
 house_name = "house4"
 house_interior = ExtResource( 8 )
 
-[node name="house4_start_position" type="Position2D" parent="."]
+[node name="house4_position" type="Position2D" parent="."]
 position = Vector2( 1658.04, 986.19 )
 
 [node name="house5" parent="." instance=ExtResource( 11 )]
@@ -418,7 +418,7 @@ position = Vector2( 1477.03, 870.557 )
 house_name = "house5"
 house_interior = ExtResource( 8 )
 
-[node name="house5_start_position" type="Position2D" parent="."]
+[node name="house5_position" type="Position2D" parent="."]
 position = Vector2( 1482.68, 980.533 )
 
 [node name="house6" parent="." instance=ExtResource( 11 )]
@@ -426,7 +426,7 @@ position = Vector2( 1172.97, 649.94 )
 house_name = "house6"
 house_interior = ExtResource( 8 )
 
-[node name="house6_start_position" type="Position2D" parent="."]
+[node name="house6_position" type="Position2D" parent="."]
 position = Vector2( 1177.21, 742.946 )
 
 [node name="house7" parent="." instance=ExtResource( 11 )]
@@ -434,7 +434,7 @@ position = Vector2( 1170.14, 1045.92 )
 house_name = "house7"
 house_interior = ExtResource( 8 )
 
-[node name="house7_start_position" type="Position2D" parent="."]
+[node name="house7_position" type="Position2D" parent="."]
 position = Vector2( 1182.87, 1138.93 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -451,8 +451,8 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/end_transition = SubResource( 1 )
 
-[node name="start_positon" type="Position2D" parent="."]
-position = Vector2( -783.821, 943.933 )
+[node name="start_position" type="Position2D" parent="."]
+position = Vector2( -863.017, 926.963 )
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = ExtResource( 2 )

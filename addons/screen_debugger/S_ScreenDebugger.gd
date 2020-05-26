@@ -6,10 +6,18 @@ func _ready():
 	raise()
 	var inst = _scn.instance()
 	get_tree().root.call_deferred("add_child",inst)
-	label = inst.get_node("Panel/Label")
+	label = inst.get_node("Control/Panel/Label")
 
 func _process(delta):
 	label.text = str(
+		'\n\nGame info',
+		'\nCreator: Sonadow DEV',
+		'\nName: Sonadow RPG',
+		'\nEngine version: ' +str(Engine.get_version_info()),
+		'\n\nEngine variables',
+		'\ntarget FPS: ' + str(Engine.target_fps),
+		'\nFPS: ' + str(Engine.get_frames_per_second()),
+		'\n\nGlobals.gd variables',
 		'\nselected_character: '+ str(Globals.selected_character),
 		'\ncharacter_path: '+ str(Globals.character_path),
 		'\ncharacter_position: '+ str(Globals.character_position),

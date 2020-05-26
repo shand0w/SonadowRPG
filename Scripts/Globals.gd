@@ -1,6 +1,6 @@
 extends Node
-var debugMode = false
-var coming_from_house:String
+var debugMode = true
+var coming_from_house = ''
 var object_transparency = 0.65
 var selected_character
 var character_path

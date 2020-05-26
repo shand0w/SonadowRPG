@@ -226,6 +226,7 @@ anims/down = SubResource( 2 )
 anims/left = SubResource( 3 )
 anims/right = SubResource( 4 )
 anims/up = SubResource( 5 )
+[connection signal="tree_entered" from="." to="." method="_on_Sonic_tree_entered"]
 [connection signal="confirmed" from="CanvasLayer/HouseDialog" to="." method="_on_HouseDialog_confirmed"]
 [connection signal="popup_hide" from="CanvasLayer/HouseDialog" to="." method="_on_HouseDialog_popup_hide"]
 [connection signal="confirmed" from="CanvasLayer/HouseDialog2" to="." method="_on_HouseDialog2_confirmed"]

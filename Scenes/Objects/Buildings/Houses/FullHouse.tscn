@@ -6,33 +6,8 @@
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -4.49959, -278, -79.4998, -200.5, -79.9998, -92.4995, -79.9998, 22.9735, 80.0006, 22.9735, 79.5006, -201.275, 51.0005, -229.775, 3.50044, -278.275 )
 
-[node name="FullHouse" type="Area2D"]
+[node name="FullHouse" type="Sprite"]
 script = ExtResource( 2 )
-
-[node name="House" type="Sprite" parent="."]
-position = Vector2( 0, -128 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 0, 430, 160, 310 )
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource( 1 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PoolVector2Array( -77, 23, 85, 23, 83, -201, 1, -283, -77, -201 )
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2( 0, 73.5 )
-rotation = -3.14159
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-position = Vector2( 0, 47 )
-rotation = -3.14159
-polygon = PoolVector2Array( -46.1991, 6.50913, 49.3009, 7.00865, 48.8011, 0.508787, -45.6989, -0.990965 )
-one_way_collision = true
-
-[node name="start_position" type="Position2D" parent="."]
-position = Vector2( 0, 73.5 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 margin_left = -80.0
@@ -42,7 +17,39 @@ margin_bottom = 106.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="body_entered" from="." to="." method="_on_FullHouse_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_FullHouse_body_exited"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+
+[node name="start_position" type="Position2D" parent="."]
+position = Vector2( 0, 73.5 )
+
+[node name="House" type="Sprite" parent="."]
+position = Vector2( 0, -128 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 430, 160, 310 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="House"]
+position = Vector2( 0, 128 )
+occluder = SubResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="House"]
+position = Vector2( 0, 201.5 )
+rotation = -3.14159
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/Area2D"]
+position = Vector2( 0, 47 )
+rotation = -3.14159
+polygon = PoolVector2Array( -46.1991, 6.50913, 49.3009, 7.00865, 48.8011, 0.508787, -45.6989, -0.990965 )
+one_way_collision = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="House"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/StaticBody2D"]
+polygon = PoolVector2Array( 0, -72, -80, -72, -80, 152, 80, 152, 80, -72 )
+
+[node name="Area2D2" type="Area2D" parent="House"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="House/Area2D2"]
+polygon = PoolVector2Array( 0, -152, -80, -72, 80, -72 )
+[connection signal="body_entered" from="House/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="House/Area2D2" to="." method="_on_Area2D2_body_entered"]
+[connection signal="body_exited" from="House/Area2D2" to="." method="_on_Area2D2_body_exited"]

@@ -9,11 +9,6 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Node",
-"class": "EasyLANNetworkManager",
-"language": "GDScript",
-"path": "res://addons/EasyLAN/EasyLANNetworkManager.gd"
-}, {
 "base": "",
 "class": "FLMusicLib",
 "language": "NativeScript",
@@ -100,7 +95,6 @@ _global_script_classes=[ {
 "path": "res://addons/com.heroiclabs.nakama/api/NakamaWriteStorageObject.gd"
 } ]
 _global_script_class_icons={
-"EasyLANNetworkManager": "",
 "FLMusicLib": "",
 "GitAPI": "",
 "GodotHub": "",
@@ -129,20 +123,30 @@ boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://Graphics/icon.png"
+config/windows_native_icon="res://Graphics/icon.ico"
 
 [autoload]
 
-ScreenDebugger="*res://addons/screen_debugger/S_ScreenDebugger.gd"
+Screen="*res://addons/screen_debugger/screen.scn"
 Globals="*res://Scripts/Globals.gd"
-SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
-AdvancedBackgroundLoader="*res://addons/Advanced Background Loader/background_load.gd"
 Modloader="*res://Scripts/modloader.gd"
 BackgroundLoad="*res://Scenes/background_load.tscn"
 Console="*res://addons/godot-console-dev/src/Console.tscn"
+ScreenDebugger="*res://addons/screen_debugger/S_ScreenDebugger.gd"
+Api="*res://Scenes/ServerAPI/API.tscn"
+
+[display]
+
+window/dpi/allow_hidpi=true
+window/vsync/vsync_via_compositor=true
+
+[editor]
+
+convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "Advanced Background Loader", "EasyLAN", "godot-console-dev", "godot-kra-psd-importer", "graphics_editor", "screen_debugger", "silent_wolf" )
+enabled=PoolStringArray( "godot-console-dev", "godot-kra-psd-importer", "screen_debugger" )
 
 [gdnative]
 
@@ -183,3 +187,5 @@ console_toggle={
 [rendering]
 
 quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+environment/default_clear_color=Color( 0, 0, 0, 1 )

@@ -31,6 +31,18 @@ func _init():
 		.addArgument('value', TYPE_STRING)\
 		.register()
 
+	Console.addCommand('setEngineVariable', self)\
+		.setDescription('Sets given Operating System variable to given value')\
+		.addArgument('variable', TYPE_STRING)\
+		.addArgument('value', TYPE_STRING)\
+		.register()
+
+	Console.addCommand('setOSVariable', self)\
+		.setDescription('Sets given Engine script to given value')\
+		.addArgument('variable', TYPE_STRING)\
+		.addArgument('value', TYPE_STRING)\
+		.register()
+
 	Console.addCommand('changeScene', self)\
 		.setDescription('Changes scene to provided')\
 		.addArgument('path', TYPE_STRING)\
@@ -81,3 +93,9 @@ static func changeScene(path:String):
 
 static func setGlobalVariable(variable, value):
 	Globals.set_variable(variable, value)
+
+static func setEngineVariable(variable, value):
+	Engine.set(variable, value)
+
+static func setOSVariable(variable, value):
+	OS.set(variable, value)

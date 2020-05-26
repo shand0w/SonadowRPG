@@ -76,3 +76,7 @@ func show_exit_house_dialog():
 
 func save_last_world_position():
 	Globals.last_world_position = position
+
+
+func _on_Shadow_tree_entered():
+	$AnimationPlayer.stop()

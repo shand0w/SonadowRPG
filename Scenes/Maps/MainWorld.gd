@@ -9,8 +9,8 @@ var character = Globals.selected_character
 func _ready():
 	root.add_child(character)
 	character.set_owner(root)
-	if Globals.coming_from_house == '':
-		character.set_position($start_positon.position)
+	if Globals.coming_from_house == '' or Globals.coming_from_house == null:
+		character.set_position($start_position.position)
 	else:
 		var house_name = str(Globals.coming_from_house)
 		var new_pos = get_node(str(house_name) + "_start_position").position

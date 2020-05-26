@@ -4,11 +4,6 @@ extends Reference
 const Argument = preload('../Argument/Argument.gd')
 const TypeFactory = preload('../Type/TypeFactory.gd')
 const BaseType = preload('../Type/BaseType.gd')
-
-
-# @param  string        name
-# @param  int|BaseType  type
-# @param  string|null   description
 static func create(name, type = 0, description = null):  # Argument|int
 	# Define argument type
 	if !(typeof(type) == TYPE_OBJECT and type is BaseType):

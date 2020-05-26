@@ -59,6 +59,7 @@ size_flags_vertical = 3
 [node name="MarginContainer" type="MarginContainer" parent="VSplitContainer/MainVBoxContainer/Panel"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = -857.0
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
@@ -70,22 +71,22 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer"]
 margin_left = 5.0
 margin_top = 5.0
-margin_right = 1019.0
+margin_right = 162.0
 margin_bottom = 395.0
 scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer"]
-margin_right = 1014.0
-margin_bottom = 108.0
+margin_right = 157.0
+margin_bottom = 144.0
 size_flags_horizontal = 3
 
-[node name="GridContainer" type="GridContainer" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
-margin_right = 1014.0
-margin_bottom = 108.0
+[node name="GridContainer" type="VBoxContainer" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+margin_right = 157.0
+margin_bottom = 144.0
 size_flags_horizontal = 3
-columns = 2
 
 [node name="PsdFileLabel" type="Label" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
+visible = false
 margin_right = 82.0
 margin_bottom = 24.0
 size_flags_horizontal = 0
@@ -94,50 +95,49 @@ text = "KRA/PSD File"
 valign = 1
 
 [node name="RawFileContainer" type="HBoxContainer" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
-margin_left = 143.0
-margin_right = 1014.0
+margin_right = 157.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 
 [node name="RawFileLineEdit" type="LineEdit" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/RawFileContainer"]
-margin_right = 839.0
+margin_right = 125.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 text = "res://addons/godot-kra-psd-importer/examples/PSDExample.psd"
 editable = false
 
 [node name="RawFileDialogButton" type="Button" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/RawFileContainer"]
-margin_left = 843.0
-margin_right = 871.0
+margin_left = 129.0
+margin_right = 157.0
 margin_bottom = 24.0
 icon = SubResource( 2 )
 
 [node name="TargetFolderLabel" type="Label" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
-margin_top = 28.0
-margin_right = 83.0
-margin_bottom = 52.0
+visible = false
+margin_left = 875.0
+margin_right = 958.0
+margin_bottom = 24.0
 size_flags_horizontal = 0
 size_flags_vertical = 1
 text = "Target Folder"
 valign = 1
 
 [node name="TargetFolderContainer" type="HBoxContainer" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
-margin_left = 143.0
 margin_top = 28.0
-margin_right = 1014.0
+margin_right = 157.0
 margin_bottom = 52.0
 size_flags_horizontal = 3
 
 [node name="TargetFolderLineEdit" type="LineEdit" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/TargetFolderContainer"]
-margin_right = 839.0
+margin_right = 125.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 text = "res://"
 editable = false
 
 [node name="TargetFolderDialogButton" type="Button" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer/TargetFolderContainer"]
-margin_left = 843.0
-margin_right = 871.0
+margin_left = 129.0
+margin_right = 157.0
 margin_bottom = 24.0
 icon = SubResource( 2 )
 
@@ -167,17 +167,17 @@ __meta__ = {
 [node name="CropLabel" type="Label" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
 margin_top = 56.0
 margin_right = 139.0
-margin_bottom = 80.0
+margin_bottom = 70.0
 size_flags_horizontal = 0
 size_flags_vertical = 1
 text = "Crop Layers to Canvas"
 valign = 1
 
 [node name="CropCheckBox" type="CheckBox" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
-margin_left = 566.0
-margin_top = 56.0
-margin_right = 590.0
-margin_bottom = 80.0
+margin_left = 66.0
+margin_top = 74.0
+margin_right = 90.0
+margin_bottom = 98.0
 size_flags_horizontal = 4
 pressed = true
 align = 1
@@ -186,9 +186,9 @@ __meta__ = {
 }
 
 [node name="MirrorUniverseLabel" type="Label" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
-margin_top = 84.0
+margin_top = 102.0
 margin_right = 100.0
-margin_bottom = 108.0
+margin_bottom = 116.0
 size_flags_horizontal = 0
 size_flags_vertical = 1
 text = "Mirror Universe"
@@ -196,10 +196,10 @@ align = 1
 valign = 1
 
 [node name="MirrorUniverseCheckBox" type="CheckBox" parent="VSplitContainer/MainVBoxContainer/Panel/MarginContainer/ScrollContainer/VBoxContainer/GridContainer"]
-margin_left = 566.0
-margin_top = 84.0
-margin_right = 590.0
-margin_bottom = 108.0
+margin_left = 66.0
+margin_top = 120.0
+margin_right = 90.0
+margin_bottom = 144.0
 size_flags_horizontal = 4
 pressed = true
 align = 1
@@ -259,7 +259,7 @@ valign = 1
 [node name="BuildVBoxContainer" type="VBoxContainer" parent="VSplitContainer"]
 margin_top = 448.0
 margin_right = 1024.0
-margin_bottom = 1024.0
+margin_bottom = 600.0
 __meta__ = {
 "__editor_plugin_screen__": "2D"
 }

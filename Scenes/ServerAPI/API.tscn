@@ -2,14 +2,8 @@
 
 [ext_resource path="res://Scripts/ServerAPI/API.gd" type="Script" id=1]
 
-[node name="API" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="API" type="HTTPRequest"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="HTTPRequest" type="HTTPRequest" parent="."]
+[node name="downloader" type="HTTPRequest" parent="."]
 use_threads = true
-[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
