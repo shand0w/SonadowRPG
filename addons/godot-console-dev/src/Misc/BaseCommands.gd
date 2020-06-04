@@ -21,6 +21,16 @@ func _init():
 		.addArgument('command', TYPE_STRING)\
 		.register()
 
+	Console.addCommand('dump_mem', OS, 'dump_memory_to_file')\
+		.setDescription('Dumps memory to file')\
+		.addArgument('file', TYPE_STRING)\
+		.register()
+
+	Console.addCommand('dump_res', OS, 'dump_resources_to_file')\
+		.setDescription('Dumpsresources to file')\
+		.addArgument('file', TYPE_STRING)\
+		.register()
+
 	Console.addCommand('quit', self)\
 		.setDescription('Exit application.')\
 		.register()

@@ -3,10 +3,11 @@ extends Node
 var _scn:PackedScene = preload("res://addons/screen_debugger/screen.scn")
 var label:Label
 func _ready():
-	raise()
 	var inst = _scn.instance()
 	get_tree().root.call_deferred("add_child",inst)
 	label = inst.get_node("Control/Panel/Label")
+	raise()
+	
 
 func _process(delta):
 	label.text = str(

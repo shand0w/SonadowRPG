@@ -1,5 +1,13 @@
 extends Node2D
-
+var start_position_nodes = {
+	'house1': 'house1_position',
+	'house2': 'house2_position',
+	'house3': 'house3_position',
+	'house4': 'house4_position',
+	'house5': 'house5_position',
+	'house6': 'house6_position',
+	'house7': 'house7_position',
+}
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,17 +19,19 @@ func _ready():
 	character.set_owner(root)
 	if Globals.coming_from_house == '' or Globals.coming_from_house == null:
 		character.set_position($start_position.position)
+		$AnimationPlayer.play("end_transition")
 	else:
+		$CanvasLayer/Control.hide()
 		var house_name = str(Globals.coming_from_house)
-		var new_pos = get_node(str(house_name) + "_start_position").position
-		character.set_position(new_pos)
+		var position_node = start_position_nodes.get(str(house_name))
+		character.set_position(get_node(position_node).position)
 #	else:
 #		print(str(Globals.last_world_position))
 #		character.set_position(Globals.last_world_position)
-	$AnimationPlayer.play("end_transition")
 
 
 
 func _on_Node2D_tree_exiting():
 	character.save_last_world_position()
 	root.remove_child(character)
+	character = null

@@ -133,7 +133,7 @@ Modloader="*res://Scripts/modloader.gd"
 BackgroundLoad="*res://Scenes/background_load.tscn"
 Console="*res://addons/godot-console-dev/src/Console.tscn"
 ScreenDebugger="*res://addons/screen_debugger/S_ScreenDebugger.gd"
-Api="*res://Scenes/ServerAPI/API.tscn"
+API="*res://Scenes/ServerAPI/API.tscn"
 
 [display]
 

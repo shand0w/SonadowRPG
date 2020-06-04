@@ -1,5 +1,6 @@
 extends Node
-var debugMode = true
+signal debugModeSet
+var debugMode = false
 var coming_from_house = ''
 var object_transparency = 0.65
 var selected_character
@@ -11,6 +12,9 @@ var cfile = ConfigFile.new()
 var file =  File.new()
 var mod_path = str(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)) + '/Sonadow RPG/Mods/mod.pck'
 func _ready():
+#	if str(OS.get_name()) == 'Android':
+#		debugMode = false
+#	emit_signal("debugModeSet", debugMode)
 	if file.file_exists(mod_path):
 		Modloader.load_mod(mod_path)
 func save_game():

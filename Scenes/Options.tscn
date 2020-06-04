@@ -4,6 +4,7 @@
 [ext_resource path="res://Fonts/Ubuntu-L.tres" type="DynamicFont" id=2]
 
 [node name="Control" type="WindowDialog"]
+visible = true
 anchor_left = -0.00585938
 anchor_top = 0.243333
 anchor_right = 0.71875
@@ -35,39 +36,39 @@ size_flags_horizontal = 3
 alignment = 1
 
 [node name="Graphics" type="Label" parent="Options/Graphics"]
-margin_top = 115.0
+margin_top = 130.0
 margin_right = 351.0
-margin_bottom = 134.0
+margin_bottom = 149.0
 custom_fonts/font = ExtResource( 2 )
 text = "Grafika"
 align = 1
 valign = 1
 
 [node name="Fullscreen" type="CheckButton" parent="Options/Graphics"]
-margin_top = 138.0
+margin_top = 153.0
 margin_right = 351.0
-margin_bottom = 178.0
+margin_bottom = 193.0
 custom_fonts/font = ExtResource( 2 )
 text = "Tryb pełnoekranowy"
 
 [node name="VSync" type="CheckButton" parent="Options/Graphics"]
-margin_top = 182.0
+margin_top = 197.0
 margin_right = 351.0
-margin_bottom = 222.0
+margin_bottom = 237.0
 custom_fonts/font = ExtResource( 2 )
 text = "VSync"
 
 [node name="Other" type="Label" parent="Options/Graphics"]
-margin_top = 226.0
+margin_top = 241.0
 margin_right = 351.0
-margin_bottom = 245.0
+margin_bottom = 260.0
 custom_fonts/font = ExtResource( 2 )
 text = "Inne"
 
 [node name="ClearDownloadedAssets" type="Button" parent="Options/Graphics"]
-margin_top = 249.0
+margin_top = 264.0
 margin_right = 351.0
-margin_bottom = 274.0
+margin_bottom = 289.0
 custom_fonts/font = ExtResource( 2 )
 text = "Pobierz zasoby gry ponownie"
 

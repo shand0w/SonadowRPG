@@ -92,5 +92,8 @@ func _on_ClearDownloadedAssets_pressed():
 	dir.remove('user://assets.pck')
 	var app_path = OS.get_executable_path()
 	get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
-	OS.execute(str(app_path), [])
+	if str(OS.get_name()) == "Android":
+		OS.execute('org.sonadowdev.rpg.godot', [])
+	else:
+		OS.execute(str(app_path), [])
 	get_tree().quit()
