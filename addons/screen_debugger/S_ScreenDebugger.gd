@@ -1,7 +1,7 @@
 extends Node
 
 var _scn:PackedScene = preload("res://addons/screen_debugger/screen.scn")
-var label:Label
+var label
 func _ready():
 	var inst = _scn.instance()
 	get_tree().root.call_deferred("add_child",inst)
@@ -26,5 +26,7 @@ func _process(delta):
 		'\nlast_position_on_world: '+ str(Globals.last_world_position),
 		'\nmod_path: '+ str(Globals.mod_path),
 		'\nnext_world: '+ str(Globals.next_world),
-		'\ndebugMode: '+ str(Globals.debugMode)
+		'\ndebugMode: '+ str(Globals.debugMode),
+		'\nwindow_x_resolution: '+ str(Globals.window_x_resolution),
+		'\nwindow_y_resolution: '+ str(Globals.window_y_resolution)
 	)

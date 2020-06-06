@@ -3,19 +3,30 @@ var dir = Directory.new()
 var save_file = ConfigFile.new()
 var file = File.new()
 func _ready():
-	load_settings()
+	$"tabs/Ogólne/Options/Graphics/fps/target".value = Engine.target_fps
 	set_process(false)
+	load_settings()
+	if str(OS.get_name()) == 'Android':
+		$tabs/Sterowanie.hide()
+		$"tabs/Ogólne/Options/Graphics/custom_resolution".hide()
+	else:
+		$tabs/Sterowanie.show()
+		$"tabs/Ogólne/Options/Graphics/custom_resolution".show()
 func _process(_delta):
+	save_file.load('user://settings.cfg')
 	save_file.set_value('Game', 'engine_version', str(Engine.get_version_info()))
-	save_file.set_value('Audio', 'master_bus_volume', str($Options/Audio/Master/Master_slider.value))
-	save_file.set_value('Audio', 'master_bus_enabled', str($Options/Audio/Master/Master_on.pressed))
-	save_file.set_value('Audio', 'music_bus_volume', str($Options/Audio/Music/Music_slider.value))
-	save_file.set_value('Audio', 'music_bus_enabled', str($Options/Audio/Music/Music_on.pressed))
-	save_file.set_value('Audio', 'sfx_bus_volume', str($Options/Audio/SFX/SFX_slider.value))
-	save_file.set_value('Audio', 'sfx_bus_enabled', str($Options/Audio/SFX/SFX_on.pressed))
-	save_file.set_value('Graphics', 'fullscreen', str($Options/Graphics/Fullscreen.pressed))
-	save_file.set_value('Graphics', 'vsync_enabled', str($Options/Graphics/VSync.pressed))
-	save_file.set_value('Graphics', 'vsync_via_compositor', str($Options/Graphics/VSync.pressed))
+	save_file.set_value('Game', 'target_fps', str(Engine.target_fps))
+	save_file.set_value('Audio', 'master_bus_volume', str($"tabs/Ogólne/Options/Audio/Master/Master_slider".value))
+	save_file.set_value('Audio', 'master_bus_enabled', str($"tabs/Ogólne/Options/Audio/Master/Master_on".pressed))
+	save_file.set_value('Audio', 'music_bus_volume', str($"tabs/Ogólne/Options/Audio/Music/Music_slider".value))
+	save_file.set_value('Audio', 'music_bus_enabled', str($"tabs/Ogólne/Options/Audio/Music/Music_on".pressed))
+	save_file.set_value('Audio', 'sfx_bus_volume', str($"tabs/Ogólne/Options/Audio/SFX/SFX_slider".value))
+	save_file.set_value('Audio', 'sfx_bus_enabled', str($"tabs/Ogólne/Options/Audio/SFX/SFX_on".pressed))
+#	save_file.set_value('Graphics', 'fullscreen', str($"tabs/Ogólne/Options/Graphics/Fullscreen".pressed))
+	save_file.set_value('Graphics', 'vsync_enabled', str($"tabs/Ogólne/Options/Graphics/VSync".pressed))
+	save_file.set_value('Graphics', 'vsync_via_compositor', str($"tabs/Ogólne/Options/Graphics/VSync".pressed))
+	save_file.set_value('Graphics', 'window_x_resolution', str($"tabs/Ogólne/Options/Graphics/custom_resolution/x".value))
+	save_file.set_value('Graphics', 'window_y_resolution', str($"tabs/Ogólne/Options/Graphics/custom_resolution/y".value))
 	save_file.save('user://settings.cfg')
 	hide()
 	set_process(false)
@@ -23,21 +34,30 @@ func load_settings():
 	if file.file_exists('user://settings.cfg'):
 		save_file.load('user://settings.cfg')
 		if save_file.has_section_key('Audio', 'master_bus_volume'):
-			$Options/Audio/Master/Master_slider.set_value(float(save_file.get_value('Audio', 'master_bus_volume', 0)))
+			$"tabs/Ogólne/Options/Audio/Master/Master_slider".set_value(float(save_file.get_value('Audio', 'master_bus_volume', 0)))
 		if save_file.has_section_key('Audio', 'master_bus_enabled'):
-			$Options/Audio/Master/Master_on.set_pressed(bool(str(save_file.get_value('Audio', 'master_bus_enabled', false))))
+			$"tabs/Ogólne/Options/Audio/Master/Master_on".set_pressed(bool(str(save_file.get_value('Audio', 'master_bus_enabled', false))))
 		if save_file.has_section_key('Audio', 'music_bus_volume'):
-			$Options/Audio/Music/Music_slider.set_value(float(save_file.get_value('Audio', 'music_bus_volume', 0)))
+			$"tabs/Ogólne/Options/Audio/Music/Music_slider".set_value(float(save_file.get_value('Audio', 'music_bus_volume', 0)))
 		if save_file.has_section_key('Audio', 'music_bus_enabled'):
-			$Options/Audio/Music/Music_on.set_pressed(bool(str(save_file.get_value('Audio', 'music_bus_enabled', false))))
+			$"tabs/Ogólne/Options/Audio/Music/Music_on".set_pressed(bool(str(save_file.get_value('Audio', 'music_bus_enabled', false))))
 		if save_file.has_section_key('Audio', 'sfx_bus_volume'):
-			$Options/Audio/SFX/SFX_slider.set_value(float(save_file.get_value('Audio', 'sfx_bus_volume', 0)))
+			$"tabs/Ogólne/Options/Audio/SFX/SFX_slider".set_value(float(save_file.get_value('Audio', 'sfx_bus_volume', 0)))
 		if save_file.has_section_key('Audio', 'sfx_bus_enabled'):
-			$Options/Audio/SFX/SFX_on.set_pressed(bool(str(save_file.get_value('Audio', 'sfx_bus_enabled', false))))
-#		OS.window_fullscreen = bool(str(save_file.get_value('Graphics', 'fullscreen')))
-#		$Options/Graphics/Fullscreen.pressed = bool(str(save_file.get_value('Graphics', 'fullscreen', false)))
+			$"tabs/Ogólne/Options/Audio/SFX/SFX_on".set_pressed(bool(str(save_file.get_value('Audio', 'sfx_bus_enabled', false))))
+#		if save_file.has_section_key('Graphics', 'fullscreen'):
+#			$"tabs/Ogólne/Options/Graphics/Fullscreen".pressed = bool(str(save_file.get_value('Graphics', 'fullscreen', false)))
 		if save_file.has_section_key('Graphics', 'vsync_enabled'):
-			$Options/Graphics/VSync.pressed = bool(str(save_file.get_value('Graphics', 'vsync_enabled', true)))
+			$"tabs/Ogólne/Options/Graphics/VSync".pressed = bool(str(save_file.get_value('Graphics', 'vsync_enabled', true)))
+		if save_file.has_section_key('Graphics', 'window_x_resolution'):
+			$"tabs/Ogólne/Options/Graphics/custom_resolution/x".value = float(str(save_file.get_value('Graphics', 'window_x_resolution', 1024)))
+		if save_file.has_section_key('Graphics', 'window_y_resolution'):
+			$"tabs/Ogólne/Options/Graphics/custom_resolution/y".value = float(str(save_file.get_value('Graphics', 'window_y_resolution', 600)))
+		if save_file.has_section_key('Game', 'target_fps'):
+			$"tabs/Ogólne/Options/Graphics/fps/target".value = float(str(save_file.get_value('Game', 'target_fps', 60)))
+		if not str(OS.get_name()) == 'Android':
+			Globals.apply_custom_resolution()
+		$"tabs/Ogólne/Options/Graphics/custom_resolution/SpinBox".set_text(str($"tabs/Ogólne/Options/Graphics/custom_resolution/x".value) + 'x' + str($"tabs/Ogólne/Options/Graphics/custom_resolution/y".value))
 		if save_file.has_section_key('Game', 'debug_mode'):
 			Globals.debugMode = bool(str(save_file.get_value('Graphics', 'debug_mode', false)))
 		else:
@@ -74,11 +94,12 @@ func _on_SFX_on_toggled(button_pressed):
 	$Options/Audio/SFX/SFX_slider.editable = button_pressed
 
 
-func _on_CheckButton_toggled(button_pressed):
+func _on_Fullscreen_toggled(button_pressed):
 	OS.window_fullscreen = button_pressed
 
 
 func _on_SAVE_pressed():
+	Globals.apply_custom_resolution()
 	set_process(true)
 
 
@@ -93,7 +114,72 @@ func _on_ClearDownloadedAssets_pressed():
 	var app_path = OS.get_executable_path()
 	get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
 	if str(OS.get_name()) == "Android":
-		OS.execute('org.sonadowdev.rpg.godot', [])
+		OS.execute('am start -n org.sonadowdev.rpg.godot', [])
 	else:
 		OS.execute(str(app_path), [])
 	get_tree().quit()
+
+
+func _on_x_value_changed(value):
+	Globals.window_x_resolution = value
+	$Options/Graphics/custom_resolution/SpinBox.set_text(str(Globals.window_x_resolution) + 'x' + str(Globals.window_y_resolution))
+
+
+func _on_y_value_changed(value):
+	Globals.window_y_resolution = value
+	$Options/Graphics/custom_resolution/SpinBox.set_text(str(Globals.window_x_resolution) + 'x' + str(Globals.window_y_resolution))
+
+func _on_SpinBox_item_selected(id):
+	if id == 0:
+		$Options/Graphics/custom_resolution/x.value = 640
+		$Options/Graphics/custom_resolution/y.value = 480
+	elif id == 1:
+		$Options/Graphics/custom_resolution/x.value = 800
+		$Options/Graphics/custom_resolution/y.value = 480
+	elif id == 2:
+		$Options/Graphics/custom_resolution/x.value = 800
+		$Options/Graphics/custom_resolution/y.value = 600
+	elif id == 3:
+		$Options/Graphics/custom_resolution/x.value = 1024
+		$Options/Graphics/custom_resolution/y.value = 600
+	elif id == 4:
+		$Options/Graphics/custom_resolution/x.value = 1280
+		$Options/Graphics/custom_resolution/y.value = 720
+	elif id == 5:
+		$Options/Graphics/custom_resolution/x.value = 1280
+		$Options/Graphics/custom_resolution/y.value = 800
+	elif id == 6:
+		$Options/Graphics/custom_resolution/x.value = 1366
+		$Options/Graphics/custom_resolution/y.value = 768
+	elif id == 7:
+		$Options/Graphics/custom_resolution/x.value = 1440
+		$Options/Graphics/custom_resolution/y.value = 900
+	elif id == 8:
+		$Options/Graphics/custom_resolution/x.value = 1920
+		$Options/Graphics/custom_resolution/y.value = 1080
+	elif id == 9:
+		$Options/Graphics/custom_resolution/x.value = 2048
+		$Options/Graphics/custom_resolution/y.value = 1152
+	elif id == 10:
+		$Options/Graphics/custom_resolution/x.value = 2048
+		$Options/Graphics/custom_resolution/y.value = 1024
+	elif id == 11:
+		$Options/Graphics/custom_resolution/x.value = 2560
+		$Options/Graphics/custom_resolution/y.value = 1600
+	elif id == 12:
+		$Options/Graphics/custom_resolution/x.value = 2560
+		$Options/Graphics/custom_resolution/y.value = 2048
+	elif id == 13:
+		$Options/Graphics/custom_resolution/x.value = 3072
+		$Options/Graphics/custom_resolution/y.value = 1728
+	elif id == 14:
+		$Options/Graphics/custom_resolution/x.value = 4096
+		$Options/Graphics/custom_resolution/y.value = 2304
+	elif id == 15:
+		$Options/Graphics/custom_resolution/x.value = 8192
+		$Options/Graphics/custom_resolution/y.value = 4608
+	
+
+
+func _on_maxfps_value_changed(value):
+	Engine.target_fps = value
