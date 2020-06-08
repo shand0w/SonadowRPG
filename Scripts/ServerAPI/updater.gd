@@ -7,7 +7,7 @@ var dir = Directory.new()
 var file = File.new()
 onready var downloader = $RequiredAssets
 func _ready():
-	var auth = API.ServerAuth.new()
+#	var auth = API.ServerAuth.new()
 #	auth.login_player('dd', 'dd', 'dd')
 #	print(str(API.Server.new().get_server_ip_adress()))
 	permissions = OS.request_permissions()
@@ -33,8 +33,8 @@ func on_assets_downloaded(result, _response_code, _headers, _body):
 #		else:
 #			error_loading_assets()
 	else:
-		OS.alert('Error downloading assets!\n\nGame will launch on currently downloaded version')
-		error_download_load = ProjectSettings.load_resource_pack('user://assets.pck')
+		OS.alert('Error downloading assets!\n\nGame will launch on currently downloaded version if there is one installed!')
+		error_download_load = ProjectSettings.load_resource_pack('user://assets_backup.pck')
 		if error_download_load == false:
 			error_loading_assets()
 		else:

@@ -120,13 +120,10 @@ func _on_VSync_toggled(button_pressed):
 
 func _on_ClearDownloadedAssets_pressed():
 	dir.open('user://')
-	dir.remove('user://assets.pck')
+	dir.rename('user://assets.pck', 'user://assets_backup.pck')
 	var app_path = OS.get_executable_path()
 	get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
-	if str(OS.get_name()) == "Android":
-		OS.execute('am start -n org.sonadowdev.rpg.godot', [])
-	else:
-		OS.execute(str(app_path), [])
+	OS.execute(str(app_path), [])
 	get_tree().quit()
 
 
@@ -203,6 +200,7 @@ func _on_gcbutton_item_selected(id):
 
 
 func _on_lang_item_selected(id):
+#	var theme = preload("res://themes/rpgm_like/rpgm_like.tres")
 	if id == 0:
 		TranslationServer.set_locale("en")
 	if id == 1:
@@ -218,5 +216,6 @@ func _on_lang_item_selected(id):
 	if id == 6:
 		TranslationServer.set_locale("ru")
 	if id == 7:
+#		theme.default_font = preload("res://Fonts/msyhl.tres")
 		TranslationServer.set_locale("zh")
 	
