@@ -6,7 +6,7 @@
 [ext_resource path="res://Audio/BGM/pause_menu.ogg" type="AudioStream" id=4]
 [ext_resource path="res://themes/rpgm_like/rpgm_like.tres" type="Theme" id=5]
 
-[node name="PauseMenu" type="Panel"]
+[node name="PauseMenu" type="WindowDialog"]
 pause_mode = 2
 anchor_left = 0.5
 anchor_top = 0.5
@@ -17,6 +17,8 @@ margin_top = -206.5
 margin_right = 138.5
 margin_bottom = 206.5
 theme = ExtResource( 5 )
+custom_fonts/title_font = ExtResource( 1 )
+window_title = "KEY_PAUSE_MENU"
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -30,48 +32,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="Buttons"]
-margin_right = 277.0
-margin_bottom = 27.0
-custom_fonts/font = ExtResource( 1 )
-text = "Pause Menu"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Resume" type="Button" parent="Buttons"]
 pause_mode = 2
-margin_top = 31.0
 margin_right = 277.0
-margin_bottom = 155.0
+margin_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "Wznów"
+text = "KEY_RESUME"
 
 [node name="Options" type="Button" parent="Buttons"]
 pause_mode = 2
-margin_top = 159.0
+margin_top = 139.0
 margin_right = 277.0
-margin_bottom = 283.0
+margin_bottom = 274.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "Opcje"
+text = "KEY_GAME_OPTIONS"
 
 [node name="QuitGame" type="Button" parent="Buttons"]
 pause_mode = 2
-margin_top = 287.0
+margin_top = 278.0
 margin_right = 277.0
 margin_bottom = 413.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 1 )
-text = "Wyjdź z gry"
+text = "KEY_EXIT"
 
 [node name="Control" parent="." instance=ExtResource( 2 )]
+visible = true
 anchor_left = 0.172688
 anchor_top = 0.31126
 anchor_right = 0.891438
@@ -86,7 +77,7 @@ visible = true
 margin_right = 200.0
 margin_bottom = 124.0
 window_title = ""
-dialog_text = "Czy napewno chcesz wyjść z gry?"
+dialog_text = "KEY_EXIT_GAME_CONFIRMATION"
 dialog_autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false

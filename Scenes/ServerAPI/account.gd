@@ -28,7 +28,7 @@ func _input(event):
 			password_confirmation = cmd
 			
 			var http = HTTPClient.new()
-			var err = http.connect_to_host("http://www.sonadow-dev/api/", 80)
+			var err = http.connect_to_host("https://api-sonadowrpg.herokuapp.com/", 80)
 			assert(err == OK)
 
 			while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:

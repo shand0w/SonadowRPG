@@ -7,7 +7,7 @@ var dir = Directory.new()
 var file = File.new()
 onready var downloader = $RequiredAssets
 func _ready():
-#	var auth = API.ServerAuth.new()
+	var auth = API.ServerAuth.new()
 #	auth.login_player('dd', 'dd', 'dd')
 #	print(str(API.Server.new().get_server_ip_adress()))
 	permissions = OS.request_permissions()

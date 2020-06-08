@@ -4,9 +4,6 @@
 [ext_resource path="res://Scenes/ServerAPI/LineEdit.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/ServerAPI/ServerListing.gd" type="Script" id=3]
 
-
-
-
 [node name="lobby" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -24,6 +21,9 @@ margin_bottom = 591.0
 margin_right = 635.0
 margin_bottom = 24.0
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="Button" parent="PanelContainer/Panel"]
 margin_left = 646.0

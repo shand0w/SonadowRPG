@@ -1,4 +1,4 @@
-extends Panel
+extends WindowDialog
 var visible_connect
 var audio = AudioServer
 var music_bus_idx = audio.get_bus_index('Music')

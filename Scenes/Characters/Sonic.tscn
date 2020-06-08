@@ -110,7 +110,7 @@ margin_right = 63.0
 margin_bottom = 37.5
 theme = ExtResource( 7 )
 window_title = "Question"
-dialog_text = "Do you want to enter this house"
+dialog_text = "KEY_ENTER_HOUSE_CONFIRMATION"
 dialog_autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -128,7 +128,7 @@ margin_right = 137.0
 margin_bottom = 38.0
 theme = ExtResource( 7 )
 window_title = "Question"
-dialog_text = "Do you want to exit this house"
+dialog_text = "KEY_EXIT_HOUSE_CONFIRMATION"
 dialog_autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -151,7 +151,6 @@ __meta__ = {
 }
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource( 5 )]
-visible = false
 
 [node name="left_down" type="Control" parent="CanvasLayer"]
 anchor_top = 1.0

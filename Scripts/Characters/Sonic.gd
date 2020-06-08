@@ -16,32 +16,33 @@ func _ready():
 		$CanvasLayer/HouseDialog.set_scale(Vector2(1, 1))
 		$CanvasLayer/HouseDialog2.set_scale(Vector2(1, 1))
 
+
 func _physics_process(delta):
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_down2"):
 		vel.y += 1
 		$AnimationPlayer.play("down")
-	elif Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_up2"):
 		vel.y -= 1
 		$AnimationPlayer.play("up")
-	elif Input.is_action_pressed("ui_right"):
+	elif Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_right2"):
 		vel.x += 1
 		$AnimationPlayer.play("right")
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_left2"):
 		vel.x -= 1
 		$AnimationPlayer.play("left")
-	if Input.is_action_just_released('ui_left'):
+	if Input.is_action_just_released('ui_left') or Input.is_action_just_released('ui_left2'):
 		vel = Vector2()
 		$AnimationPlayer.stop()
 		$Sprite.frame = 11
-	elif Input.is_action_just_released('ui_right'):
+	elif Input.is_action_just_released('ui_right') or Input.is_action_just_released('ui_right2'):
 		vel = Vector2()
 		$AnimationPlayer.stop()
 		$Sprite.frame = 14
-	elif Input.is_action_just_released('ui_up'):
+	elif Input.is_action_just_released('ui_up') or Input.is_action_just_released('ui_up2'):
 		vel = Vector2()
 		$AnimationPlayer.stop()
 		$Sprite.frame = 4
-	elif Input.is_action_just_released('ui_down'):
+	elif Input.is_action_just_released('ui_down') or Input.is_action_just_released('ui_down2'):
 		vel = Vector2()
 		$AnimationPlayer.stop()
 		$Sprite.frame = 0
