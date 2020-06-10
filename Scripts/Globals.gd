@@ -1,4 +1,5 @@
 extends Node
+# warning-ignore:unused_signal
 signal debugModeSet
 var debugMode = false
 var coming_from_house = ''
@@ -15,7 +16,10 @@ var cfile = ConfigFile.new()
 var file =  File.new()
 var timer = Timer.new()
 var hour
-var gc_mode
+var dlcs:Array = [
+	
+]
+var gc_mode = 'realtime'
 var mod_path = str(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)) + '/Sonadow RPG/Mods/mod.pck'
 func _ready():
 	set_process(false)
@@ -24,8 +28,6 @@ func _ready():
 #	if str(OS.get_name()) == 'Android':
 #		debugMode = false
 #	emit_signal("debugModeSet", debugMode)
-	if file.file_exists(mod_path):
-		Modloader.load_mod(mod_path)
 func save_game():
 	cfile.load('user://save.cfg')
 	cfile.set_value('savedata', 'character', str(character_path))
@@ -52,3 +54,27 @@ func set_variable(variable, value):
 
 func apply_custom_resolution():
 	OS.set_window_size(Vector2(window_x_resolution, window_y_resolution))
+
+
+
+
+
+func scan_dlcs(path = 'user://dlcs/'):
+	var dir = Directory.new()
+	if dir.open(path) == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while (file_name != ""):
+			if dir.current_is_dir():
+				print("Found directory: " + file_name)
+			else:
+				print("Found file: " + file_name)
+				if file_name.get_extension() == 'pck':
+					if file_name.begins_with('dlc'):
+						dlcs.append(str(file_name.get_basename()))
+						var err = ProjectSettings.load_resource_pack(file_name)
+						if err == false:
+							OS.alert('Error while loading DLC:\n' + str(file_name.get_basename()) + '\n\nClick OK to continue')
+			file_name = dir.get_next()
+	else:
+		print("An error occurred when trying to access the path.")

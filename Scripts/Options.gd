@@ -120,7 +120,7 @@ func _on_VSync_toggled(button_pressed):
 
 func _on_ClearDownloadedAssets_pressed():
 	dir.open('user://')
-	dir.rename('user://assets.pck', 'user://assets_backup.pck')
+	dir.rename('user://assets.pck', 'user://assets_backup.pck/')
 	var app_path = OS.get_executable_path()
 	get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
 	OS.execute(str(app_path), [])
@@ -219,3 +219,20 @@ func _on_lang_item_selected(id):
 #		theme.default_font = preload("res://Fonts/msyhl.tres")
 		TranslationServer.set_locale("zh")
 	
+
+func default_settings():
+	$"tabs/Ogólne/Options/Graphics/custom_resolution/x".value = 1024
+	$"tabs/Ogólne/Options/Graphics/custom_resolution/y".value = 600
+	$"tabs/Ogólne/Options/Audio/Master/Master_slider".value = 0
+	$"tabs/Ogólne/Options/Audio/Music/Music_slider".value = 0
+	$"tabs/Ogólne/Options/Audio/SFX/SFX_slider".value = 0
+	$"tabs/Ogólne/Options/Graphics/VSync".pressed = true
+	$tabs/Rozgrywka/box/game_clock/gcbutton.select(0)
+	$"tabs/Ogólne/Options/Graphics/lang/lang".select(0)
+	$tabs/Sterowanie/controls_ui._ready()
+func _on_RESETSETTINGS_pressed():
+	var dir = Directory.new()
+	dir.open('user://')
+	dir.remove('user://settings.cfg')
+	default_settings()
+	_ready()

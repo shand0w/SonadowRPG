@@ -6,7 +6,7 @@ var move
 var vel = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var vel = Vector2()
+	vel = Vector2()
 	if str(OS.get_name()) == "Android":
 		$CanvasLayer/HouseDialog.set_scale(Vector2(1.75, 1.75))
 		$CanvasLayer/HouseDialog2.set_scale(Vector2(1.75, 1.75))

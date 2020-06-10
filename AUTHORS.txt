@@ -43,6 +43,11 @@ Sonicu The Hedgehog
 Sonicu The Hedgehog
 Sonic.exe
 
+-TRANSLATORS-
+Sonicu The Hedgehog
+Sonic.exe
+
+
 -MAPS-
 Talon123_PL
 Sonic.exe
