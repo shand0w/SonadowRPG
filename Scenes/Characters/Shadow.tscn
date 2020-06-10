@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Graphics/Characters/Shadow.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Characters/Shadow.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Graphics/pause_button.png" type="Texture" id=6]
 [ext_resource path="res://themes/rpgm_like/rpgm_like.tres" type="Theme" id=7]
+[ext_resource path="res://minimap/MiniMap.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 5.71344
@@ -175,22 +176,6 @@ normal = ExtResource( 4 )
 action = "ui_left"
 visibility_mode = 1
 
-[node name="right_up" type="Control" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="pause" type="TouchScreenButton" parent="CanvasLayer/right_up"]
-pause_mode = 2
-position = Vector2( -120, 25 )
-normal = ExtResource( 6 )
-action = "ui_cancel"
-visibility_mode = 1
-
 [node name="right_down" type="Control" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -217,6 +202,27 @@ scale = Vector2( 1.7, 1.7 )
 normal = ExtResource( 4 )
 action = "ui_up"
 visibility_mode = 1
+
+[node name="right_up" type="Control" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pause" type="TouchScreenButton" parent="CanvasLayer/right_up"]
+pause_mode = 2
+position = Vector2( -120, 25 )
+normal = ExtResource( 6 )
+action = "ui_cancel"
+visibility_mode = 1
+
+[node name="MiniMap" parent="CanvasLayer" instance=ExtResource( 8 )]
+margin_right = 138.0
+margin_bottom = 138.0
+player = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.2

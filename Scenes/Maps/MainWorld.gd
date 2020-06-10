@@ -17,6 +17,8 @@ var character = Globals.selected_character
 func _ready():
 	root.add_child(character)
 	character.set_owner(root)
+	
+#	character.set_name('Character')
 	if Globals.coming_from_house == '' or Globals.coming_from_house == null:
 		character.set_position($start_position.position)
 		$AnimationPlayer.play("end_transition")
@@ -25,6 +27,7 @@ func _ready():
 		var house_name = str(Globals.coming_from_house)
 		var position_node = start_position_nodes.get(str(house_name))
 		character.set_position(get_node(position_node).position)
+#	$CanvasLayer/MiniMap.player = get_node('YSort/' + str(character.name))
 #	else:
 #		print(str(Globals.last_world_position))
 #		character.set_position(Globals.last_world_position)

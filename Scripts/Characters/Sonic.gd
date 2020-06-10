@@ -3,6 +3,7 @@ var speed = 80
 signal house_dialog_accept
 signal house_dialog_accept_2
 var move
+var f_rotation = -180
 var vel = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,15 +22,19 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_down2"):
 		vel.y += 1
 		$AnimationPlayer.play("down")
+		f_rotation = -180
 	elif Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_up2"):
 		vel.y -= 1
 		$AnimationPlayer.play("up")
+		f_rotation = 0
 	elif Input.is_action_pressed("ui_right") or Input.is_action_pressed("ui_right2"):
 		vel.x += 1
 		$AnimationPlayer.play("right")
+		f_rotation = 90
 	elif Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_left2"):
 		vel.x -= 1
 		$AnimationPlayer.play("left")
+		f_rotation = -90
 	if Input.is_action_just_released('ui_left') or Input.is_action_just_released('ui_left2'):
 		vel = Vector2()
 		$AnimationPlayer.stop()

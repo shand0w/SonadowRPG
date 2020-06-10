@@ -12,6 +12,7 @@ func _ready():
 		save_file.load('user://settings.cfg')
 		if save_file.has_section_key('Game', 'locale'):
 			TranslationServer.set_locale(str(save_file.get_value('Game', 'locale', 'en')))
+
 #	var auth = API.ServerAuth.new()
 #	auth.login_player('dd', 'dd', 'dd')
 #	print(str(API.Server.new().get_server_ip_adress()))

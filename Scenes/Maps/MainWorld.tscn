@@ -932,7 +932,7 @@ house_name = "house3"
 house_interior = ExtResource( 8 )
 
 [node name="house2_position" type="Position2D" parent="YSort"]
-position = Vector2( 1477.02, 578.897 )
+position = Vector2( 1477.02, 576.897 )
 
 [node name="house2" parent="YSort" instance=ExtResource( 11 )]
 position = Vector2( 1478.43, 474.578 )
@@ -955,6 +955,7 @@ house_interior = ExtResource( 8 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="CanvasLayer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
