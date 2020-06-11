@@ -1,6 +1,6 @@
 extends TextEdit
 
-var Http = load("res://http.tscn")
+var Http = load("res://Scenes/ServerAPI/http.tscn")
 
 var list_timer = Timer.new()
 
@@ -13,11 +13,12 @@ func _ready():
 	self.add_child(instance)
 
 func _on_list_timer_timeout():
-	get_node("HTTPRequest").get("servers.json")
+	get_node("HTTPRequest").get_url("servers.json", self)
 
 func handle_results(results):
 	for server in results:
 		var text = ""
-		insert_text_at_cursor(str(server.ip, "\n"))
+		print(str(server))
+#		insert_text_at_cursor(str(server.ip, "\n"))
 
 	

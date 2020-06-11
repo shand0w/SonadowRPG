@@ -64,7 +64,7 @@ margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
-text = "ZACZAROWANY LAS"
+text = "KEY_MAGIC_FOREST"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -76,7 +76,7 @@ margin_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
-text = "Strona Projektu"
+text = "KEY_PROJECT_WEBSITE"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 anchor_left = 1.0
@@ -95,7 +95,7 @@ margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
-text = "Opcje"
+text = "KEY_GAME_OPTIONS"
 
 [node name="Quit" type="Button" parent="VBoxContainer2"]
 margin_top = 69.0
@@ -104,7 +104,7 @@ margin_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
-text = "Wyjście"
+text = "KEY_EXIT"
 __meta__ = {
 "_edit_use_anchors_": false
 }

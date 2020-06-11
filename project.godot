@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Area2D",
+"class": "Crate",
+"language": "GDScript",
+"path": "res://minimap/Crate.gd"
+}, {
 "base": "Node",
 "class": "EasyLANNetworkManager",
 "language": "GDScript",
@@ -28,6 +33,11 @@ _global_script_classes=[ {
 "class": "GodotHub",
 "language": "GDScript",
 "path": "res://godothub/scripts/godothub.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Mob",
+"language": "GDScript",
+"path": "res://minimap/Mob.gd"
 }, {
 "base": "Reference",
 "class": "NakamaAPI",
@@ -98,12 +108,19 @@ _global_script_classes=[ {
 "class": "NakamaWriteStorageObject",
 "language": "GDScript",
 "path": "res://addons/com.heroiclabs.nakama/api/NakamaWriteStorageObject.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://minimap/Player.gd"
 } ]
 _global_script_class_icons={
+"Crate": "",
 "EasyLANNetworkManager": "",
 "FLMusicLib": "",
 "GitAPI": "",
 "GodotHub": "",
+"Mob": "",
 "NakamaAPI": "",
 "NakamaAsyncResult": "",
 "NakamaClient": "",
@@ -117,7 +134,8 @@ _global_script_class_icons={
 "NakamaSocket": "",
 "NakamaSocketAdapter": "",
 "NakamaStorageObjectId": "",
-"NakamaWriteStorageObject": ""
+"NakamaWriteStorageObject": "",
+"Player": ""
 }
 
 [application]
@@ -156,7 +174,7 @@ convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "godot-console-dev", "godot-kra-psd-importer", "screen_debugger" )
+enabled=PoolStringArray( "godot-console-dev", "godot-kra-psd-importer", "godot-sqlite", "screen_debugger" )
 
 [gdnative]
 
@@ -194,6 +212,30 @@ console_toggle={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":96,"unicode":0,"echo":false,"script":null)
  ]
 }
+ui_up2={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_down2={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_left2={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_right2={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[locale]
+
+translations=PoolStringArray( "res://translations/srpg_1.csv", "res://translations/srpg_1.de.translation", "res://translations/srpg_1.en.translation", "res://translations/srpg_1.es.translation", "res://translations/srpg_1.pl.translation", "res://translations/srpg_1.es_MX.translation", "res://translations/srpg_1.ja.translation", "res://translations/srpg_1.ru.translation", "res://translations/srpg_1.zh.translation" )
 
 [logging]
 

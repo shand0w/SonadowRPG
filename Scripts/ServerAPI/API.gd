@@ -6,7 +6,7 @@ class Server extends HTTPRequest:
 	signal downloaded
 	signal uploaded
 	const server_adress = 'https://www.sonadow-dev.ml'
-	const server_api_adress = "http://api-sonadowrpg.herokuapp.com/"
+	const server_api_adress = "https://api-sonadowrpg.herokuapp.com/"
 
 	func get_server_adress():
 		return server_adress
