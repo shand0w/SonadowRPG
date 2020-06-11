@@ -1,14 +1,14 @@
 extends LineEdit
 
-var Http = load("res://Scenes/ServerAPI/http.tscn")
+var Http = load("res://http.tscn")
 
 func _ready():
 	var http = get_node("../../../HTTPRequest")
-	http.request("https://api-sonadowrpg.herokuapp.com/ips.json")
+	http.request("http://www.sonadow-dev/api/ips.json")
 	var instance = Http.instance()
 	self.add_child(instance)
-	get_node("../LineEdit/HTTPRequest").get_url("ips.json", self)
+	get_node("../LineEdit/HTTPRequest").get("servers.json")
 
 func handle_results(results):
 	for server in results:
-		self.text = server
+		self.text = server.ip

@@ -3,7 +3,7 @@
 
 
 
-[color=#004a94]---Sonadow DEV DEVELOPMENT TEAM---[/color]
+---Sonadow DEV DEVELOPMENT TEAM---
 
 
 
@@ -42,11 +42,6 @@ Sonicu The Hedgehog
 -UI-
 Sonicu The Hedgehog
 Sonic.exe
-
--TRANSLATORS-
-Sonicu The Hedgehog
-Sonic.exe
-
 
 -MAPS-
 Talon123_PL

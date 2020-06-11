@@ -31,7 +31,7 @@ func _on_exithouse_body_exited(body):
 func on_house_dialog_event(accepted:bool):
 	if accepted:
 		get_tree().paused = false
-		get_tree().change_scene(str(Globals.world))
+		get_tree().change_scene(str(Globals.next_world))
 	else:
 		get_tree().paused = false
 

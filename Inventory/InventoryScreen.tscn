@@ -1,11 +1,28 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Inventory/InventoryScreen.gd" type="Script" id=1]
 [ext_resource path="res://Inventory/Inventory.gd" type="Script" id=2]
 [ext_resource path="res://Inventory/UIInputHandler.gd" type="Script" id=3]
+[ext_resource path="res://Inventory/environment_forest_evening.png" type="Texture" id=4]
+[ext_resource path="res://Graphics/Buttons/iventory icon 2.jpg" type="Texture" id=5]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="Theme" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="Theme" id=4]
 
 [node name="InventoryScreen" type="Node2D"]
 script = ExtResource( 1 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="environment_forest_evening" type="Sprite" parent="ParallaxBackground"]
+position = Vector2( 741.342, 468.402 )
+scale = Vector2( 1.4633, 1.25486 )
+texture = ExtResource( 4 )
 
 [node name="Inventory" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -14,11 +31,18 @@ script = ExtResource( 2 )
 script = ExtResource( 3 )
 
 [node name="BackgroundContainer" type="Control" parent="."]
-editor/display_folded = true
+theme = SubResource( 1 )
 
 [node name="Panel" type="Panel" parent="BackgroundContainer"]
-margin_right = 1440.0
-margin_bottom = 900.0
+margin_left = -18.9739
+margin_top = 1.99725
+margin_right = 1475.06
+margin_bottom = 949.997
+theme = SubResource( 2 )
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Title" type="RichTextLabel" parent="BackgroundContainer"]
 margin_left = 627.387
@@ -36,182 +60,265 @@ margin_bottom = 770.0
 rect_scale = Vector2( 2, 2 )
 
 [node name="SlotsContainer" type="Control" parent="."]
-editor/display_folded = true
 
-[node name="Slot1Button" type="Button" parent="SlotsContainer"]
-margin_left = 220.0
-margin_top = 200.0
-margin_right = 299.0
-margin_bottom = 220.0
+[node name="Slot1Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 336.0
+margin_top = 112.0
+margin_right = 416.0
+margin_bottom = 192.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+theme = SubResource( 4 )
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Slot2Button" type="Button" parent="SlotsContainer"]
-margin_left = 423.0
-margin_top = 200.0
-margin_right = 502.0
-margin_bottom = 220.0
+[node name="Slot2Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 512.0
+margin_top = 112.0
+margin_right = 592.0
+margin_bottom = 192.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot3Button" type="Button" parent="SlotsContainer"]
-margin_left = 633.0
-margin_top = 200.0
-margin_right = 712.0
-margin_bottom = 220.0
+[node name="Slot3Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 688.0
+margin_top = 112.0
+margin_right = 768.0
+margin_bottom = 192.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot4Button" type="Button" parent="SlotsContainer"]
-margin_left = 843.0
-margin_top = 200.0
-margin_right = 922.0
-margin_bottom = 220.0
+[node name="Slot4Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 864.0
+margin_top = 112.0
+margin_right = 944.0
+margin_bottom = 192.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot5Button" type="Button" parent="SlotsContainer"]
-margin_left = 1043.0
-margin_top = 200.0
-margin_right = 1122.0
-margin_bottom = 220.0
+[node name="Slot5Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 1040.0
+margin_top = 112.0
+margin_right = 1120.0
+margin_bottom = 192.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot6Button" type="Button" parent="SlotsContainer"]
-margin_left = 220.0
-margin_top = 305.0
-margin_right = 299.0
-margin_bottom = 325.0
+[node name="Slot6Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 160.0
+margin_top = 296.0
+margin_right = 240.0
+margin_bottom = 376.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot7Button" type="Button" parent="SlotsContainer"]
-margin_left = 423.0
-margin_top = 305.0
-margin_right = 502.0
-margin_bottom = 325.0
+[node name="Slot7Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 512.0
+margin_top = 296.0
+margin_right = 592.0
+margin_bottom = 376.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot8Button" type="Button" parent="SlotsContainer"]
-margin_left = 633.0
-margin_top = 311.0
-margin_right = 712.0
-margin_bottom = 331.0
+[node name="Slot8Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 336.0
+margin_top = 296.0
+margin_right = 416.0
+margin_bottom = 376.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot9Button" type="Button" parent="SlotsContainer"]
-margin_left = 843.0
-margin_top = 305.0
-margin_right = 922.0
-margin_bottom = 325.0
+[node name="Slot9Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 864.0
+margin_top = 296.0
+margin_right = 944.0
+margin_bottom = 376.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot10Button" type="Button" parent="SlotsContainer"]
-margin_left = 1043.0
-margin_top = 305.0
-margin_right = 1122.0
-margin_bottom = 325.0
+[node name="Slot10Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 1040.0
+margin_top = 296.0
+margin_right = 1120.0
+margin_bottom = 376.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot11Button" type="Button" parent="SlotsContainer"]
-margin_left = 220.0
-margin_top = 402.0
-margin_right = 299.0
-margin_bottom = 422.0
+[node name="Slot11Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 160.0
+margin_top = 472.0
+margin_right = 240.0
+margin_bottom = 552.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot12Button" type="Button" parent="SlotsContainer"]
-margin_left = 423.0
-margin_top = 402.0
-margin_right = 502.0
-margin_bottom = 422.0
+[node name="Slot12Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 512.0
+margin_top = 472.0
+margin_right = 592.0
+margin_bottom = 552.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot13Button" type="Button" parent="SlotsContainer"]
-margin_left = 633.0
-margin_top = 406.0
-margin_right = 712.0
-margin_bottom = 426.0
+[node name="Slot13Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 688.0
+margin_top = 296.0
+margin_right = 768.0
+margin_bottom = 376.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot14Button" type="Button" parent="SlotsContainer"]
-margin_left = 843.0
-margin_top = 402.0
-margin_right = 922.0
-margin_bottom = 422.0
+[node name="Slot14Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 160.0
+margin_top = 112.0
+margin_right = 240.0
+margin_bottom = 192.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Slot15Button" type="Button" parent="SlotsContainer"]
-margin_left = 1043.0
-margin_top = 402.0
-margin_right = 1122.0
-margin_bottom = 422.0
+[node name="Slot16Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 160.0
+margin_top = 656.0
+margin_right = 240.0
+margin_bottom = 736.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot16Button" type="Button" parent="SlotsContainer"]
-margin_left = 220.0
-margin_top = 499.0
-margin_right = 299.0
-margin_bottom = 519.0
+[node name="Slot17Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 336.0
+margin_top = 472.0
+margin_right = 416.0
+margin_bottom = 552.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot17Button" type="Button" parent="SlotsContainer"]
-margin_left = 423.0
-margin_top = 499.0
-margin_right = 502.0
-margin_bottom = 519.0
+[node name="Slot18Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 688.0
+margin_top = 472.0
+margin_right = 768.0
+margin_bottom = 552.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot18Button" type="Button" parent="SlotsContainer"]
-margin_left = 633.0
-margin_top = 499.0
-margin_right = 712.0
-margin_bottom = 519.0
+[node name="Slot19Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 864.0
+margin_top = 472.0
+margin_right = 944.0
+margin_bottom = 552.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot19Button" type="Button" parent="SlotsContainer"]
-margin_left = 843.0
-margin_top = 499.0
-margin_right = 922.0
-margin_bottom = 519.0
+[node name="Slot20Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 1040.0
+margin_top = 472.0
+margin_right = 1120.0
+margin_bottom = 552.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot20Button" type="Button" parent="SlotsContainer"]
-margin_left = 1043.0
-margin_top = 499.0
-margin_right = 1122.0
-margin_bottom = 519.0
+[node name="Slot21Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 336.0
+margin_top = 656.0
+margin_right = 416.0
+margin_bottom = 736.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot21Button" type="Button" parent="SlotsContainer"]
-margin_left = 220.0
-margin_top = 595.0
-margin_right = 299.0
-margin_bottom = 615.0
+[node name="Slot22Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 512.0
+margin_top = 656.0
+margin_right = 592.0
+margin_bottom = 736.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Slot22Button" type="Button" parent="SlotsContainer"]
-margin_left = 423.0
-margin_top = 595.0
-margin_right = 502.0
-margin_bottom = 615.0
+[node name="Slot23Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 688.0
+margin_top = 656.0
+margin_right = 768.0
+margin_bottom = 736.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
 
-[node name="Slot23Button" type="Button" parent="SlotsContainer"]
-margin_left = 633.0
-margin_top = 595.0
-margin_right = 712.0
-margin_bottom = 615.0
+[node name="Slot24Button" type="TextureButton" parent="SlotsContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 864.0
+margin_top = 656.0
+margin_right = 944.0
+margin_bottom = 736.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
 
-[node name="Slot24Button" type="Button" parent="SlotsContainer"]
-margin_left = 843.0
-margin_top = 595.0
-margin_right = 922.0
-margin_bottom = 615.0
+[node name="Slot25Button" type="TextureButton" parent="SlotsContainer"]
+margin_left = 1040.0
+margin_top = 656.0
+margin_right = 1120.0
+margin_bottom = 736.0
+grow_vertical = 0
 rect_scale = Vector2( 2, 2 )
-
-[node name="Slot25Button" type="Button" parent="SlotsContainer"]
-margin_left = 1043.0
-margin_top = 595.0
-margin_right = 1122.0
-margin_bottom = 615.0
-rect_scale = Vector2( 2, 2 )
+rect_pivot_offset = Vector2( 20, 20 )
+texture_normal = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="CloseButton" type="Button" parent="."]
 margin_left = 1252.0
@@ -262,9 +369,6 @@ text = "Close"
 [connection signal="mouse_entered" from="SlotsContainer/Slot14Button" to="UIInputHandler" method="_on_SlotButton_mouse_entered" binds= [ 13 ]]
 [connection signal="mouse_exited" from="SlotsContainer/Slot14Button" to="UIInputHandler" method="_on_SlotButton_mouse_exited"]
 [connection signal="pressed" from="SlotsContainer/Slot14Button" to="UIInputHandler" method="_on_SlotButton_pressed" binds= [ 13 ]]
-[connection signal="mouse_entered" from="SlotsContainer/Slot15Button" to="UIInputHandler" method="_on_SlotButton_mouse_entered" binds= [ 14 ]]
-[connection signal="mouse_exited" from="SlotsContainer/Slot15Button" to="UIInputHandler" method="_on_SlotButton_mouse_exited"]
-[connection signal="pressed" from="SlotsContainer/Slot15Button" to="UIInputHandler" method="_on_SlotButton_pressed" binds= [ 14 ]]
 [connection signal="mouse_entered" from="SlotsContainer/Slot16Button" to="UIInputHandler" method="_on_SlotButton_mouse_entered" binds= [ 15 ]]
 [connection signal="mouse_exited" from="SlotsContainer/Slot16Button" to="UIInputHandler" method="_on_SlotButton_mouse_exited"]
 [connection signal="pressed" from="SlotsContainer/Slot16Button" to="UIInputHandler" method="_on_SlotButton_pressed" binds= [ 15 ]]

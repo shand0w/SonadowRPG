@@ -10,7 +10,7 @@ func _ready():
 	print('Game launched successfully!\n')
 
 func _on_World1_pressed():
-	Globals.world = "res://Scenes/Maps/MainWorld.tscn"
+	Globals.next_world = "res://Scenes/Maps/MainWorld.tscn"
 	if Globals.selected_character == null:
 		$CharacterSelect.popup_centered()
 	else:

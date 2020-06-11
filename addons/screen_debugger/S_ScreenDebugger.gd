@@ -25,7 +25,7 @@ func _process(delta):
 		'\nis_coming_from_house: '+ str(Globals.coming_from_house),
 		'\nlast_position_on_world: '+ str(Globals.last_world_position),
 		'\nmod_path: '+ str(Globals.mod_path),
-		'\nworld: '+ str(Globals.world),
+		'\nnext_world: '+ str(Globals.next_world),
 		'\ndebugMode: '+ str(Globals.debugMode),
 		'\nwindow_x_resolution: '+ str(Globals.window_x_resolution),
 		'\nwindow_y_resolution: '+ str(Globals.window_y_resolution)

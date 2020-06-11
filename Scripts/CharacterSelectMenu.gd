@@ -15,7 +15,7 @@ func _ready():
 #func _process(delta):
 #	pass
 func after_selecting_player():
-	BackgroundLoad.load_scene(str(Globals.world))
+	BackgroundLoad.load_scene(str(Globals.next_world))
 
 func _on_Shadow_pressed():
 	Globals.character_path = "res://Scenes/Characters/Shadow.tscn"

@@ -1,14 +1,14 @@
 extends Spatial
 
 func _ready():
-	var Http = load("res://Scenes/ServerAPI/http.gd")
+	var Http = load("http.gd")
 
 func _on_Button_pressed():
 	var lineedit = get_node('PanelContainer/Panel/LineEdit')
 	var ip       = lineedit.text
 	
 	var http = HTTPClient.new()
-	var err = http.connect_to_host("https://api-sonadowrpg.herokuapp.com/", 80)
+	var err = http.connect_to_host("http://www.sonadow-dev/api/", 80)
 	assert(err == OK)
 
 	while http.get_status() == HTTPClient.STATUS_CONNECTING or http.get_status() == HTTPClient.STATUS_RESOLVING:
