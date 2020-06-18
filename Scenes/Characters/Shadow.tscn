@@ -220,8 +220,8 @@ action = "ui_cancel"
 visibility_mode = 1
 
 [node name="MiniMap" parent="CanvasLayer" instance=ExtResource( 8 )]
-margin_right = 138.0
-margin_bottom = 138.0
+margin_right = 190.0
+margin_bottom = 190.0
 player = NodePath("../..")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -26,3 +26,9 @@ func _on_Sonic_pressed():
 	Globals.character_path = "res://Scenes/Characters/Sonic.tscn"
 	Globals.selected_character = preload("res://Scenes/Characters/Sonic.tscn").instance()
 	after_selecting_player()
+
+
+func _on_New_pressed():
+	Globals.character_path = "res://Scenes/Characters/NewTheFox.tscn"
+	Globals.selected_character = preload("res://Scenes/Characters/NewTheFox.tscn").instance()
+	after_selecting_player()

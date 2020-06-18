@@ -27,3 +27,7 @@ func _on_Quit_pressed():
 
 func _on_Website_pressed():
 	website = OS.shell_open('https://www.sonadow-rpg.ml/')
+
+
+func _on_Options2_pressed():
+	pass # Replace with function body.
