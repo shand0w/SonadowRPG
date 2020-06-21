@@ -1,0 +1,6 @@
+/home/godot/Pulpit/SonadowRPG/.mono/temp/obj/Tools/Sonadow RPG.csprojAssemblyReference.cache
+/home/godot/Pulpit/SonadowRPG/.mono/temp/obj/Tools/Sonadow RPG.csproj.CoreCompileInputs.cache
+/home/godot/Pulpit/SonadowRPG/.mono/temp/bin/Tools/Sonadow RPG.dll
+/home/godot/Pulpit/SonadowRPG/.mono/temp/bin/Tools/Sonadow RPG.pdb
+/home/godot/Pulpit/SonadowRPG/.mono/temp/obj/Tools/Sonadow RPG.dll
+/home/godot/Pulpit/SonadowRPG/.mono/temp/obj/Tools/Sonadow RPG.pdb

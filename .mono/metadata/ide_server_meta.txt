@@ -1,2 +1,2 @@
-﻿50569
-C:\Users\karol\OneDrive\Desktop\godotmono.exe
+﻿39697
+/home/godot/Pulpit/Godot_v3.2.1-stable_mono_x11_32/Godot_v3.2.1-stable_mono_x11.32

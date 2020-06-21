@@ -120,11 +120,15 @@ func _on_VSync_toggled(button_pressed):
 
 func _on_ClearDownloadedAssets_pressed():
 	dir.open('user://')
+	print('Backing up assets...')
 	dir.rename('user://assets.pck', 'user://assets_backup.pck/')
 	var app_path = OS.get_executable_path()
-	get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
-	OS.execute(str(app_path), [])
-	get_tree().quit()
+	print('Going to download new version')
+	if str(OS.get_name()) == 'Android':
+		get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
+	else:
+		OS.execute(str(app_path), [])
+		get_tree().quit()
 
 
 func _on_x_value_changed(value):
