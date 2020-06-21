@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Titles/IMG_0008.jpeg" type="Texture" id=2]
@@ -7,8 +7,6 @@
 [ext_resource path="res://Fonts/Ubuntu-L.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/CharacterSelectMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://themes/rpgm_like/rpgm_like.tres" type="Theme" id=7]
-[ext_resource path="res://Scripts/ServerAPI/discord.cs" type="Script" id=8]
-[ext_resource path="res://Scenes/ServerAPI/discord.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "bg"
@@ -47,6 +45,16 @@ anchor_bottom = 1.0
 margin_bottom = 845.36
 rect_clip_content = true
 texture = ExtResource( 2 )
+expand = true
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="IMG_0009" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
 expand = true
 stretch_mode = 7
 __meta__ = {
@@ -159,9 +167,6 @@ margin_left = -249.0
 margin_top = -144.5
 margin_right = 249.0
 margin_bottom = 144.5
-
-[node name="discord" parent="." instance=ExtResource( 9 )]
-script = ExtResource( 8 )
 [connection signal="pressed" from="VBoxContainer/Las" to="." method="_on_World1_pressed"]
 [connection signal="pressed" from="VBoxContainer/Website" to="." method="_on_Website_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Options" to="." method="_on_Options_pressed"]
