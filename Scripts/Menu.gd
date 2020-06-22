@@ -24,22 +24,7 @@ onready var ntf_imgs = [
 	'res://Graphics/NewTheFox/recolour5.png',
 ]
 onready var bs_imgs = [
-	'res://Graphics/NewTheFox/1.png',
-	'res://Graphics/NewTheFox/2.png',
-	'res://Graphics/NewTheFox/3.png',
-	'res://Graphics/NewTheFox/4.png',
-	'res://Graphics/NewTheFox/5.png',
-	'res://Graphics/NewTheFox/6.png',
-	'res://Graphics/NewTheFox/7.png',
-	'res://Graphics/NewTheFox/8.png',
-	'res://Graphics/NewTheFox/9.png',
-	'res://Graphics/NewTheFox/10.png',
-	'res://Graphics/NewTheFox/11.png',
-	'res://Graphics/NewTheFox/recolour1.png',
-	'res://Graphics/NewTheFox/recolour2.png',
-	'res://Graphics/NewTheFox/recolour3.png',
-	'res://Graphics/NewTheFox/recolour4.png',
-	'res://Graphics/NewTheFox/recolour5.png',
+	'res://Graphics/BabySonadow/babysonadow.png',
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -47,19 +32,19 @@ func _ready():
 	if day == 21 and month == 6:
 		$IMG_0008.hide()
 		load_easterregg_animation('ntf')
-		$Label.set_text("KEY_HAPPY_BDAY" + ' "Sonadow RPG"')
+		$Label.set_text(tr("KEY_HAPPY_BDAY") + ' "Sonadow RPG"')
 	elif day == 17 and month == 2:
 		$IMG_0008.hide()
 		load_easterregg_animation('ntf')
-		$Label.set_text("KEY_HAPPY_BDAY" + ' "NewTheFox"')
+		$Label.set_text(tr("KEY_HAPPY_BDAY") + ' "NewTheFox"')
 	elif day == 25 and month == 3:
 		$IMG_0008.hide()
 		load_easterregg_animation('ntf')
-		$Label.set_text("KEY_HAPPY_BDAY" + ' "NewTheFox"')
+		$Label.set_text(tr("KEY_HAPPY_BDAY") + ' "NewTheFox"')
 	elif day == 22 and month == 12:
 		$IMG_0008.hide()
 		load_easterregg_animation('bs')
-		$Label.set_text("KEY_HAPPY_BDAY" + ' thugpro420 aka "Baby Sonadow"')
+		$Label.set_text(tr("KEY_HAPPY_BDAY") + ' thugpro420 aka "Baby Sonadow"')
 	BackgroundLoad.play_start_transition = true
 	get_tree().paused = false
 #	$AnimationPlayer.play('end_transition')

@@ -171,9 +171,12 @@ margin_bottom = 144.5
 [node name="Label" type="Label" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -189.0
+margin_left = -675.0
 margin_bottom = 95.0
 custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
 align = 2
 uppercase = true
 __meta__ = {

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Tiles/grasses.tres" type="TileSet" id=1]
 [ext_resource path="res://Tiles/roads.tres" type="TileSet" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Objects/Trees/Tree_normal2.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Maps/MainWorld.gd" type="Script" id=13]
 [ext_resource path="res://Scenes/End_transtition.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Audio/BGS/001-Wind01.ogg" type="AudioStream" id=15]
 
 [sub_resource type="Animation" id=1]
 resource_name = "end_transition"
@@ -1002,4 +1003,10 @@ position = Vector2( -863.017, 926.963 )
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Area2D"]
+stream = ExtResource( 15 )
+autoplay = true
+bus = "SFX"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 73.0048, 327.722, 480.298, 158.017, 174.828, 33.5665, -1686.85, 107.106, -3067.12, -719.262, 2002.97, -809.771, 2376.32, -0.842802, 984.735, 253.715, 622.697, 638.381, -389.878, 581.812, -452.104, 372.509 )
 [connection signal="tree_exiting" from="." to="." method="_on_Node2D_tree_exiting"]

@@ -66,6 +66,13 @@ func _init():
 		.setDescription('Shows engine vesion.')\
 		.register()
 
+
+	Console.addCommand('load_scene', BackgroundLoad, 'load_scene')\
+		.setDescription('Brings you to another scene.')\
+		.addArgument('path', TYPE_STRING)\
+		.register()
+		
+		
 	Console.addCommand('fps_max', Engine, 'set_target_fps')\
 		.setDescription('The maximal framerate at which the application can run.')\
 		.addArgument('fps', Console.IntRange.new(10, 1000))\
