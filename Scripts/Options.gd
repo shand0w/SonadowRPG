@@ -22,6 +22,7 @@ func _process(_delta):
 	save_file.set_value('Game', 'target_fps', str(Engine.target_fps))
 	save_file.set_value('Game', 'locale', str(TranslationServer.get_locale()))
 	save_file.set_value('Game', 'game_clock', str(Globals.gc_mode))
+	save_file.set_value('Game', 'nsfw_enabled', str(!bool(str(Globals.nsfw))))
 	save_file.set_value('Audio', 'master_bus_volume', str($"tabs/Ogólne/Options/Audio/Master/Master_slider".value))
 	save_file.set_value('Audio', 'master_bus_enabled', str($"tabs/Ogólne/Options/Audio/Master/Master_on".pressed))
 	save_file.set_value('Audio', 'music_bus_volume', str($"tabs/Ogólne/Options/Audio/Music/Music_slider".value))
@@ -65,6 +66,10 @@ func load_settings():
 			TranslationServer.set_locale(str(save_file.get_value('Game', 'locale', 'en')))
 		if save_file.has_section_key('Game', 'game_clock'):
 			Globals.set_day_night_mode(str(save_file.get_value('Game', 'target_fps', 60)))
+		if save_file.has_section_key('Game', 'nsfw_enabled'):
+		
+			Globals.set_nsfw(bool(str(save_file.get_value('Game', 'nsfw_enabled',false))))
+			$tabs/Rozgrywka/box/nsfwmode/nsfw.set_pressed(!bool(str(save_file.get_value('Game', 'nsfw_enabled',false))))
 		if not str(OS.get_name()) == 'Android':
 			Globals.apply_custom_resolution()
 		$"tabs/Ogólne/Options/Graphics/custom_resolution/SpinBox".set_text(str($"tabs/Ogólne/Options/Graphics/custom_resolution/x".value) + 'x' + str($"tabs/Ogólne/Options/Graphics/custom_resolution/y".value))
@@ -240,3 +245,10 @@ func _on_RESETSETTINGS_pressed():
 	dir.remove('user://settings.cfg')
 	default_settings()
 	_ready()
+
+
+func _on_nsfw_toggled(button_pressed):
+	if button_pressed:
+		Globals.set_nsfw(false)
+	else:
+		Globals.set_nsfw(true)

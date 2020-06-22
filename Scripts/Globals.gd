@@ -1,6 +1,6 @@
 extends Node
-# warning-ignore:unused_signal
-signal debugModeSet
+
+signal nsfw
 var debugMode = false
 var coming_from_house = ''
 var object_transparency = 0.65
@@ -16,6 +16,7 @@ var cfile = ConfigFile.new()
 var file =  File.new()
 var timer = Timer.new()
 var hour
+var nsfw
 var dlcs:Array = [
 	
 ]
@@ -39,7 +40,7 @@ func save_game():
 func set_day_night_mode(mode:String):
 	gc_mode = mode
 	if mode == 'realtime':
-#		hour = OS.get_time().hour
+		hour = OS.get_time().hour
 		set_process(true)
 	if mode == 'gametime':
 		timer.start()
@@ -56,7 +57,9 @@ func apply_custom_resolution():
 	OS.set_window_size(Vector2(window_x_resolution, window_y_resolution))
 
 
-
+func set_nsfw(nsfw_enabled:bool):
+	nsfw = nsfw_enabled
+	emit_signal("nsfw", nsfw_enabled)
 
 
 func scan_dlcs(path = 'user://dlcs/'):

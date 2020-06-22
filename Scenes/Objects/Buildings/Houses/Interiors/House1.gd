@@ -20,7 +20,7 @@ func _ready():
 
 
 func _on_exithouse_body_entered(body):
-	if body.name == 'Shadow' or body.name == 'Sonic':
+	if body.name == 'Sonic' or body.name == 'Shadow' or body.name == 'NewTheFox':
 		body.connect('house_dialog_accept_2', self, 'on_house_dialog_event')
 		body.show_exit_house_dialog()
 		get_tree().paused = true

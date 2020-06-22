@@ -17,10 +17,10 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	if body.name == 'Shadow' or body.name == 'Sonic':
+	if body.name == 'Sonic' or body.name == 'Shadow' or body.name == 'NewTheFox':
 		$Column_old.self_modulate = Color(1, 1, 1, Globals.object_transparency)
 
 
 func _on_Area2D_body_exited(body):
-	if body.name == 'Shadow' or body.name == 'Sonic':
+	if body.name == 'Sonic' or body.name == 'Shadow' or body.name == 'NewTheFox':
 		$Column_old.self_modulate = Color(1, 1, 1, 1)

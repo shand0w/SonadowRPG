@@ -4,7 +4,8 @@ var world_scene
 var website
 var day = OS.get_date().day
 var month = OS.get_date().month
-onready var easteregg_imgs = [
+var nsfw_connection
+onready var ntf_imgs = [
 	'res://Graphics/NewTheFox/1.png',
 	'res://Graphics/NewTheFox/2.png',
 	'res://Graphics/NewTheFox/3.png',
@@ -16,25 +17,66 @@ onready var easteregg_imgs = [
 	'res://Graphics/NewTheFox/9.png',
 	'res://Graphics/NewTheFox/10.png',
 	'res://Graphics/NewTheFox/11.png',
+	'res://Graphics/NewTheFox/recolour1.png',
+	'res://Graphics/NewTheFox/recolour2.png',
+	'res://Graphics/NewTheFox/recolour3.png',
+	'res://Graphics/NewTheFox/recolour4.png',
+	'res://Graphics/NewTheFox/recolour5.png',
+]
+onready var bs_imgs = [
+	'res://Graphics/NewTheFox/1.png',
+	'res://Graphics/NewTheFox/2.png',
+	'res://Graphics/NewTheFox/3.png',
+	'res://Graphics/NewTheFox/4.png',
+	'res://Graphics/NewTheFox/5.png',
+	'res://Graphics/NewTheFox/6.png',
+	'res://Graphics/NewTheFox/7.png',
+	'res://Graphics/NewTheFox/8.png',
+	'res://Graphics/NewTheFox/9.png',
+	'res://Graphics/NewTheFox/10.png',
+	'res://Graphics/NewTheFox/11.png',
+	'res://Graphics/NewTheFox/recolour1.png',
+	'res://Graphics/NewTheFox/recolour2.png',
+	'res://Graphics/NewTheFox/recolour3.png',
+	'res://Graphics/NewTheFox/recolour4.png',
+	'res://Graphics/NewTheFox/recolour5.png',
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	nsfw_connection = Globals.connect("nsfw", self, "globals_nsfw_changed")
 	if day == 21 and month == 6:
 		$IMG_0008.hide()
-		load_easterregg_animation()
+		load_easterregg_animation('ntf')
+		$Label.set_text("KEY_HAPPY_BDAY" + ' "Sonadow RPG"')
 	elif day == 17 and month == 2:
 		$IMG_0008.hide()
-		load_easterregg_animation()
+		load_easterregg_animation('ntf')
+		$Label.set_text("KEY_HAPPY_BDAY" + ' "NewTheFox"')
 	elif day == 25 and month == 3:
 		$IMG_0008.hide()
-		load_easterregg_animation()
+		load_easterregg_animation('ntf')
+		$Label.set_text("KEY_HAPPY_BDAY" + ' "NewTheFox"')
+	elif day == 22 and month == 12:
+		$IMG_0008.hide()
+		load_easterregg_animation('bs')
+		$Label.set_text("KEY_HAPPY_BDAY" + ' thugpro420 aka "Baby Sonadow"')
 	BackgroundLoad.play_start_transition = true
 	get_tree().paused = false
 #	$AnimationPlayer.play('end_transition')
 	print('Game launched successfully!\n')
+	$Control.load_settings()
 
-func load_easterregg_animation():
-	$IMG_0009.texture = load(str(easteregg_imgs[randi()%easteregg_imgs.size()]))
+func globals_nsfw_changed(nsfw_enabled:bool):
+	if nsfw_enabled:
+		$IMG_0008.texture = load(str("res://Graphics/icon.png"))
+	else:
+		$IMG_0008.texture = load(str("res://Graphics/Titles/IMG_0008.jpeg"))
+
+func load_easterregg_animation(name_:String):
+	if name_ == 'ntf':
+		$IMG_0009.texture = load(str(ntf_imgs[randi()%ntf_imgs.size()]))
+	elif name_ == 'bs':
+		$IMG_0009.texture = load(str(bs_imgs[randi()%bs_imgs.size()]))
 func _on_World1_pressed():
 	Globals.world = "res://Scenes/Maps/MainWorld.tscn"
 	if Globals.selected_character == null:
