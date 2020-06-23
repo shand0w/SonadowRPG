@@ -25,7 +25,6 @@ __meta__ = {
 }
 
 [node name="Ogólne" type="Tabs" parent="tabs"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -302,6 +301,7 @@ drag_to_rearrange_enabled = true
 [node name="controls_ui" parent="tabs/Sterowanie" instance=ExtResource( 3 )]
 
 [node name="Rozgrywka" type="Tabs" parent="tabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -353,7 +353,7 @@ margin_right = 364.0
 margin_bottom = 29.0
 size_flags_horizontal = 3
 custom_fonts/font = ExtResource( 2 )
-text = "KEY_OPTIONS_NSFW"
+text = "NSFW"
 
 [node name="nsfw" type="CheckButton" parent="tabs/Rozgrywka/box/nsfwmode"]
 margin_right = 733.0

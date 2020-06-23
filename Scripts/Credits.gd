@@ -19,9 +19,9 @@ var text
 var file = File.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	file.open('res://AUTHORS.txt', File.READ)
-	text = file.get_as_text()
-	$RichTextLabel.bbcode_text = text
+#	file.open('res://AUTHORS.txt', File.READ)
+#	text = file.get_as_text()
+#	$RichTextLabel.bbcode_text = text
 #	$RichTextLabel.set_text(text)
 #	regex.compile(authors_engine)
 #	authors = str(regex.sub(',', '\n', true))

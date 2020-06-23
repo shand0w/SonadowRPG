@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Credits.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Ubuntu-L.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Audio/BGM/credits.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Fonts/Ubuntu-L50.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Fonts/Ubuntu-L32.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Scenes/Credits.tres" type="Animation" id=6]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
@@ -11,15 +15,394 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -2797.59
+margin_bottom = 948.413
 focus_mode = 2
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
+scroll_active = false
 scroll_following = true
 selection_enabled = true
 override_selected_font_color = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+bus = "Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "credits"
+playback_speed = 0.2
+anims/credits = ExtResource( 6 )
+
+[node name="sd-dt" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -447.5
+margin_top = -36.5
+margin_right = 447.5
+margin_bottom = 36.5
+custom_fonts/font = ExtResource( 4 )
+text = "---Sonadow DEV DEVELOPMENT TEAM---"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ntf" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -90.0
+margin_bottom = 81.0
+custom_fonts/font = ExtResource( 5 )
+text = "NewTheFox is the youngest person in our development team.
+He was 10 years old when he joined us in June 2020, just about 3 weeks after starting the project.
+Big thanks to him for supporting us!!!"
+align = 1
+autowrap = true
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -157.5
+margin_top = -82.0
+margin_right = 157.5
+margin_bottom = 82.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Directors" type="Label" parent="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 315.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 4 )
+text = "--DIRECTORS--"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="Label" parent="VBoxContainer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 87.0
+margin_right = 315.0
+margin_bottom = 164.0
+custom_fonts/font = ExtResource( 5 )
+text = "Sonicu The Hedgehog
+sonic.exe"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -211.5
+margin_top = -102.0
+margin_right = 211.5
+margin_bottom = 102.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Programmers" type="Label" parent="VBoxContainer2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 423.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 4 )
+text = "--PROGRAMMERS--"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="Label" parent="VBoxContainer2"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 87.0
+margin_right = 423.0
+margin_bottom = 164.0
+custom_fonts/font = ExtResource( 5 )
+text = "-SENIOR PROGRAMMER-
+sonic.exe"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="Label" parent="VBoxContainer2"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 87.0
+margin_right = 423.0
+margin_bottom = 164.0
+custom_fonts/font = ExtResource( 5 )
+text = "-JUNIOR PROGRAMMERS-
+###"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="6" type="Label" parent="VBoxContainer2"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 87.0
+margin_right = 423.0
+margin_bottom = 204.0
+custom_fonts/font = ExtResource( 5 )
+text = "-API PROGRAMMERS-
+sonic.exe
+Sonicu The Hedgehog"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -211.5
+margin_top = -122.0
+margin_right = 211.5
+margin_bottom = 122.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameDesign" type="Label" parent="VBoxContainer3"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 423.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 4 )
+text = "--GAME DESIGN--"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="Label" parent="VBoxContainer3"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 87.0
+margin_right = 423.0
+margin_bottom = 164.0
+custom_fonts/font = ExtResource( 5 )
+text = "-GAME CONCEPT-
+Sonicu The Hedgehog"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="Label" parent="VBoxContainer3"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 87.0
+margin_right = 423.0
+margin_bottom = 164.0
+custom_fonts/font = ExtResource( 5 )
+text = "-MUSIC-
+sonic.exe"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="6" type="Label" parent="VBoxContainer3"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 87.0
+margin_right = 423.0
+margin_bottom = 244.0
+custom_fonts/font = ExtResource( 5 )
+text = "-GRAPHICS-
+Talon123_PL
+Sonic.exe
+Sonicu The Hedgehog"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="7" type="Label" parent="VBoxContainer3"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 87.0
+margin_right = 423.0
+margin_bottom = 204.0
+custom_fonts/font = ExtResource( 5 )
+text = "-UI-
+Sonicu The Hedgehog
+Sonic.exe"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="8" type="Label" parent="VBoxContainer3"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 87.0
+margin_right = 423.0
+margin_bottom = 204.0
+custom_fonts/font = ExtResource( 5 )
+text = "-TRANSLATORS-
+Sonicu The Hedgehog
+Sonic.exe"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="9" type="Label" parent="VBoxContainer3"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 87.0
+margin_right = 423.0
+margin_bottom = 204.0
+custom_fonts/font = ExtResource( 5 )
+text = "-AUDIO MASTERING-
+Sonic.exe
+Sonicu The Hedgehog"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="10" type="Label" parent="VBoxContainer3"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 87.0
+margin_right = 423.0
+margin_bottom = 164.0
+custom_fonts/font = ExtResource( 5 )
+text = "-AUDIO PROGRAMMING-
+Sonic.exe"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -234.0
+margin_top = -112.0
+margin_right = 234.0
+margin_bottom = 112.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TESTERS" type="Label" parent="VBoxContainer4"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 468.0
+margin_bottom = 117.0
+custom_fonts/font = ExtResource( 4 )
+text = "--TESTERS--
+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="Label" parent="VBoxContainer4"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 147.0
+margin_right = 468.0
+margin_bottom = 224.0
+custom_fonts/font = ExtResource( 5 )
+text = "NewTheFox
+thugpro420 aka \"Baby Sonadow\""
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -132.0
+margin_right = 256.0
+margin_bottom = 132.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Special Thanks" type="Label" parent="VBoxContainer5"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 512.0
+margin_bottom = 117.0
+custom_fonts/font = ExtResource( 4 )
+text = "--SPECIAL THANKS TO--
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="Label" parent="VBoxContainer5"]
+modulate = Color( 1, 1, 1, 0 )
+margin_top = 147.0
+margin_right = 512.0
+margin_bottom = 264.0
+custom_fonts/font = ExtResource( 5 )
+text = "thugpro420 aka \"Baby Sonadow\"
+Talon123_PL
+NewTheFox"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
