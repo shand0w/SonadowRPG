@@ -124,9 +124,10 @@ func _on_VSync_toggled(button_pressed):
 
 
 func _on_ClearDownloadedAssets_pressed():
-	dir.open('user://')
+#	dir.open('user://')
 	print('Backing up assets...')
-	dir.rename('user://assets.pck', 'user://assets_backup.pck/')
+	dir.open('user://')
+	dir.rename('assets.pck', 'assets_backup.pck')
 	var app_path = OS.get_executable_path()
 	print('Going to download new version')
 	if str(OS.get_name()) == 'Android':

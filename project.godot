@@ -227,10 +227,16 @@ translations=PoolStringArray( "res://translations/srpg_1.csv", "res://translatio
 
 [logging]
 
-file_logging/log_path="user://engine_log.txt"
+file_logging/enable_file_logging=true
+file_logging/log_path="user://logs/engine_log.txt"
+file_logging/max_log_files=30000
 
 [rendering]
 
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
+batching/options/single_rect_fallback=true
+batching/debug/flash_batching=true
+batching/debug/diagnose_frame=true
+batching/precision/uv_contract=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )

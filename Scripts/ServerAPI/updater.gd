@@ -21,8 +21,12 @@ func _ready():
 		assets_run_load = ProjectSettings.load_resource_pack('user://assets.pck')
 		if assets_run_load == false:
 			error_loading_assets()
+			ProjectSettings.load_resource_pack('user://assets_backup.pck')
+			get_tree().change_scene("res://Scenes/Menu.tscn")
+			
 		else:
 			get_tree().change_scene("res://Scenes/Menu.tscn")
+#				get_tree().change_scene("res://Scenes/Menu.tscn")
 	else:
 		$AnimationPlayer.play("requesting")
 		downloader.set_download_file('user://assets.pck')
@@ -44,7 +48,10 @@ func on_assets_downloaded(result, _response_code, _headers, _body):
 		if error_download_load == false:
 			error_loading_assets()
 		else:
-			get_tree().change_scene("res://Scenes/Menu.tscn")
+			var err=get_tree().change_scene("res://Scenes/Menu.tscn")
+			if err == false:
+				error_loading_assets()
+			
 
 func _process(delta):
 	if not $RequiredAssets.get_body_size() == -1:

@@ -28,6 +28,7 @@ onready var bs_imgs = [
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Directory.new().make_dir('user://logs/')
 	nsfw_connection = Globals.connect("nsfw", self, "globals_nsfw_changed")
 	if day == 21 and month == 6:
 		$IMG_0008.hide()
@@ -83,4 +84,4 @@ func _on_Website_pressed():
 
 
 func _on_Options2_pressed():
-	pass # Replace with function body.
+	BackgroundLoad.load_scene('res://Scenes/Credits.tscn')

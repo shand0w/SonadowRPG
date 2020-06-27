@@ -101,24 +101,23 @@ __meta__ = {
 
 [node name="Options" type="Button" parent="VBoxContainer2"]
 margin_right = 225.0
-margin_bottom = 65.0
+margin_bottom = 42.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
 text = "KEY_GAME_OPTIONS"
 
 [node name="dsc" type="Button" parent="VBoxContainer2"]
-visible = false
 margin_top = 46.0
 margin_right = 225.0
 margin_bottom = 88.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
-text = "DISCORD"
+text = "Credits"
 
 [node name="Quit" type="Button" parent="VBoxContainer2"]
-margin_top = 69.0
+margin_top = 92.0
 margin_right = 225.0
 margin_bottom = 135.0
 size_flags_horizontal = 3
