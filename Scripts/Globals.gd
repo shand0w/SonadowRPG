@@ -17,11 +17,23 @@ var file =  File.new()
 var timer = Timer.new()
 var hour
 var nsfw
+var new_characters:Array = [
+	
+]
 var dlcs:Array = [
+	
+]
+var worlds:Array = [
 	
 ]
 var gc_mode = 'realtime'
 var mod_path = str(OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)) + '/Sonadow RPG/Mods/mod.pck'
+func add_character(chr_name:String):
+	new_characters.append(chr_name)
+func add_dlc(dlc_name:String):
+	dlcs.append(dlc_name)
+func add_world(world_name:String):
+	worlds.append(world_name)
 func _ready():
 	set_process(false)
 	timer.wait_time = game_hour

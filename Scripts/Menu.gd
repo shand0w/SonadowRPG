@@ -5,6 +5,7 @@ var website
 var day = OS.get_date().day
 var month = OS.get_date().month
 var nsfw_connection
+onready var world_list = Globals.worlds
 onready var ntf_imgs = [
 	'res://Graphics/NewTheFox/1.png',
 	'res://Graphics/NewTheFox/2.png',
@@ -28,6 +29,9 @@ onready var bs_imgs = [
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$SelectWorld/WorldList.add_item(tr("KEY_MAGIC_FOREST"))
+	for world_name in world_list:
+		$SelectWorld/WorldList.add_item(tr(world_name))
 	Directory.new().make_dir('user://logs/')
 	nsfw_connection = Globals.connect("nsfw", self, "globals_nsfw_changed")
 	if day == 21 and month == 6:
@@ -64,13 +68,8 @@ func load_easterregg_animation(name_:String):
 	elif name_ == 'bs':
 		$IMG_0009.texture = load(str(bs_imgs[randi()%bs_imgs.size()]))
 func _on_World1_pressed():
-	Globals.world = "res://Scenes/Maps/MainWorld.tscn"
-	if Globals.selected_character == null:
-		$CharacterSelect.popup_centered()
-	else:
-		BackgroundLoad.load_scene(str(Globals.next_world))
-
-
+	$SelectWorld.popup_centered()
+#	$SelectWorld.show()
 func _on_Options_pressed():
 	$Control.popup_centered()
 
@@ -85,3 +84,13 @@ func _on_Website_pressed():
 
 func _on_Options2_pressed():
 	BackgroundLoad.load_scene('res://Scenes/Credits.tscn')
+
+
+func _on_WorldList_item_selected(index):
+	if index == 0:
+		Globals.world = "res://Scenes/Maps/MainWorld.tscn"
+	if Globals.selected_character == null:
+		$CharacterSelect.popup_centered()
+	else:
+		BackgroundLoad.load_scene(str(Globals.world))
+
