@@ -6,7 +6,9 @@
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -4.49959, -278, -79.4998, -200.5, -79.9998, -92.4995, -79.9998, 22.9735, 80.0006, 22.9735, 79.5006, -201.275, 51.0005, -229.775, 3.50044, -278.275 )
 
-[node name="FullHouse" type="Sprite"]
+[node name="FullHouse" type="Sprite" groups=[
+"minimap_objects",
+]]
 script = ExtResource( 2 )
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]

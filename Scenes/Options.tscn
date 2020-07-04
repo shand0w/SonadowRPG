@@ -5,6 +5,7 @@
 [ext_resource path="res://Scenes/controls.tscn" type="PackedScene" id=3]
 
 [node name="Control" type="WindowDialog"]
+visible = true
 anchor_left = 0.00292968
 anchor_top = 0.246666
 anchor_right = 0.727539
@@ -49,9 +50,9 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Graphics" type="Label" parent="tabs/Ogólne/Options/Graphics"]
-margin_top = 92.0
+margin_top = 118.0
 margin_right = 478.0
-margin_bottom = 111.0
+margin_bottom = 137.0
 custom_fonts/font = ExtResource( 2 )
 text = "KEY_OPTIONS_GRAPHICS"
 align = 1
@@ -66,16 +67,16 @@ custom_fonts/font = ExtResource( 2 )
 text = "KEY_OPTIONS_FULLSCREEN_MODE"
 
 [node name="VSync" type="CheckButton" parent="tabs/Ogólne/Options/Graphics"]
-margin_top = 115.0
+margin_top = 141.0
 margin_right = 478.0
-margin_bottom = 155.0
+margin_bottom = 181.0
 custom_fonts/font = ExtResource( 2 )
 text = "VSync"
 
 [node name="fps" type="HBoxContainer" parent="tabs/Ogólne/Options/Graphics"]
-margin_top = 159.0
+margin_top = 185.0
 margin_right = 478.0
-margin_bottom = 199.0
+margin_bottom = 225.0
 rect_min_size = Vector2( 0, 40 )
 alignment = 2
 
@@ -95,9 +96,9 @@ margin_bottom = 40.0
 max_value = 1e+14
 
 [node name="custom_resolution" type="HBoxContainer" parent="tabs/Ogólne/Options/Graphics"]
-margin_top = 203.0
+margin_top = 229.0
 margin_right = 478.0
-margin_bottom = 243.0
+margin_bottom = 269.0
 rect_min_size = Vector2( 40, 40 )
 alignment = 1
 
@@ -140,6 +141,7 @@ items = [ "640x480", null, false, 0, false, "800x480", null, false, 1, false, "8
 selected = 3
 
 [node name="Other" type="Label" parent="tabs/Ogólne/Options/Graphics"]
+visible = false
 margin_top = 247.0
 margin_right = 478.0
 margin_bottom = 266.0
@@ -149,6 +151,7 @@ align = 1
 valign = 1
 
 [node name="ClearDownloadedAssets" type="Button" parent="tabs/Ogólne/Options/Graphics"]
+visible = false
 margin_top = 270.0
 margin_right = 478.0
 margin_bottom = 295.0
@@ -156,9 +159,9 @@ custom_fonts/font = ExtResource( 2 )
 text = "KEY_OPTIONS_DOWNLOAD_ASSETS_AGAIN"
 
 [node name="lang" type="HBoxContainer" parent="tabs/Ogólne/Options/Graphics"]
-margin_top = 299.0
+margin_top = 273.0
 margin_right = 478.0
-margin_bottom = 324.0
+margin_bottom = 298.0
 
 [node name="language" type="Label" parent="tabs/Ogólne/Options/Graphics/lang"]
 margin_top = 3.0
@@ -318,6 +321,7 @@ __meta__ = {
 }
 
 [node name="game_clock" type="HBoxContainer" parent="tabs/Rozgrywka/box"]
+visible = false
 margin_right = 733.0
 margin_bottom = 25.0
 size_flags_horizontal = 3

@@ -1,8 +1,16 @@
 extends Sprite
-export var house_name:String = ''
+var minimap_icon = "alert"
+export var house_name:String = '' setget set_house_name, get_house_name
 var pos = self.get_position_in_parent()
-export var house_interior:PackedScene
-
+export var house_interior:PackedScene setget set_house_interior, get_house_interior
+func set_house_name(new_house_name):
+	house_name = new_house_name
+func get_house_name():
+	return house_name
+func set_house_interior(new_house_interior):
+	house_interior = new_house_interior
+func get_house_interior():
+	return house_interior
 func _on_Area2D_body_entered(body):
 	pos = self.get_position_in_parent()
 	Globals.last_world_position = $start_position.position

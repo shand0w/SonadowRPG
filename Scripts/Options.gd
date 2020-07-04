@@ -11,9 +11,11 @@ func _ready():
 	set_process(false)
 	load_settings()
 	if str(OS.get_name()) == 'Android':
-		$tabs/Sterowanie.hide()
+#		$tabs/Sterowanie.hide()
+		$tabs.set_tab_disabled(2, true)
 		$"tabs/Ogólne/Options/Graphics/custom_resolution".hide()
 	else:
+		$tabs.set_tab_disabled(2, false)
 #		$tabs/Sterowanie.show()
 		$"tabs/Ogólne/Options/Graphics/custom_resolution".show()
 func _process(_delta):

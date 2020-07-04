@@ -14,90 +14,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://minimap/Crate.gd"
 }, {
-"base": "Node",
-"class": "EasyLANNetworkManager",
-"language": "GDScript",
-"path": "res://addons/EasyLAN/EasyLANNetworkManager.gd"
-}, {
-"base": "Reference",
-"class": "GodotHub",
-"language": "GDScript",
-"path": "res://godothub/scripts/godothub.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Mob",
 "language": "GDScript",
 "path": "res://minimap/Mob.gd"
-}, {
-"base": "Reference",
-"class": "NakamaAPI",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/api/NakamaAPI.gd"
-}, {
-"base": "Reference",
-"class": "NakamaAsyncResult",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/utils/NakamaAsyncResult.gd"
-}, {
-"base": "Reference",
-"class": "NakamaClient",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/client/NakamaClient.gd"
-}, {
-"base": "Reference",
-"class": "NakamaException",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/utils/NakamaException.gd"
-}, {
-"base": "Node",
-"class": "NakamaHTTPAdapter",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/client/NakamaHTTPAdapter.gd"
-}, {
-"base": "Reference",
-"class": "NakamaLogger",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/utils/NakamaLogger.gd"
-}, {
-"base": "NakamaAsyncResult",
-"class": "NakamaRTAPI",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/api/NakamaRTAPI.gd"
-}, {
-"base": "Reference",
-"class": "NakamaRTMessage",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/api/NakamaRTMessage.gd"
-}, {
-"base": "Reference",
-"class": "NakamaSerializer",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/utils/NakamaSerializer.gd"
-}, {
-"base": "NakamaAsyncResult",
-"class": "NakamaSession",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/api/NakamaSession.gd"
-}, {
-"base": "Reference",
-"class": "NakamaSocket",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/socket/NakamaSocket.gd"
-}, {
-"base": "Node",
-"class": "NakamaSocketAdapter",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/socket/NakamaSocketAdapter.gd"
-}, {
-"base": "Reference",
-"class": "NakamaStorageObjectId",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/api/NakamaStorageObjectId.gd"
-}, {
-"base": "Reference",
-"class": "NakamaWriteStorageObject",
-"language": "GDScript",
-"path": "res://addons/com.heroiclabs.nakama/api/NakamaWriteStorageObject.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -106,23 +26,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Crate": "",
-"EasyLANNetworkManager": "",
-"GodotHub": "",
 "Mob": "",
-"NakamaAPI": "",
-"NakamaAsyncResult": "",
-"NakamaClient": "",
-"NakamaException": "",
-"NakamaHTTPAdapter": "",
-"NakamaLogger": "",
-"NakamaRTAPI": "",
-"NakamaRTMessage": "",
-"NakamaSerializer": "",
-"NakamaSession": "",
-"NakamaSocket": "",
-"NakamaSocketAdapter": "",
-"NakamaStorageObjectId": "",
-"NakamaWriteStorageObject": "",
 "Player": ""
 }
 
@@ -141,7 +45,6 @@ config/windows_native_icon="res://Graphics/icon.ico"
 
 Screen="*res://addons/screen_debugger/screen.scn"
 Globals="*res://Scripts/Globals.gd"
-Modloader="*res://Scripts/modloader.gd"
 BackgroundLoad="*res://Scenes/background_load.tscn"
 Console="*res://addons/godot-console-dev/src/Console.tscn"
 ScreenDebugger="*res://addons/screen_debugger/S_ScreenDebugger.gd"
@@ -166,7 +69,7 @@ enabled=PoolStringArray( "godot-console-dev", "godot-kra-psd-importer", "godot-s
 
 [gdnative]
 
-singletons=[  ]
+singletons=[ "res://addons/videodecoder.gdnlib" ]
 
 [input]
 
@@ -233,8 +136,13 @@ file_logging/max_log_files=30000
 
 [rendering]
 
-quality/driver/driver_name="GLES2"
+quality/driver/fallback_to_gles2=true
+quality/2d/use_nvidia_rect_flicker_workaround=true
+quality/intended_usage/framebuffer_allocation=0
+quality/intended_usage/framebuffer_allocation.mobile=1
 vram_compression/import_etc=true
+quality/reflections/texture_array_reflections.mobile=true
+quality/reflections/high_quality_ggx.mobile=true
 batching/options/single_rect_fallback=true
 batching/debug/flash_batching=true
 batching/debug/diagnose_frame=true

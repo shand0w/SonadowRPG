@@ -7,7 +7,9 @@
 [sub_resource type="OccluderPolygon2D" id=1]
 polygon = PoolVector2Array( -1.57483, -17.9461, -2.98904, 20.9448, -7.9388, 22.359, -13.5957, 32.9657, -12.8885, 40.0367, -4.40326, 44.2794, 4.78914, 44.2794, 10.446, 39.3296, 11.8602, 33.6728, 6.20335, 22.359, 1.2536, 20.2377 )
 
-[node name="Lamp1" type="Sprite"]
+[node name="Lamp1" type="Sprite" groups=[
+"minimap_objects",
+]]
 script = ExtResource( 3 )
 
 [node name="Lamp_1" type="Sprite" parent="."]
