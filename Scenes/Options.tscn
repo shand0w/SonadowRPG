@@ -5,6 +5,7 @@
 [ext_resource path="res://Scenes/controls.tscn" type="PackedScene" id=3]
 
 [node name="Control" type="WindowDialog"]
+visible = true
 anchor_left = 0.00292968
 anchor_top = 0.246666
 anchor_right = 0.727539
@@ -404,9 +405,39 @@ __meta__ = {
 }
 
 [node name="Licenses" type="Button" parent="tabs/Inne/VBoxContainer"]
-margin_right = 163.0
+margin_right = 188.0
 margin_bottom = 20.0
 text = "KEY_OPTIONS_LICENSES"
+
+[node name="InstallDLC" type="Button" parent="tabs/Inne/VBoxContainer"]
+margin_top = 24.0
+margin_right = 188.0
+margin_bottom = 44.0
+text = "KEY_OPTIONS_INSTALL_DLC"
+
+[node name="InstallDLCDialog" type="FileDialog" parent="tabs/Inne"]
+visible = true
+margin_right = 443.0
+margin_bottom = 291.0
+window_title = "KEY_INSTALL_DLC_DIALOG"
+resizable = true
+mode = 0
+access = 2
+filters = PoolStringArray( "*.pck; DLC Files" )
+show_hidden_files = true
+current_dir = "/home/godot/Pulpit/SonadowRPG"
+current_path = "/home/godot/Pulpit/SonadowRPG/"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InstallDLCFAIL" type="ConfirmationDialog" parent="tabs/Inne"]
+margin_right = 200.0
+margin_bottom = 70.0
+window_title = "KEY_FAILED"
+resizable = true
+dialog_text = "KEY_INSTALL_DLC_FAILED"
+dialog_autowrap = true
 
 [node name="SAVE" type="Button" parent="."]
 anchor_left = 0.5
@@ -451,5 +482,8 @@ __meta__ = {
 [connection signal="toggled" from="tabs/Rozgrywka/box/nsfwmode/nsfw" to="." method="_on_nsfw_toggled"]
 [connection signal="toggled" from="tabs/Rozgrywka/box/minimapenabled/minimap" to="." method="_on_minimap_toggled"]
 [connection signal="pressed" from="tabs/Inne/VBoxContainer/Licenses" to="." method="_on_Licenses_pressed"]
+[connection signal="pressed" from="tabs/Inne/VBoxContainer/InstallDLC" to="." method="_on_InstallDLC_pressed"]
+[connection signal="file_selected" from="tabs/Inne/InstallDLCDialog" to="." method="_on_InstallDLCDialog_file_selected"]
+[connection signal="confirmed" from="tabs/Inne/InstallDLCFAIL" to="." method="_on_InstallDLCFAIL_confirmed"]
 [connection signal="pressed" from="SAVE" to="." method="_on_SAVE_pressed"]
 [connection signal="pressed" from="RESETSETTINGS" to="." method="_on_RESETSETTINGS_pressed"]

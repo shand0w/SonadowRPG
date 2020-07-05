@@ -267,3 +267,23 @@ func _on_Licenses_pressed():
 
 func _on_minimap_toggled(button_pressed):
 	Globals.set_minimap_enabled(button_pressed)
+
+
+func _on_InstallDLC_pressed():
+	$tabs/Inne/InstallDLCDialog.popup_centered()
+
+
+func _on_InstallDLCDialog_file_selected(path):
+	var dir = Directory.new()
+	var base_name = str(path).get_file()
+#	dir.open('user://')
+	print(str(base_name))
+	var err = dir.copy(path, 'user://dlcs/' + base_name)
+	if err == 0:
+		OS.alert("KEY_INSTALL_DLC_SUCCESS", "KEY_SUCCESS")
+		get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
+	else:
+		$tabs/Inne/InstallDLCFAIL.popup_centered()
+
+func _on_InstallDLCFAIL_confirmed():
+	_on_InstallDLC_pressed()

@@ -4,6 +4,7 @@ extends Control
 #var error_download_load
 #var permissions
 #var dir = Directory.new()
+var discord_rpc = preload('res://addons/libdiscord.gdns').new()
 var file = File.new()
 #var save_file = ConfigFile.new()
 #onready var downloader = $RequiredAssets
@@ -68,6 +69,8 @@ var file = File.new()
 #	downloader.set_download_file('user://assets.pck')
 #	downloader.request('https://www.sonadow-dev.ml/game_data/srpg/assets.pck')
 func _ready():
+	discord_rpc.start('729429191489093702')
+	discord_rpc.start_time(OS.get_unix_time())
 #	if not str(OS.get_name()) == "Android" or str(OS.get_name()) == "OSX":
 #		ProjectSettings.load_resource_pack('user://assets.pck')
 	if file.file_exists('user://dlcs/dlc_foxes.pck'):
