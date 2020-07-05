@@ -65,7 +65,7 @@ convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "godot-console-dev", "godot-kra-psd-importer", "godot-sqlite", "screen_debugger" )
+enabled=PoolStringArray( "godot-console-dev", "screen_debugger" )
 
 [gdnative]
 
@@ -126,7 +126,7 @@ ui_right2={
 
 [locale]
 
-translations=PoolStringArray( "res://translations/srpg_1.csv", "res://translations/srpg_1.de.translation", "res://translations/srpg_1.en.translation", "res://translations/srpg_1.es.translation", "res://translations/srpg_1.pl.translation", "res://translations/srpg_1.es_MX.translation", "res://translations/srpg_1.ja.translation", "res://translations/srpg_1.ru.translation", "res://translations/srpg_1.zh.translation" )
+translations=PoolStringArray( "res://translations/srpg_1.csv", "res://translations/srpg_1.de.translation", "res://translations/srpg_1.en.translation", "res://translations/srpg_1.es.translation", "res://translations/srpg_1.pl.translation", "res://translations/srpg_1.es_MX.translation", "res://translations/srpg_1.ja.translation", "res://translations/srpg_1.ru.translation", "res://translations/srpg_1.zh.translation", "res://translations/srpg_2.csv", "res://translations/srpg_2.de.translation", "res://translations/srpg_2.es.translation", "res://translations/srpg_2.es_MX.translation", "res://translations/srpg_2.ja.translation", "res://translations/srpg_2.pl.translation", "res://translations/srpg_2.ru.translation", "res://translations/srpg_2.zh.translation" )
 
 [logging]
 

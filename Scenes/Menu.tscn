@@ -69,19 +69,19 @@ __meta__ = {
 }
 
 [node name="Las" type="Button" parent="VBoxContainer"]
-margin_right = 225.0
+margin_right = 277.0
 margin_bottom = 65.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 5 )
-text = "KEY_MAGIC_FOREST"
+text = "KEY_WORLD_LIST"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Website" type="Button" parent="VBoxContainer"]
 margin_top = 69.0
-margin_right = 225.0
+margin_right = 277.0
 margin_bottom = 135.0
 size_flags_horizontal = 3
 size_flags_vertical = 3

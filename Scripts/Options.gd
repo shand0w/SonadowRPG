@@ -7,6 +7,7 @@ func _ready():
 	$tabs.set_tab_title(0, "KEY_OPTIONS_GENERAL")
 	$tabs.set_tab_title(1, "KEY_OPTIONS_STEERING")
 	$tabs.set_tab_title(2, "KEY_OPTIONS_GAMEPLAY")
+	$tabs.set_tab_title(3, "KEY_OPTIONS_OTHER")
 	$"tabs/Ogólne/Options/Graphics/fps/target".value = Engine.target_fps
 	set_process(false)
 	load_settings()
@@ -25,6 +26,7 @@ func _process(_delta):
 	save_file.set_value('Game', 'locale', str(TranslationServer.get_locale()))
 	save_file.set_value('Game', 'game_clock', str(Globals.gc_mode))
 	save_file.set_value('Game', 'nsfw_enabled', str(!bool(str(Globals.nsfw))))
+	save_file.set_value('Game', 'minimap_enabled', str(!bool(str(Globals.get_minimap_enabled()))))
 	save_file.set_value('Audio', 'master_bus_volume', str($"tabs/Ogólne/Options/Audio/Master/Master_slider".value))
 	save_file.set_value('Audio', 'master_bus_enabled', str($"tabs/Ogólne/Options/Audio/Master/Master_on".pressed))
 	save_file.set_value('Audio', 'music_bus_volume', str($"tabs/Ogólne/Options/Audio/Music/Music_slider".value))
@@ -66,6 +68,8 @@ func load_settings():
 			$"tabs/Ogólne/Options/Graphics/fps/target".value = float(str(save_file.get_value('Game', 'target_fps', 60)))
 		if save_file.has_section_key('Game', 'locale'):
 			TranslationServer.set_locale(str(save_file.get_value('Game', 'locale', 'en')))
+		if save_file.has_section_key('Game', 'minimap_enabled'):
+			$tabs/Rozgrywka/box/minimapenabled/minimap.set_pressed(bool(str(save_file.get_value('Game', 'minimap_enabled', true))))
 		if save_file.has_section_key('Game', 'game_clock'):
 			Globals.set_day_night_mode(str(save_file.get_value('Game', 'target_fps', 60)))
 		if save_file.has_section_key('Game', 'nsfw_enabled'):
@@ -255,3 +259,11 @@ func _on_nsfw_toggled(button_pressed):
 		Globals.set_nsfw(false)
 	else:
 		Globals.set_nsfw(true)
+
+
+func _on_Licenses_pressed():
+	OS.shell_open('file://' + str(OS.get_executable_path()).get_base_dir() + '/Licenses/')
+
+
+func _on_minimap_toggled(button_pressed):
+	Globals.set_minimap_enabled(button_pressed)

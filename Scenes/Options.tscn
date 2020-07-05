@@ -5,7 +5,6 @@
 [ext_resource path="res://Scenes/controls.tscn" type="PackedScene" id=3]
 
 [node name="Control" type="WindowDialog"]
-visible = true
 anchor_left = 0.00292968
 anchor_top = 0.246666
 anchor_right = 0.727539
@@ -26,6 +25,7 @@ __meta__ = {
 }
 
 [node name="Ogólne" type="Tabs" parent="tabs"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -345,9 +345,8 @@ items = [ "KEY_OPTIONS_GC_REAL", null, false, 0, null, "KEY_OPTIONS_GC_FICTIONAL
 selected = 0
 
 [node name="nsfwmode" type="HBoxContainer" parent="tabs/Rozgrywka/box"]
-margin_top = 29.0
 margin_right = 733.0
-margin_bottom = 69.0
+margin_bottom = 40.0
 size_flags_horizontal = 3
 
 [node name="game_clock_label" type="Label" parent="tabs/Rozgrywka/box/nsfwmode"]
@@ -366,6 +365,48 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = ExtResource( 2 )
 text = "KEY_OPTIONS_NSFW"
+
+[node name="minimapenabled" type="HBoxContainer" parent="tabs/Rozgrywka/box"]
+margin_right = 733.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+
+[node name="game_clock_label" type="Label" parent="tabs/Rozgrywka/box/minimapenabled"]
+visible = false
+margin_top = 10.0
+margin_right = 364.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+
+[node name="minimap" type="CheckButton" parent="tabs/Rozgrywka/box/minimapenabled"]
+margin_right = 733.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 2 )
+text = "KEY_OPTIONS_MINIMAP_ENABLED"
+
+[node name="Inne" type="Tabs" parent="tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+drag_to_rearrange_enabled = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tabs/Inne"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Licenses" type="Button" parent="tabs/Inne/VBoxContainer"]
+margin_right = 163.0
+margin_bottom = 20.0
+text = "KEY_OPTIONS_LICENSES"
 
 [node name="SAVE" type="Button" parent="."]
 anchor_left = 0.5
@@ -408,5 +449,7 @@ __meta__ = {
 [connection signal="toggled" from="tabs/Ogólne/Options/Audio/SFX/SFX_on" to="." method="_on_SFX_on_toggled"]
 [connection signal="item_selected" from="tabs/Rozgrywka/box/game_clock/gcbutton" to="." method="_on_gcbutton_item_selected"]
 [connection signal="toggled" from="tabs/Rozgrywka/box/nsfwmode/nsfw" to="." method="_on_nsfw_toggled"]
+[connection signal="toggled" from="tabs/Rozgrywka/box/minimapenabled/minimap" to="." method="_on_minimap_toggled"]
+[connection signal="pressed" from="tabs/Inne/VBoxContainer/Licenses" to="." method="_on_Licenses_pressed"]
 [connection signal="pressed" from="SAVE" to="." method="_on_SAVE_pressed"]
 [connection signal="pressed" from="RESETSETTINGS" to="." method="_on_RESETSETTINGS_pressed"]

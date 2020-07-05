@@ -7,6 +7,7 @@ var f_rotation = -180
 var vel = Vector2()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Globals.connect("minimap", self, "set_minimap")
 	vel = Vector2()
 	if str(OS.get_name()) == "Android":
 		$CanvasLayer/HouseDialog.set_scale(Vector2(1.75, 1.75))
@@ -16,6 +17,9 @@ func _ready():
 		$Camera2D.zoom = Vector2(1, 1)
 		$CanvasLayer/HouseDialog.set_scale(Vector2(1, 1))
 		$CanvasLayer/HouseDialog2.set_scale(Vector2(1, 1))
+
+func set_minimap(minimap_visible):
+	$CanvasLayer/MiniMap.visible = minimap_visible
 
 func _physics_process(delta):
 	if Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_down2"):

@@ -1,6 +1,7 @@
 extends Node
-
+signal minimap
 signal nsfw
+var minimap_enabled = true setget set_minimap_enabled, get_minimap_enabled
 var debugMode = false
 var coming_from_house = ''
 var object_transparency = 0.65
@@ -34,6 +35,11 @@ func add_dlc(dlc_name:String):
 	dlcs.append(dlc_name)
 func add_world(world_name:String):
 	worlds.append(world_name)
+func set_minimap_enabled(minimap_visible):
+	emit_signal("minimap", minimap_visible)
+	minimap_enabled = minimap_visible
+func get_minimap_enabled():
+	return minimap_enabled
 func _ready():
 	set_process(false)
 	timer.wait_time = game_hour
