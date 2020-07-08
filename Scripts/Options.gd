@@ -13,7 +13,7 @@ func _ready():
 	load_settings()
 	if str(OS.get_name()) == 'Android':
 #		$tabs/Sterowanie.hide()
-		$tabs.set_tab_disabled(2, true)
+		$tabs.set_tab_disabled(1, true)
 		$"tabs/Ogólne/Options/Graphics/custom_resolution".hide()
 	else:
 		$tabs.set_tab_disabled(2, false)
@@ -262,7 +262,10 @@ func _on_nsfw_toggled(button_pressed):
 
 
 func _on_Licenses_pressed():
-	OS.shell_open('file://' + str(OS.get_executable_path()).get_base_dir() + '/Licenses/')
+	if str(OS.get_name()) == "Android":
+		OS.shell_open('file://'+ str(OS.get_user_data_dir()) + '/Licenses/')
+	else:
+		OS.shell_open('file://' + str(OS.get_executable_path()).get_base_dir() + '/Licenses/')
 
 
 func _on_minimap_toggled(button_pressed):
@@ -280,10 +283,18 @@ func _on_InstallDLCDialog_file_selected(path):
 	print(str(base_name))
 	var err = dir.copy(path, 'user://dlcs/' + base_name)
 	if err == 0:
-		OS.alert("KEY_INSTALL_DLC_SUCCESS", "KEY_SUCCESS")
+		OS.alert(tr("KEY_INSTALL_DLC_SUCCESS"), tr("KEY_SUCCESS"))
 		get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
 	else:
 		$tabs/Inne/InstallDLCFAIL.popup_centered()
 
 func _on_InstallDLCFAIL_confirmed():
 	_on_InstallDLC_pressed()
+
+
+func _on_MANAGE_DLCS_pressed():
+	$tabs/Inne/DLC_MANGER.popup_centered()
+
+
+func _on_DLC_MANGER_popup_hide():
+	$tabs/Inne/DLC_MANGER/DLCMANAGER.reload_dlcs()

@@ -48,3 +48,16 @@ KEY_OPTIONS_NSFW,NSFW,NSFW,NSFW,NSFW,NSFW,NSFW,NSFW,國家自然科學基金會
 KEY_AUTHORS,Authors,Autores,Autoren,Autorzy,Autores,著者,Авторы,作者
 KEY_WORLD_LIST,Select World,Seleccione mundo,Wählen Sie Welt,Wybierz Świat,Seleccione mundo,世界を選択,Выберите Мир,選擇世界
 KEY_OPTIONS_LICENSES,See Licenses,Ver licencias,Siehe Lizenzen,Zobacz Licencje,Ver licencias,ライセンスを見る,Смотрите Лицензии,查看許可
+KEY_OPTIONS_OTHER,OTHER OPTIONS,OTRAS OPCIONES,ANDERE OPTIONEN,INNE,OTRAS OPCIONES,別のオプション,Другие варианты,其他O
+KEY_OPTIONS_INSTALL_DLC,Install DLC,,,Zainstaluj DLC,,,,
+KEY_INSTALL_DLC_DIALOG,Select DLC file,,,Wybierz plik z DLC,,,,
+KEY_INSTALL_DLC_SUCCESS,DLC was installed succesfully,,,DLC zostało zainstalowane poprawnie,,,,
+KEY_SUCCESS,SUCCESS!,,,SUKCES!,,,,
+KEY_INSTALL_DLC_FAILED,"Failed to install DLC
+
+Want to try again?",,,"Błąd instalacji DLC
+
+Czy chcesz spróbować ponownie?",,,,
+KEY_FAILED,FAILED!,,,BŁĄD!,,,,
+KEY_OPTIONS_MANAGE_DLCS,Manage Installed DLCS,,,Zarządzaj zainstalowanymi DLC,,,,
+KEY_OPTIONS_REMOVE_DLC,Remove DLC,,,Usuń DLC,,,,

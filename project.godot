@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://minimap/Crate.gd"
 }, {
+"base": "",
+"class": "DISCORD_RPC",
+"language": "NativeScript",
+"path": "res://addons/libdiscord.gdns"
+}, {
 "base": "KinematicBody2D",
 "class": "Mob",
 "language": "GDScript",
@@ -26,6 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Crate": "",
+"DISCORD_RPC": "",
 "Mob": "",
 "Player": ""
 }
@@ -126,7 +132,7 @@ ui_right2={
 
 [locale]
 
-translations=PoolStringArray( "res://translations/srpg_1.csv", "res://translations/srpg_1.de.translation", "res://translations/srpg_1.en.translation", "res://translations/srpg_1.es.translation", "res://translations/srpg_1.pl.translation", "res://translations/srpg_1.es_MX.translation", "res://translations/srpg_1.ja.translation", "res://translations/srpg_1.ru.translation", "res://translations/srpg_1.zh.translation", "res://translations/srpg_2.csv", "res://translations/srpg_2.de.translation", "res://translations/srpg_2.es.translation", "res://translations/srpg_2.es_MX.translation", "res://translations/srpg_2.ja.translation", "res://translations/srpg_2.pl.translation", "res://translations/srpg_2.ru.translation", "res://translations/srpg_2.zh.translation" )
+translations=PoolStringArray( "res://translations/srpg_1.csv", "res://translations/srpg_1.de.translation", "res://translations/srpg_1.en.translation", "res://translations/srpg_1.es.translation", "res://translations/srpg_1.pl.translation", "res://translations/srpg_1.es_MX.translation", "res://translations/srpg_1.ja.translation", "res://translations/srpg_1.ru.translation", "res://translations/srpg_1.zh.translation" )
 
 [logging]
 

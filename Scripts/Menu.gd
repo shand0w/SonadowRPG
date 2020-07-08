@@ -2,7 +2,7 @@ extends Control
 var tekst = "Hello World"
 var world_scene
 var website
-var discord_rpc = preload('res://addons/libdiscord.gdns').new()
+#var discord_rpc = DISCORD_RPC.new()
 var day = OS.get_date().day
 var month = OS.get_date().month
 var nsfw_connection

@@ -4,7 +4,7 @@ extends Control
 #var error_download_load
 #var permissions
 #var dir = Directory.new()
-var discord_rpc = preload('res://addons/libdiscord.gdns').new()
+#var discord_rpc = DISCORD_RPC.new()
 var file = File.new()
 #var save_file = ConfigFile.new()
 #onready var downloader = $RequiredAssets
@@ -69,12 +69,12 @@ var file = File.new()
 #	downloader.set_download_file('user://assets.pck')
 #	downloader.request('https://www.sonadow-dev.ml/game_data/srpg/assets.pck')
 func _ready():
-	discord_rpc.start('729429191489093702')
-	discord_rpc.start_time(OS.get_unix_time())
+#	discord_rpc.start('729429191489093702')
+#	discord_rpc.start_time(OS.get_unix_time())
 #	if not str(OS.get_name()) == "Android" or str(OS.get_name()) == "OSX":
 #		ProjectSettings.load_resource_pack('user://assets.pck')
 	if file.file_exists('user://dlcs/dlc_foxes.pck'):
-		ProjectSettings.load_resource_pack('user://dlcs/dlc_foxes.pck')
+		ProjectSettings.load_resource_pack('user://dlcs/dlc_foxes.pck', false)
 		var script = load('res://dlcs/dlc_foxes.gd').new()
 		script.add_characters()
 		script.add_dlc()
@@ -83,5 +83,11 @@ func _ready():
 		var dir = Directory.new()
 		dir.open('user://')
 		dir.make_dir('dlcs')
+		dir.make_dir('Licenses')
+		dir.copy('res://Licenses/', 'user://Licenses/')
+	if not file.file_exists('user://logs/engine_log.txt'):
+		var dir = Directory.new()
+		dir.open('user://')
+		dir.make_dir('logs')
 	OS.request_permissions()
 	get_tree().change_scene("res://Scenes/Menu.tscn")

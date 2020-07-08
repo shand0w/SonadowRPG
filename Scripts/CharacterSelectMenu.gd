@@ -5,10 +5,11 @@ extends Control
 # var a = 2
 # var b = "text"
 onready var new_chrs = Globals.new_characters
-var discord_rpc = preload('res://addons/libdiscord.gdns').new()
+#var discord_rpc = DISCORD_RPC.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	for character in new_chrs:
 		$ItemList.add_item(str(character))
 
@@ -38,7 +39,7 @@ func _on_New_pressed():
 
 func _on_ItemList_item_selected(index):
 	var item_name = $ItemList.get_item_text(index)
-	discord_rpc.set_details('Playing as ' + str(item_name))
+#	discord_rpc.set_details('Playing as ' + str(item_name))
 	Globals.character_path = "res://Scenes/Characters/" + str(item_name) + ".tscn"
 	Globals.selected_character = load("res://Scenes/Characters/" + str(item_name) + ".tscn").instance()
 	after_selecting_player()

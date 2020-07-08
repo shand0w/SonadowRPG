@@ -12,7 +12,6 @@ OSX.32="res://addons/bin/osx/libdiscord-rpc.dylib"
 Windows.64="res://addons/bin/win64/libdiscord.dll"
 Windows.32="res://addons/bin/win32/libdiscord.dll"
 X11.64="res://addons/bin/x11/libdiscord.so"
-X11.32="res://addons/bin/x11/libdiscord.so"
 
 [dependencies]
 
@@ -21,4 +20,3 @@ OSX.32=[ "res://addons/bin/osx/libdiscord-rpc.a" ]
 Windows.64=[ "res://addons/bin/win64/discord-rpc.dll", "res://addons/bin/win64/discord-rpc.lib", "res://addons/bin/win64/libdiscord.dll", "res://addons/bin/win64/libdiscord.exp", "res://addons/bin/win64/libdiscord.lib", "res://addons/bin/win64/send-presence.exe" ]
 Windows.32=[ "res://addons/bin/win32/discord-rpc.dll", "res://addons/bin/win32/discord-rpc.lib", "res://addons/bin/win32/libdiscord.dll", "res://addons/bin/win32/send-presence.exe" ]
 X11.64=[ "res://addons/bin/x11/discord-rpc.so", "res://addons/bin/x11/libdiscord-rpc.a", "res://addons/bin/x11/libdiscord-rpc.so" ]
-X11.32=[ "res://addons/bin/x11/discord-rpc.so", "res://addons/bin/x11/libdiscord-rpc.a", "res://addons/bin/x11/libdiscord-rpc.so" ]
