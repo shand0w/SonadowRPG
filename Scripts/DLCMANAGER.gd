@@ -32,12 +32,15 @@ func _on_RemoveDLC_pressed():
 	var item_name = $VBoxContainer/dlcs.get_item_text(selected_item_index)
 	var dir = Directory.new()
 	dir.open('user://dlcs/')
-	dir.remove(dlcfname.get(str(item_name)) + '.pck')
+	var file_name = dlcfname.get(str(item_name))
+	dir.remove(str(file_name) + '.pck')
 	$VBoxContainer/dlcs.remove_item(selected_item_index)
+	reload_dlcs()
 
 func reload_dlcs():
 	Globals.dlcs.clear()
 	Globals.dlc_name_list.clear()
 	Globals.worlds.clear()
 	Globals.new_characters.clear()
-	get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
+	preload('res://Scripts/ServerAPI/dlc_loader.gd').new()._ready()
+#	get_tree().reload_current_scene()

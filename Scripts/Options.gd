@@ -284,7 +284,7 @@ func _on_InstallDLCDialog_file_selected(path):
 	var err = dir.copy(path, 'user://dlcs/' + base_name)
 	if err == 0:
 		OS.alert(tr("KEY_INSTALL_DLC_SUCCESS"), tr("KEY_SUCCESS"))
-		get_tree().change_scene("res://Scenes/ServerAPI/updater.tscn")
+		get_tree().change_scene("res://Scenes/ServerAPI/dlc_loader.tscn")
 	else:
 		$tabs/Inne/InstallDLCFAIL.popup_centered()
 
@@ -298,3 +298,4 @@ func _on_MANAGE_DLCS_pressed():
 
 func _on_DLC_MANGER_popup_hide():
 	$tabs/Inne/DLC_MANGER/DLCMANAGER.reload_dlcs()
+#	get_tree().change_scene("res://Scenes/ServerAPI/dlc_loader.tscn")
