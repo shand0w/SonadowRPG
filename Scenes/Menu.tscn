@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/Titles/IMG_0008.jpeg" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Fonts/Ubuntu-L.tres" type="DynamicFont" id=5]
 [ext_resource path="res://Scenes/CharacterSelectMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://themes/rpgm_like/rpgm_like.tres" type="Theme" id=7]
+[ext_resource path="res://Graphics/icon.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "bg"
@@ -54,7 +55,9 @@ __meta__ = {
 [node name="IMG_0009" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = 848.0
 rect_clip_content = true
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 7
 __meta__ = {
@@ -198,6 +201,14 @@ anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Label2" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -49.0
+margin_right = 449.0
+text = "Support: support@sonadow-dev.ml
+Version 0.0.0.2-alpha, Copyright 2020 - present, Sonadow DEV"
 [connection signal="pressed" from="VBoxContainer/Las" to="." method="_on_World1_pressed"]
 [connection signal="pressed" from="VBoxContainer/Website" to="." method="_on_Website_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Options" to="." method="_on_Options_pressed"]

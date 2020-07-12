@@ -4,7 +4,7 @@ extends Control
 #var error_download_load
 #var permissions
 #var dir = Directory.new()
-#var discord_rpc = DISCORD_RPC.new()
+#var discord_rpc = Discord.new()
 var file = File.new()
 #var save_file = ConfigFile.new()
 #onready var downloader = $RequiredAssets

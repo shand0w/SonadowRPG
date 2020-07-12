@@ -15,9 +15,9 @@ _global_script_classes=[ {
 "path": "res://minimap/Crate.gd"
 }, {
 "base": "",
-"class": "DISCORD_RPC",
+"class": "Discord",
 "language": "NativeScript",
-"path": "res://addons/libdiscord.gdns"
+"path": "res://libdiscord.gdns"
 }, {
 "base": "KinematicBody2D",
 "class": "Mob",
@@ -31,7 +31,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Crate": "",
-"DISCORD_RPC": "",
+"Discord": "",
 "Mob": "",
 "Player": ""
 }
@@ -40,12 +40,26 @@ _global_script_class_icons={
 
 config/name="Sonadow RPG"
 run/main_scene="res://Scenes/ServerAPI/updater.tscn"
+config/project_settings_override="res://rakugo.cfg"
 boot_splash/image="res://Graphics/bootlogo.png"
 boot_splash/fullsize=false
 boot_splash/use_filter=false
 boot_splash/bg_color=Color( 1, 1, 1, 1 )
 config/icon="res://Graphics/icon.png"
 config/windows_native_icon="res://Graphics/icon.ico"
+rakugo/version="0.0.1"
+rakugo/game_credits="Your Company"
+rakugo/markup="renpy"
+rakugo/debug=true
+rakugo/test_saves=false
+rakugo/scenes_links="res://game/scenes_links.tres"
+rakugo/theme="res://themes/question/question.tres"
+rakugo/default_kind="nvl"
+rakugo/punctuation_pause="1"
+rakugo/default_mkind="grid"
+rakugo/default_mcolumns=2.0
+rakugo/default_manchor="center"
+rakugo/scene_links="res://game/scene_links.tres"
 
 [autoload]
 
@@ -55,6 +69,7 @@ BackgroundLoad="*res://Scenes/background_load.tscn"
 Console="*res://addons/godot-console-dev/src/Console.tscn"
 ScreenDebugger="*res://addons/screen_debugger/S_ScreenDebugger.gd"
 API="*res://Scenes/ServerAPI/API.tscn"
+Rakugo="*res://addons/Rakugo/Rakugo.tscn"
 
 [debug]
 
@@ -75,7 +90,7 @@ enabled=PoolStringArray( "godot-console-dev", "screen_debugger" )
 
 [gdnative]
 
-singletons=[ "res://addons/videodecoder.gdnlib" ]
+singletons=[ "res://videodecoder.gdnlib" ]
 
 [input]
 

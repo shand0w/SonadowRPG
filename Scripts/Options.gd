@@ -4,7 +4,7 @@ var save_file = ConfigFile.new()
 var file = File.new()
 func _ready():
 	$"tabs/Ogólne/Options/Graphics/lang/lang".text = "KEY_OPTIONS_LANG_" + str(TranslationServer.get_locale().to_upper())
-	$tabs.set_tab_title(0, "KEY_OPTIONS_GENERAL")
+	$tabs.set_tab_title(0, "[smile]")
 	$tabs.set_tab_title(1, "KEY_OPTIONS_STEERING")
 	$tabs.set_tab_title(2, "KEY_OPTIONS_GAMEPLAY")
 	$tabs.set_tab_title(3, "KEY_OPTIONS_OTHER")
@@ -273,29 +273,4 @@ func _on_minimap_toggled(button_pressed):
 
 
 func _on_InstallDLC_pressed():
-	$tabs/Inne/InstallDLCDialog.popup_centered()
-
-
-func _on_InstallDLCDialog_file_selected(path):
-	var dir = Directory.new()
-	var base_name = str(path).get_file()
-#	dir.open('user://')
-	print(str(base_name))
-	var err = dir.copy(path, 'user://dlcs/' + base_name)
-	if err == 0:
-		OS.alert(tr("KEY_INSTALL_DLC_SUCCESS"), tr("KEY_SUCCESS"))
-		get_tree().change_scene("res://Scenes/ServerAPI/dlc_loader.tscn")
-	else:
-		$tabs/Inne/InstallDLCFAIL.popup_centered()
-
-func _on_InstallDLCFAIL_confirmed():
-	_on_InstallDLC_pressed()
-
-
-func _on_MANAGE_DLCS_pressed():
-	$tabs/Inne/DLC_MANGER.popup_centered()
-
-
-func _on_DLC_MANGER_popup_hide():
-	$tabs/Inne/DLC_MANGER/DLCMANAGER.reload_dlcs()
-#	get_tree().change_scene("res://Scenes/ServerAPI/dlc_loader.tscn")
+	OS.shell_open('https://www.sonadow-rpg.ml/dlcs/')
