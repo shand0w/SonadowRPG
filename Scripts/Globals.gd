@@ -21,6 +21,13 @@ var nsfw
 var new_characters:Array = [
 	
 ]
+func get_dlcs_avaliable():
+	var http = HTTPRequest.new()
+	var req = http.request('https://www.sonadow-rpg.ml/dlcs/index.html')
+	if req == OK:
+		return true
+	elif req == FAILED:
+		return false
 var dlcs:Array = [
 	
 ]

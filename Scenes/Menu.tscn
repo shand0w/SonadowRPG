@@ -208,7 +208,7 @@ anchor_bottom = 1.0
 margin_top = -49.0
 margin_right = 449.0
 text = "Support: support@sonadow-dev.ml
-Version 0.0.0.2-alpha, Copyright 2020 - present, Sonadow DEV"
+Version 0.0.1.0-alpha, Copyright 2020 - present, Sonadow DEV"
 [connection signal="pressed" from="VBoxContainer/Las" to="." method="_on_World1_pressed"]
 [connection signal="pressed" from="VBoxContainer/Website" to="." method="_on_Website_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Options" to="." method="_on_Options_pressed"]

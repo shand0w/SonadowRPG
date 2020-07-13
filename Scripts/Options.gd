@@ -2,7 +2,9 @@ extends WindowDialog
 var dir = Directory.new()
 var save_file = ConfigFile.new()
 var file = File.new()
+var dlc_web_avaliable = Globals.get_dlcs_avaliable()
 func _ready():
+	$tabs/Inne/VBoxContainer/InstallDLC.set_disabled(!dlc_web_avaliable)
 	$"tabs/Ogólne/Options/Graphics/lang/lang".text = "KEY_OPTIONS_LANG_" + str(TranslationServer.get_locale().to_upper())
 	$tabs.set_tab_title(0, "[smile]")
 	$tabs.set_tab_title(1, "KEY_OPTIONS_STEERING")
@@ -262,7 +264,7 @@ func _on_nsfw_toggled(button_pressed):
 
 
 func _on_Licenses_pressed():
-	if str(OS.get_name()) == "Android":
+	if str(OS.get_name()) == "Android" or str(OS.get_name()) == "OSX":
 		OS.shell_open('file://'+ str(OS.get_user_data_dir()) + '/Licenses/')
 	else:
 		OS.shell_open('file://' + str(OS.get_executable_path()).get_base_dir() + '/Licenses/')
