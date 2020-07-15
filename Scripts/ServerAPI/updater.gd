@@ -74,7 +74,7 @@ func _ready():
 #	if not str(OS.get_name()) == "Android" or str(OS.get_name()) == "OSX":
 #		ProjectSettings.load_resource_pack('user://assets.pck')
 	if file.file_exists('user://dlcs/dlc_foxes.pck'):
-		ProjectSettings.load_resource_pack('user://dlcs/dlc_foxes.pck', false)
+		ProjectSettings.load_resource_pack('user://dlcs/dlc_foxes.pck')
 		var script = load('res://dlcs/dlc_foxes.gd').new()
 		script.add_characters()
 		script.add_dlc()

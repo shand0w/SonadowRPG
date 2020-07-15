@@ -64,12 +64,12 @@ rakugo/scene_links="res://game/scene_links.tres"
 [autoload]
 
 Screen="*res://addons/screen_debugger/screen.scn"
-Globals="*res://Scripts/Globals.gd"
 BackgroundLoad="*res://Scenes/background_load.tscn"
 Console="*res://addons/godot-console-dev/src/Console.tscn"
 ScreenDebugger="*res://addons/screen_debugger/S_ScreenDebugger.gd"
 API="*res://Scenes/ServerAPI/API.tscn"
 Rakugo="*res://addons/Rakugo/Rakugo.tscn"
+Globals="*res://Scripts/Globals.gd"
 
 [debug]
 

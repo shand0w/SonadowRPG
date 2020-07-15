@@ -6,7 +6,7 @@ var dlc_web_avaliable = Globals.get_dlcs_avaliable()
 func _ready():
 	$tabs/Inne/VBoxContainer/InstallDLC.set_disabled(!dlc_web_avaliable)
 	$"tabs/Ogólne/Options/Graphics/lang/lang".text = "KEY_OPTIONS_LANG_" + str(TranslationServer.get_locale().to_upper())
-	$tabs.set_tab_title(0, "[smile]")
+	$tabs.set_tab_title(0, "KEY_OPTIONS_GENERAL")
 	$tabs.set_tab_title(1, "KEY_OPTIONS_STEERING")
 	$tabs.set_tab_title(2, "KEY_OPTIONS_GAMEPLAY")
 	$tabs.set_tab_title(3, "KEY_OPTIONS_OTHER")
@@ -70,8 +70,8 @@ func load_settings():
 			$"tabs/Ogólne/Options/Graphics/fps/target".value = float(str(save_file.get_value('Game', 'target_fps', 60)))
 		if save_file.has_section_key('Game', 'locale'):
 			TranslationServer.set_locale(str(save_file.get_value('Game', 'locale', 'en')))
-		if save_file.has_section_key('Game', 'minimap_enabled'):
-			$tabs/Rozgrywka/box/minimapenabled/minimap.set_pressed(bool(str(save_file.get_value('Game', 'minimap_enabled', true))))
+#		if save_file.has_section_key('Game', 'minimap_enabled'):
+#			$tabs/Rozgrywka/box/minimapenabled/minimap.set_pressed(bool(str(save_file.get_value('Game', 'minimap_enabled', true))))
 		if save_file.has_section_key('Game', 'game_clock'):
 			Globals.set_day_night_mode(str(save_file.get_value('Game', 'target_fps', 60)))
 		if save_file.has_section_key('Game', 'nsfw_enabled'):
