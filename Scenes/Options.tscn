@@ -366,6 +366,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "KEY_OPTIONS_NSFW"
 
 [node name="minimapenabled" type="HBoxContainer" parent="tabs/Rozgrywka/box"]
+visible = false
 margin_top = 44.0
 margin_right = 733.0
 margin_bottom = 84.0

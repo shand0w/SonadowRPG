@@ -25,6 +25,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -850 ), Vector2( 0, 0 ) ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("IMG_0009:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 50, 100 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -850 ), Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="Animation" id=2]
 resource_name = "end_transition"
@@ -202,13 +214,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="RichTextLabel" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_top = -49.0
-margin_right = 449.0
+margin_top = -42.0
+margin_right = 533.0
+mouse_filter = 1
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[wave amp=50 freq=1]Support: support@sonadow-dev.ml
+Version 0.0.1.1-alpha, Copyright 2020 - present, Sonadow DEV[/wave]"
 text = "Support: support@sonadow-dev.ml
-Version 0.0.1.0-alpha, Copyright 2020 - present, Sonadow DEV"
+Version 0.0.1.1-alpha, Copyright 2020 - present, Sonadow DEV"
 __meta__ = {
 "_edit_use_anchors_": false
 }
