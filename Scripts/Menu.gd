@@ -64,6 +64,7 @@ func globals_nsfw_changed(nsfw_enabled:bool):
 		$IMG_0008.texture = load(str("res://Graphics/Titles/IMG_0008.jpeg"))
 
 func load_easterregg_animation(name_:String):
+	randomize()
 	if name_ == 'ntf':
 		$IMG_0009.texture = load(str(ntf_imgs[randi()%ntf_imgs.size()]))
 	elif name_ == 'bs':
