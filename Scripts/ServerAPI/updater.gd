@@ -79,7 +79,7 @@ func _ready():
 		script.add_characters()
 		script.add_dlc()
 		script.add_worlds()
-		
+	$AnimationPlayer.play("intro")
 	var dir = Directory.new()
 	dir.open('user://')
 	dir.make_dir('dlcs')
@@ -90,9 +90,7 @@ func _ready():
 		dir.open('user://')
 		dir.make_dir('logs')
 	OS.request_permissions()
-	get_tree().change_scene("res://Scenes/Menu.tscn")
-
-
+	
 func copy_recursive(from, to):
 	var directory = Directory.new()
 	
@@ -114,3 +112,7 @@ func copy_recursive(from, to):
 			file_name = directory.get_next()
 	else:
 		print("Error copying " + from + " to " + to)
+
+
+func _on_AnimationPlayer_animation_finished(_anim_name):
+	get_tree().change_scene("res://Scenes/Menu.tscn")

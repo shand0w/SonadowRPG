@@ -9,7 +9,6 @@ onready var new_chrs = Globals.new_characters
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
 	for character in new_chrs:
 		$ItemList.add_item(str(character))
 

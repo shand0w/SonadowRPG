@@ -1,23 +1,48 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/ServerAPI/updater.gd" type="Script" id=1]
 [ext_resource path="res://Graphics/bootlogo.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/Ubuntu-L.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Graphics/FMOD_LOGOS/FMOD Logo White - Black Background.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/Ubuntu-L32.tres" type="DynamicFont" id=4]
 
 [sub_resource type="Animation" id=1]
-resource_name = "requesting"
-loop = true
+resource_name = "intro"
+length = 4.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("Center/DOWNLOADING:self_modulate")
+tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("VBoxContainer/TextureRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("bootlogo:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [node name="Updater" type="Control"]
@@ -28,17 +53,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+playback_speed = 0.5
+anims/intro = SubResource( 1 )
+
 [node name="RequiredAssets" type="HTTPRequest" parent="."]
 use_threads = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="bootlogo" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -52,43 +84,40 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/requesting = SubResource( 1 )
-
-[node name="Center" type="VBoxContainer" parent="."]
-anchor_top = 0.655
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 3.05176e-05
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -415.0
+margin_top = -127.0
+margin_right = 415.0
+margin_bottom = 127.0
+custom_constants/separation = 25
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DOWNLOADING" type="Label" parent="Center"]
-self_modulate = Color( 1, 1, 1, 0 )
-margin_right = 1024.0
-margin_bottom = 101.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "KEY_DOWNLOADING_REQUIRED_GAME_ASSETS"
-align = 1
-valign = 1
-autowrap = true
-clip_text = true
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+margin_right = 830.0
+margin_bottom = 192.0
+texture = ExtResource( 3 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label" type="Label" parent="Center"]
-margin_top = 105.0
-margin_right = 1024.0
-margin_bottom = 207.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_top = 217.0
+margin_right = 830.0
+margin_bottom = 254.0
+custom_fonts/font = ExtResource( 4 )
+text = "Made with FMOD Studio by Firelight Technologies Pty Ltd."
 align = 1
-valign = 1
-autowrap = true
-clip_text = true
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="request_completed" from="RequiredAssets" to="." method="on_assets_downloaded"]

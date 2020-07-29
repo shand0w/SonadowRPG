@@ -21,13 +21,33 @@ var nsfw
 var new_characters:Array = [
 	
 ]
+func _enter_tree():
+	# set up FMOD
+	Fmod.set_software_format(0, Fmod.FMOD_SPEAKERMODE_STEREO, 0)
+	Fmod.init(1024, Fmod.FMOD_STUDIO_INIT_LIVEUPDATE, Fmod.FMOD_INIT_NORMAL)
+	Fmod.set_sound_3D_settings(1, 32, 1)
+	Fmod.set_listener_number(2)
+	
+	# load banks
+# warning-ignore:return_value_discarded
+	Fmod.load_bank("res://assets/Banks/Master Bank.strings.bank", Fmod.FMOD_STUDIO_LOAD_BANK_NORMAL)
+# warning-ignore:return_value_discarded
+	Fmod.load_bank("res://assets/Banks/Master Bank.bank", Fmod.FMOD_STUDIO_LOAD_BANK_NORMAL)
+# warning-ignore:return_value_discarded
+	Fmod.load_bank("res://assets/Banks/Music.bank", Fmod.FMOD_STUDIO_LOAD_BANK_NORMAL)
+# warning-ignore:return_value_discarded
+	Fmod.load_bank("res://assets/Banks/Vehicles.bank", Fmod.FMOD_STUDIO_LOAD_BANK_NORMAL)
+	print("Fmod initialised.")
+	var drivers = Fmod.get_available_drivers()
+	print(drivers)
 func get_dlcs_avaliable():
-	var http = HTTPRequest.new()
-	var req = http.request('https://www.sonadow-rpg.ml/dlcs/index.html')
-	if req == OK:
-		return true
-	elif req == FAILED:
-		return false
+#	var http = HTTPRequest.new()
+#	var req = http.request('https://www.sonadow-rpg.ml/dlcs/index.html')
+#	if req == OK:
+#		return true
+#	elif req == FAILED:
+#		return false
+	return true
 var dlcs:Array = [
 	
 ]
@@ -53,6 +73,11 @@ func set_minimap_enabled(minimap_visible):
 func get_minimap_enabled():
 	return minimap_enabled
 func _ready():
+	if str(OS.get_name()) == "Android":
+		ProjectSettings.set_setting('appilcation/config/use_custom_user_dir', true)
+		ProjectSettings.set_setting('application/config/custom_user_dir_name', "storage/emulated/0/Android/data/org.godotengine.sonadowrpg/")
+		ProjectSettings.save()
+		ProjectSettings.save_custom('user://project.godot')
 	set_process(false)
 	timer.wait_time = game_hour
 	timer.connect("timeout", self, "on_timer_timeout")

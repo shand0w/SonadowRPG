@@ -16,6 +16,7 @@ func _process(delta):
 		'\nName: Sonadow RPG',
 		'\nEngine version: ' +str(Engine.get_version_info()),
 		'\n\nEngine variables',
+		'\nuser data dir' + str(OS.get_user_data_dir()),
 		'\ntarget FPS: ' + str(Engine.target_fps),
 		'\nFPS: ' + str(Engine.get_frames_per_second()),
 		'\n\nGlobals.gd variables',

@@ -275,4 +275,6 @@ func _on_minimap_toggled(button_pressed):
 
 
 func _on_InstallDLC_pressed():
+	if str(OS.get_name()) == "Android":
+		$Control.popup_centered()
 	OS.shell_open('https://www.sonadow-rpg.ml/dlcs/')

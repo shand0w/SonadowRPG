@@ -9,7 +9,7 @@ extends Control
 #var godot_copyrights_1 = str(Engine.get_copyright_info())
 #var godot_copyrights = godot_copyrights_1.replace(',', '\n')
 #var authors_engine = "---GODOT ENGINE DEVELOPMENT TEAM---\n\n--PROJECT MANAGERS--\n" + str(Engine.get_author_info().project_managers) + '\n\n--LEAD DEVELOPERS--\n' + str(Engine.get_author_info().lead_developers) + '\n\n--FOUNDERS--\n' + str(Engine.get_author_info().founders) + '\n\n--DEVELOPERS--\n' + str(Engine.get_author_info().developers)
-var copyright = "[center]\n\nPowered by Sonadow Engine\nSonadow RPG - Copyright 2020 - " + str(OS.get_date().year) + " - Sonadow DEV\nSonadow Engine - Copyright 2020 - " + str(OS.get_date().year) + " - Sonadow DEV[/center]"
+var copyright = "[center]\n\nMade with FMOD Studio by Firelight Technologies Pty Ltd.\n\nPowered by Sonadow Engine\nSonadow RPG - Copyright 2020 - " + str(OS.get_date().year) + " - Sonadow DEV\nSonadow Engine - Copyright 2020 - " + str(OS.get_date().year) + " - Sonadow DEV[/center]"
 #var authors_no_bbcode_2 = authors_engine.replace(',', '\n')
 #var authors_no_bbcode_3 = authors_no_bbcode_2.replace('[', '')
 #var authors_no_bbcode = authors_no_bbcode_3.replace(']', '')

@@ -15,9 +15,9 @@ _global_script_classes=[ {
 "path": "res://minimap/Crate.gd"
 }, {
 "base": "",
-"class": "Discord",
+"class": "FmodNative",
 "language": "NativeScript",
-"path": "res://libdiscord.gdns"
+"path": "res://bin/fmod/Fmod.gdns"
 }, {
 "base": "KinematicBody2D",
 "class": "Mob",
@@ -31,10 +31,14 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Crate": "",
-"Discord": "",
+"FmodNative": "",
 "Mob": "",
 "Player": ""
 }
+
+[android]
+
+modules="org/godotengine/godot/FmodSingleton"
 
 [application]
 
@@ -70,6 +74,7 @@ ScreenDebugger="*res://addons/screen_debugger/S_ScreenDebugger.gd"
 API="*res://Scenes/ServerAPI/API.tscn"
 Rakugo="*res://addons/Rakugo/Rakugo.tscn"
 Globals="*res://Scripts/Globals.gd"
+Fmod="*res://bin/fmod/Fmod.gd"
 
 [debug]
 
@@ -86,11 +91,11 @@ convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "godot-console-dev", "screen_debugger" )
+enabled=PoolStringArray( "godot-console-dev", "mixing-desk", "screen_debugger" )
 
 [gdnative]
 
-singletons=[ "res://videodecoder.gdnlib" ]
+singletons=[  ]
 
 [input]
 
