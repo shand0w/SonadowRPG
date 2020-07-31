@@ -1,8 +1,9 @@
 extends Node
+signal loaded
 signal minimap
 signal nsfw
 var minimap_enabled = true setget set_minimap_enabled, get_minimap_enabled
-var debugMode = false
+var debugMode
 var coming_from_house = ''
 var object_transparency = 0.65
 var selected_character
@@ -21,7 +22,8 @@ var nsfw
 var new_characters:Array = [
 	
 ]
-func _enter_tree():
+var fmod_perf_data
+func _loadfmod():
 	# set up FMOD
 	Fmod.set_software_format(0, Fmod.FMOD_SPEAKERMODE_STEREO, 0)
 	Fmod.init(1024, Fmod.FMOD_STUDIO_INIT_LIVEUPDATE, Fmod.FMOD_INIT_NORMAL)
@@ -73,6 +75,11 @@ func set_minimap_enabled(minimap_visible):
 func get_minimap_enabled():
 	return minimap_enabled
 func _ready():
+	var save_file = ConfigFile.new()
+	save_file.load("user://settings.cfg")
+	if save_file.has_section_key('Game', 'debug_mode'):
+		Globals.debugMode = bool(str(save_file.get_value('Graphics', 'debug_mode', false)))
+	_loadfmod()
 	if str(OS.get_name()) == "Android":
 		ProjectSettings.set_setting('appilcation/config/use_custom_user_dir', true)
 		ProjectSettings.set_setting('application/config/custom_user_dir_name', "storage/emulated/0/Android/data/org.godotengine.sonadowrpg/")
@@ -81,9 +88,10 @@ func _ready():
 	set_process(false)
 	timer.wait_time = game_hour
 	timer.connect("timeout", self, "on_timer_timeout")
-#	if str(OS.get_name()) == 'Android':
-#		debugMode = false
-#	emit_signal("debugModeSet", debugMode)
+	if str(OS.get_name()) == 'Android':
+		debugMode = false
+	emit_signal("debugModeSet", debugMode)
+	emit_signal("loaded")
 func save_game():
 	cfile.load('user://save.cfg')
 	cfile.set_value('savedata', 'character', str(character_path))
@@ -101,6 +109,7 @@ func set_day_night_mode(mode:String):
 		timer.start()
 
 func _process(_delta):
+#	fmod_perf_data = Fmod.get_performance_data()
 	hour = OS.get_time().hour
 
 func on_timer_timeout():

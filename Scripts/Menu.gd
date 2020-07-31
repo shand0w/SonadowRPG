@@ -2,6 +2,7 @@ extends Control
 var tekst = "Hello World"
 var world_scene
 var website
+var music_fmod
 #var discord_rpc = DISCORD_RPC.new()
 var day = OS.get_date().day
 var month = OS.get_date().month
@@ -30,6 +31,12 @@ onready var bs_imgs = [
 ]
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var music_path = "res://Audio/BGM/main_menu.ogg"
+#	# register listener
+	Fmod.add_listener(0,self)
+	Fmod.load_file_as_music(music_path)
+	music_fmod = Fmod.create_sound_instance(music_path)
+	Fmod.play_sound(music_fmod)
 	$SelectWorld/WorldList.add_item(tr("KEY_MAGIC_FOREST"))
 	for world_name in world_list:
 		$SelectWorld/WorldList.add_item(tr(world_name))
@@ -96,3 +103,7 @@ func _on_WorldList_item_selected(index):
 	else:
 		BackgroundLoad.load_scene(str(Globals.world))
 
+
+
+func _on_Menu_tree_exiting():
+	Fmod.stop_sound(music_fmod)

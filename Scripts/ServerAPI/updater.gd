@@ -69,6 +69,21 @@ var file = File.new()
 #	downloader.set_download_file('user://assets.pck')
 #	downloader.request('https://www.sonadow-dev.ml/game_data/srpg/assets.pck')
 func _ready():
+	# set up FMOD
+#	Fmod.set_software_format(0, Fmod.FMOD_SPEAKERMODE_STEREO, 0)
+#	Fmod.init(1024, Fmod.FMOD_STUDIO_INIT_LIVEUPDATE, Fmod.FMOD_INIT_NORMAL)
+#	var instance = int(Fmod.create_sound_instance("res://Audio/BGM/pause_menu.ogg"))
+#	Fmod.play_sound(instance)
+#	# load banks
+#	Fmod.load_bank("res://Master Bank.bank", Fmod.FMOD_STUDIO_LOAD_BANK_NORMAL)
+#	Fmod.load_bank("res://Master Bank.strings.bank", Fmod.FMOD_STUDIO_LOAD_BANK_NORMAL)
+#	Fmod.load_bank("res://Music.bank", Fmod.FMOD_STUDIO_LOAD_BANK_NORMAL)
+#	var music_path = "res://Audio/BGM/credits.ogg"
+##	# register listener
+#	Fmod.add_listener(0,self)
+#	Fmod.load_file_as_music(music_path)
+#	var music = Fmod.create_sound_instance(music_path)
+#	Fmod.play_sound(music)
 #	discord_rpc.start('729429191489093702')
 #	discord_rpc.start_time(OS.get_unix_time())
 #	if not str(OS.get_name()) == "Android" or str(OS.get_name()) == "OSX":

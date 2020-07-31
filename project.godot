@@ -14,7 +14,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://minimap/Crate.gd"
 }, {
-"base": "",
+"base": "Node",
 "class": "FmodNative",
 "language": "NativeScript",
 "path": "res://bin/fmod/Fmod.gdns"
@@ -70,11 +70,11 @@ rakugo/scene_links="res://game/scene_links.tres"
 Screen="*res://addons/screen_debugger/screen.scn"
 BackgroundLoad="*res://Scenes/background_load.tscn"
 Console="*res://addons/godot-console-dev/src/Console.tscn"
-ScreenDebugger="*res://addons/screen_debugger/S_ScreenDebugger.gd"
 API="*res://Scenes/ServerAPI/API.tscn"
 Rakugo="*res://addons/Rakugo/Rakugo.tscn"
 Globals="*res://Scripts/Globals.gd"
 Fmod="*res://bin/fmod/Fmod.gd"
+SScreenDebugger="*res://addons/screen_debugger/S_ScreenDebugger.gd"
 
 [debug]
 
@@ -91,7 +91,7 @@ convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "godot-console-dev", "mixing-desk", "screen_debugger" )
+enabled=PoolStringArray( "godot-console-dev", "gut", "mixing-desk", "screen_debugger" )
 
 [gdnative]
 

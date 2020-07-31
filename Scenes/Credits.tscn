@@ -25,14 +25,10 @@ __meta__ = {
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = 300.0
-margin_right = 512.0
-margin_bottom = 4646.0
+anchor_bottom = 1.0
+margin_top = 600.0
+margin_right = 1024.0
+margin_bottom = 4346.0
 focus_mode = 2
 custom_fonts/normal_font = ExtResource( 2 )
 bbcode_enabled = true
@@ -382,7 +378,6 @@ __meta__ = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
-autoplay = true
 bus = "Music"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -723,7 +718,7 @@ __meta__ = {
 }
 
 [node name="Special Thanks" type="Label" parent="VBoxContainer5"]
-modulate = Color( 1, 1, 1, 0.0600014 )
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 512.0
 margin_bottom = 117.0
 custom_fonts/font = ExtResource( 4 )
@@ -734,7 +729,7 @@ __meta__ = {
 }
 
 [node name="4" type="Label" parent="VBoxContainer5"]
-modulate = Color( 1, 1, 1, 0.0707069 )
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 147.0
 margin_right = 512.0
 margin_bottom = 264.0
