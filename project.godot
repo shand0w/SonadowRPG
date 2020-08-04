@@ -60,6 +60,8 @@ API="*res://Scenes/ServerAPI/API.tscn"
 Globals="*res://Scripts/Globals.gd"
 Fmod="*res://bin/fmod/Fmod.gd"
 SScreenDebugger="*res://addons/screen_debugger/S_ScreenDebugger.gd"
+ScreenDebugger="*res://addons/screen_debugger/S_ScreenDebugger.gd"
+Screenshot="*res://Scripts/screenshot.gd"
 
 [debug]
 
@@ -76,7 +78,7 @@ convert_text_resources_to_binary_on_export=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "godot-console-dev", "gut", "screen_debugger" )
+enabled=PoolStringArray( "godot-console-dev", "screen_debugger" )
 
 [gdnative]
 
@@ -132,6 +134,11 @@ ui_left2={
 ui_right2={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+ ]
+}
+screen={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":true,"shift":false,"control":true,"meta":false,"command":true,"pressed":false,"scancode":80,"unicode":0,"echo":false,"script":null)
  ]
 }
 
