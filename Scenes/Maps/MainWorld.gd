@@ -15,6 +15,7 @@ onready var root = $YSort
 var character = Globals.selected_character
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Globals.
 	root.add_child(character)
 	character.set_owner(root)
 	

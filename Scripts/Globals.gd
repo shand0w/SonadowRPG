@@ -22,6 +22,10 @@ var nsfw
 var new_characters:Array = [
 	
 ]
+var fmod_sound_music_instance
+var fmod_sound_sfx_instance
+var fmod_event_sound_instance
+var fmod_event_sfx_instance
 var fmod_perf_data
 func _loadfmod():
 	# set up FMOD
