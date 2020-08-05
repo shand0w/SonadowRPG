@@ -35,8 +35,8 @@ func _ready():
 #	# register listener
 	Fmod.add_listener(0,self)
 	Fmod.load_file_as_music(music_path)
-	music_fmod = Fmod.create_sound_instance(music_path)
-	Fmod.play_sound(music_fmod)
+	Globals.fmod_sound_music_instance = Fmod.create_sound_instance(music_path)
+	Fmod.play_sound(Globals.fmod_sound_music_instance)
 	$SelectWorld/WorldList.add_item(tr("KEY_MAGIC_FOREST"))
 	for world_name in world_list:
 		$SelectWorld/WorldList.add_item(tr(world_name))
@@ -106,4 +106,4 @@ func _on_WorldList_item_selected(index):
 
 
 func _on_Menu_tree_exiting():
-	Fmod.stop_sound(music_fmod)
+	Fmod.stop_sound(Globals.fmod_sound_music_instance)

@@ -16,7 +16,7 @@ func _process(_delta):
 			audio.set_bus_mute(music_bus_idx, false)
 			audio.set_bus_mute(pausemenu_bus_idx, true)
 			$MusicDelay.stop()
-			Fmod.stop_sound(music_fmod_instance)
+			Fmod.stop_sound(Globals.fmod_sound_music_instance)
 #			Fmod.set_sound_paused(music_fmod_instance, true)
 
 
@@ -24,7 +24,7 @@ func _ready():
 	Fmod.add_listener(0, self)
 	Fmod.set_pause_mode(Node.PAUSE_MODE_PROCESS)
 	Fmod.load_file_as_sound(music_fmod)
-	music_fmod_instance = Fmod.create_sound_instance(music_fmod)
+	Globals.fmod_sound_music_instance = Fmod.create_sound_instance(music_fmod)
 	visible_connect = connect("visibility_changed", self, "_on_visibility_changed")
 
 func _on_visibility_changed():
@@ -54,5 +54,5 @@ func _on_QuitTOMenuDIalog_confirmed():
 
 
 func _on_MusicDelay_timeout():
-	Fmod.play_sound(music_fmod_instance)
+	Fmod.play_sound(Globals.fmod_sound_music_instance)
 #	$PauseMenu.play()

@@ -24,8 +24,8 @@ func _ready():
 	Fmod.add_listener(0, self)
 	Fmod.set_pause_mode(Node.PAUSE_MODE_PROCESS)
 	Fmod.load_file_as_sound(music_fmod)
-	music_fmod_instance = Fmod.create_sound_instance(music_fmod)
-	Fmod.play_sound(music_fmod_instance)
+	Globals.fmod_sound_music_instance = Fmod.create_sound_instance(music_fmod)
+	Fmod.play_sound(Globals.fmod_sound_music_instance)
 #	file.open('res://AUTHORS.txt', File.READ)
 #	text = file.get_as_text()
 #	$RichTextLabel.bbcode_text = text
@@ -38,5 +38,5 @@ func _ready():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	Fmod.stop_sound(music_fmod_instance)
+	Fmod.stop_sound(Globals.fmod_sound_music_instance)
 	get_tree().change_scene("res://Scenes/Menu.tscn")

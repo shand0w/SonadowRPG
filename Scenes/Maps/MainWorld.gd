@@ -15,7 +15,12 @@ onready var root = $YSort
 var character = Globals.selected_character
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Globals.
+	
+	Fmod.load_file_as_sound('res://Audio/BGS/001-Wind01.ogg')
+	Globals.fmod_sound_sfx_instance = Fmod.create_sound_instance('res://Audio/BGS/001-Wind01.ogg')
+	Fmod.set_sound_volume(Globals.fmod_sound_sfx_instance, -10)
+	Fmod.play_sound(Globals.fmod_sound_sfx_instance)
+#	Fmod.load_bank('res://Audio/banks/', Fmod.FMOD_STUDIO_LOAD_BANK_NORMAL)
 	root.add_child(character)
 	character.set_owner(root)
 	
@@ -39,3 +44,4 @@ func _on_Node2D_tree_exiting():
 	character.save_last_world_position()
 	root.remove_child(character)
 	character = null
+	Fmod.stop_sound(Globals.fmod_sound_sfx_instance)
