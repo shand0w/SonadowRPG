@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/AndroidDLCInstaller.tscn" type="PackedScene" id=4]
 
 [node name="Control" type="WindowDialog"]
+visible = true
 anchor_left = 0.00292968
 anchor_top = 0.246666
 anchor_right = 0.727539
@@ -195,9 +196,9 @@ __meta__ = {
 }
 
 [node name="Audio" type="Label" parent="tabs/Ogólne/Options/Audio"]
-margin_top = 71.0
+margin_top = 91.0
 margin_right = 251.0
-margin_bottom = 90.0
+margin_bottom = 110.0
 custom_fonts/font = ExtResource( 2 )
 text = "KEY_OPTIONS_AUDIO"
 align = 1
@@ -236,18 +237,18 @@ custom_fonts/font = ExtResource( 2 )
 pressed = true
 
 [node name="Music_label" type="Label" parent="tabs/Ogólne/Options/Audio"]
-margin_top = 200.0
+margin_top = 135.0
 margin_right = 251.0
-margin_bottom = 219.0
+margin_bottom = 154.0
 custom_fonts/font = ExtResource( 2 )
 text = "KEY_OPTIONS_MUSIC_VOLUME"
 align = 1
 valign = 1
 
 [node name="Music" type="HBoxContainer" parent="tabs/Ogólne/Options/Audio"]
-margin_top = 244.0
+margin_top = 179.0
 margin_right = 251.0
-margin_bottom = 260.0
+margin_bottom = 195.0
 
 [node name="Music_slider" type="HSlider" parent="tabs/Ogólne/Options/Audio/Music"]
 margin_right = 251.0
@@ -265,18 +266,18 @@ margin_bottom = 40.0
 pressed = true
 
 [node name="SFX_label" type="Label" parent="tabs/Ogólne/Options/Audio"]
-margin_top = 285.0
+margin_top = 220.0
 margin_right = 251.0
-margin_bottom = 304.0
+margin_bottom = 239.0
 custom_fonts/font = ExtResource( 2 )
 text = "KEY_OPTIONS_SFX_VOLUME"
 align = 1
 valign = 1
 
 [node name="SFX" type="HBoxContainer" parent="tabs/Ogólne/Options/Audio"]
-margin_top = 329.0
+margin_top = 264.0
 margin_right = 251.0
-margin_bottom = 345.0
+margin_bottom = 280.0
 
 [node name="SFX_slider" type="HSlider" parent="tabs/Ogólne/Options/Audio/SFX"]
 margin_right = 251.0
@@ -292,6 +293,14 @@ margin_left = 434.0
 margin_right = 510.0
 margin_bottom = 40.0
 pressed = true
+
+[node name="SPEAKERMODE" type="OptionButton" parent="tabs/Ogólne/Options/Audio"]
+margin_top = 305.0
+margin_right = 251.0
+margin_bottom = 325.0
+text = "STEREO"
+items = [ "MONO", null, false, 0, null, "STEREO", null, false, 1, null, "QUAD", null, false, 2, null, "RAW", null, false, 3, null, "5.1", null, false, 4, null, "7.1", null, false, 5, null, "7.1.4", null, false, 6, null, "SURROUND", null, false, 7, null, "DEFAULT", null, false, 8, null ]
+selected = 1
 
 [node name="Sterowanie" type="Tabs" parent="tabs"]
 visible = false
@@ -460,6 +469,7 @@ __meta__ = {
 [connection signal="toggled" from="tabs/Ogólne/Options/Audio/Music/Music_on" to="." method="_on_Music_on_toggled"]
 [connection signal="value_changed" from="tabs/Ogólne/Options/Audio/SFX/SFX_slider" to="." method="_on_SFX_slider_value_changed"]
 [connection signal="toggled" from="tabs/Ogólne/Options/Audio/SFX/SFX_on" to="." method="_on_SFX_on_toggled"]
+[connection signal="item_selected" from="tabs/Ogólne/Options/Audio/SPEAKERMODE" to="." method="_on_SPEAKERMODE_item_selected"]
 [connection signal="item_selected" from="tabs/Rozgrywka/box/game_clock/gcbutton" to="." method="_on_gcbutton_item_selected"]
 [connection signal="toggled" from="tabs/Rozgrywka/box/nsfwmode/nsfw" to="." method="_on_nsfw_toggled"]
 [connection signal="toggled" from="tabs/Rozgrywka/box/minimapenabled/minimap" to="." method="_on_minimap_toggled"]
