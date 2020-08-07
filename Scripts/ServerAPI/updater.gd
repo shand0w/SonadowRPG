@@ -52,8 +52,8 @@ var file = File.new()
 #			var err=get_tree().change_scene("res://Scenes/Menu.tscn")
 #			if err == false:
 #				error_loading_assets()
-#
-#
+
+
 #func _process(delta):
 #	if not $RequiredAssets.get_body_size() == -1:
 #		if not downloader.get_body_size() == 0:
@@ -69,6 +69,7 @@ var file = File.new()
 #	downloader.set_download_file('user://assets.pck')
 #	downloader.request('https://www.sonadow-dev.ml/game_data/srpg/assets.pck')
 func _ready():
+	
 	# set up FMOD
 #	Fmod.set_software_format(0, Fmod.FMOD_SPEAKERMODE_STEREO, 0)
 #	Fmod.init(1024, Fmod.FMOD_STUDIO_INIT_LIVEUPDATE, Fmod.FMOD_INIT_NORMAL)

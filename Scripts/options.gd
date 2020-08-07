@@ -2,13 +2,8 @@ extends WindowDialog
 var dir = Directory.new()
 var save_file = ConfigFile.new()
 var file = File.new()
-var audio_output_fmod
 var dlc_web_avaliable = Globals.get_dlcs_avaliable()
 func _ready():
-	Fmod.wait_for_all_loads()
-	audio_output_fmod = Fmod.get_available_drivers()
-	for device in audio_output_fmod:
-		$"tabs/Ogólne/Options/Audio/AudioOutput".add_item(device.name, device.id)
 	$tabs/Inne/VBoxContainer/InstallDLC.set_disabled(!dlc_web_avaliable)
 	$"tabs/Ogólne/Options/Graphics/lang/lang".text = "KEY_OPTIONS_LANG_" + str(TranslationServer.get_locale().to_upper())
 	$tabs.set_tab_title(0, "KEY_OPTIONS_GENERAL")
@@ -21,10 +16,8 @@ func _ready():
 	if str(OS.get_name()) == 'Android':
 #		$tabs/Sterowanie.hide()
 		$tabs.set_tab_disabled(1, true)
-		$tabs/Inne/VBoxContainer/InstallDLC.set_disabled(true)
 		$"tabs/Ogólne/Options/Graphics/custom_resolution".hide()
 	else:
-		$tabs/Inne/VBoxContainer/InstallDLC.set_disabled(false)
 		$tabs.set_tab_disabled(2, false)
 #		$tabs/Sterowanie.show()
 		$"tabs/Ogólne/Options/Graphics/custom_resolution".show()
@@ -51,7 +44,6 @@ func _process(_delta):
 	hide()
 	set_process(false)
 func load_settings():
-	yield(Globals, "loaded")
 	if file.file_exists('user://settings.cfg'):
 		save_file.load('user://settings.cfg')
 		if save_file.has_section_key('Audio', 'master_bus_volume'):
@@ -108,19 +100,28 @@ func _on_Master_on_toggled(button_pressed):
 	$"tabs/Ogólne/Options/Audio/SFX/SFX_on".set_disabled(!button_pressed)
 
 func _on_Music_slider_value_changed(value):
-#	AudioServer.set_bus_volume_db(1, value)
-#	AudioServer.set_bus_volume_db(3, value)
-	Fmod.set_sound_volume(Globals.fmod_music_bus, value)
+	if value <= 0:
+		Fmod.set_sound_volume(Globals.fmod_sound_music_instance, value)
+	else:
+		Fmod.set_sound_volume(Globals.fmod_sound_music_instance, 0)
+	AudioServer.set_bus_volume_db(1, value)
+	AudioServer.set_bus_volume_db(3, value)
+
 func _on_Music_on_toggled(button_pressed):
 	AudioServer.set_bus_mute(1, !button_pressed)
 	$"tabs/Ogólne/Options/Audio/Music/Music_slider".editable = button_pressed
 
 
 func _on_SFX_slider_value_changed(value):
-#	AudioServer.set_bus_volume_db(2, value)
-	Fmod.set_sound_volume(Globals.fmod_sfx_bus, value)
+	if value <= 0:
+		Fmod.set_sound_volume(Globals.fmod_sound_sfx_instance, value)
+	else:
+		Fmod.set_sound_volume(Globals.fmod_sound_sfx_instance, 0)
+	AudioServer.set_bus_volume_db(2, value)
+	
 
 func _on_SFX_on_toggled(button_pressed):
+	
 	AudioServer.set_bus_mute(2, !button_pressed)
 	$"tabs/Ogólne/Options/Audio/SFX/SFX_slider".editable = button_pressed
 
@@ -286,9 +287,3 @@ func _on_InstallDLC_pressed():
 	if str(OS.get_name()) == "Android":
 		$Control.popup_centered()
 	OS.shell_open('https://www.sonadow-rpg.ml/dlcs/')
-
-
-func _on_AudioOutput_item_selected(index):
-	print(index)
-	Fmod.set_driver(index)
-	var id = Fmod.get_driver()
